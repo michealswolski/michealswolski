@@ -7,7 +7,7 @@
 **Cybersecurity Graduate · Former Bosch Product Cybersecurity Intern · Michigan, USA**
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-michealswolski.github.io-0891B2?style=flat-square&logo=googlechrome&logoColor=white)](https://michealswolski.github.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-michealswolski-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/michealswolski)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-michealwolski-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/michealwolski)
 [![Email](https://img.shields.io/badge/Email-Get%20in%20touch-334155?style=flat-square&logo=gmail&logoColor=white)](mailto:michealswolski@gmail.com)
 [![Resume](https://img.shields.io/badge/Resume-View-475569?style=flat-square&logo=readthedocs&logoColor=white)](https://michealswolski.github.io)
 
@@ -69,7 +69,7 @@ I'm an early-career **automotive cybersecurity and digitalization** professional
 ## Education
 
 **Eastern Michigan University** — B.S. Information Assurance &amp; Cyber Defense
-*Cum Laude · GPA 3.66 · Ypsilanti, MI · Graduated 2026*
+*Cum Laude · GPA 3.9 · Ypsilanti, MI · Graduated 2026*
 
 **Henry Ford College** — A.A.S. Cybersecurity
 *Dearborn, MI · Graduated May 2023 · Dean's List*
@@ -93,7 +93,7 @@ Enterprise AI agents &amp; knowledge assistants · Agentic cybersecurity tools f
 ### Let's Connect
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-michealswolski.github.io-0891B2?style=flat-square&logo=googlechrome&logoColor=white)](https://michealswolski.github.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-michealswolski-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/michealswolski)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-michealwolski-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/michealwolski)
 [![Email](https://img.shields.io/badge/Email-Get%20in%20touch-334155?style=flat-square&logo=gmail&logoColor=white)](mailto:michealswolski@gmail.com)
 
 </div>
