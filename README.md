@@ -41,10 +41,7 @@ I'm an early-career **automotive cybersecurity and digitalization** professional
 
 | Project | What it is | Status |
 |---------|-----------|--------|
-| **Tempest** | Offensive-security toolkit for authorized penetration testing — modular scripts and tooling. *Authorized / owned systems only.* | In Development |
-| **Squint** *(powered by The Pipe)* | An application built on **The Pipe**, a custom AI backend. | In Development |
-| **Job Swoop** | AI-assisted job-search and application tool. | In Development |
-| **Aim Trainer AI** | Machine-learning model for gaming aim training and analysis. | Prototype |
+| **Swoop** | Self-hosted AI job-application agent — watches roles, scores fit with Claude, tailors your resume & cover letter, and files applications human-in-the-loop. Built on an open-source base; repo private. | In Development |
 | [**Wolski Command Center**](https://github.com/michealswolski/wolski-command-center) | Full-stack Raspberry Pi management dashboard — React, Node.js / Express, SSH, health monitoring, file management, AI-assisted administration. | Completed |
 | [**Network Utility Tool**](https://github.com/michealswolski/network-utility-tool) | PowerShell Windows network utility — DNS, diagnostics, system information, and defensive-security functions. | Completed |
 
