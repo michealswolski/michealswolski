@@ -1,4 +1,4 @@
-<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Micheal Wolski — Cybersecurity, Automotive, AI">
+<svg width="1200" height="280" viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Micheal Wolski — Cybersecurity, Automotive, AI">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#0B1220"/>
@@ -8,32 +8,23 @@
       <stop offset="0%" stop-color="#0891B2"/>
       <stop offset="100%" stop-color="#22D3EE"/>
     </linearGradient>
+    <radialGradient id="glow" cx="82%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#0891B2" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#0891B2" stop-opacity="0"/>
+    </radialGradient>
   </defs>
 
-  <rect width="1200" height="300" fill="url(#bg)"/>
+  <rect width="1200" height="280" fill="url(#bg)"/>
+  <rect width="1200" height="280" fill="url(#glow)"/>
 
-  <g stroke="#0891B2" stroke-width="1.5" fill="none" opacity="0.35">
-    <polyline points="820,40 900,40 900,90 980,90 980,60 1060,60"/>
-    <polyline points="840,260 920,260 920,210 1000,210 1000,240 1150,240"/>
-    <polyline points="1080,30 1080,110 1160,110"/>
-    <polyline points="760,150 830,150 830,180 900,180"/>
-  </g>
-  <g fill="#22D3EE" opacity="0.6">
-    <circle cx="900" cy="40" r="3"/>
-    <circle cx="980" cy="90" r="3"/>
-    <circle cx="1060" cy="60" r="3"/>
-    <circle cx="920" cy="260" r="3"/>
-    <circle cx="1000" cy="210" r="3"/>
-    <circle cx="1150" cy="240" r="3"/>
-    <circle cx="1080" cy="110" r="3"/>
-    <circle cx="830" cy="180" r="3"/>
+  <g stroke="#22D3EE" stroke-width="1" fill="none" opacity="0.22">
+    <circle cx="1010" cy="140" r="85"/>
+    <circle cx="1010" cy="140" r="145"/>
   </g>
 
-  <text x="80" y="140" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="56" font-weight="700" letter-spacing="2" fill="#F8FAFC">MICHEAL WOLSKI</text>
+  <text x="90" y="128" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="50" font-weight="700" fill="#F8FAFC">Micheal Wolski</text>
 
-  <rect x="82" y="168" width="120" height="4" rx="2" fill="url(#accent)"/>
+  <rect x="92" y="150" width="100" height="4" rx="2" fill="url(#accent)"/>
 
-  <text x="80" y="205" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="22" font-weight="500" letter-spacing="3" fill="#67E8F9">CYBERSECURITY · AUTOMOTIVE · AI</text>
-
-  <text x="80" y="250" font-family="'Courier New', monospace" font-size="15" fill="#64748B">root@michealswolski:~$ whoami</text>
+  <text x="90" y="186" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="18" font-weight="500" letter-spacing="3" fill="#94A3B8">CYBERSECURITY · AUTOMOTIVE · AI</text>
 </svg>

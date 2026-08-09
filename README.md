@@ -4,9 +4,7 @@
 
 <br/>
 
-**B.S. Information Assurance & Cyber Defense — Eastern Michigan University, Cum Laude**  
-**A.A.S. Computer Information Systems — Henry Ford College**
-
+**B.S. Information Assurance & Cyber Defense — Eastern Michigan University (Cum Laude)** · **A.A.S. Computer Information Systems — Henry Ford College**  
 Former Bosch Mobility Product Cybersecurity Intern · Michigan
 
 [![Portfolio](https://img.shields.io/badge/PORTFOLIO-View%20Full%20Portfolio-0891B2?style=for-the-badge&logo=googlechrome&logoColor=white)](https://michealswolski.github.io)
@@ -18,9 +16,9 @@ Former Bosch Mobility Product Cybersecurity Intern · Michigan
 
 ## About
 
-I build across **cybersecurity, automotive technology, AI, automation, and software engineering**. My work ranges from security-focused applications and enterprise workflow systems to full-stack tools, embedded/vehicle technology, data platforms, and AI-assisted software.
+I build security-focused software across automotive, AI, and enterprise systems — from full-stack applications to embedded/vehicle technology and AI-assisted tooling.
 
-**Interests:** Automotive Security · AI Security & Agents · Embedded Systems · Security Engineering · Full-Stack Development · Automation
+**Focus:** Automotive Security · AI Security & Agents · Embedded Systems · Full-Stack Development · Automation
 
 ---
 
@@ -31,17 +29,17 @@ I build across **cybersecurity, automotive technology, AI, automation, and softw
 <td width="50%" valign="top">
 
 ### 🛡️ [AI Agent Governance](https://github.com/michealswolski/ai-agent-governance)
-Self-hosted governance layer for AI agents with trace risk scoring, prompt-injection detection, risky-tool checks, human approvals, sensitive-data controls, and audit-ready records.
+Governance layer for AI agents — risk scoring, prompt-injection detection, human approvals, audit trails.
 
-`Node.js` `SQLite` `AI Security` `Governance`
+`Node.js` `SQLite` `AI Security`
 
 </td>
 <td width="50%" valign="top">
 
 ### 🔎 [AutoJob Intel](https://github.com/michealswolski/auto-job-intel)
-Verified job-intelligence platform with explainable matching, source-backed requirement extraction, live-status re-verification, deduplication, change history, APIs, and automated tests.
+Verified job-intelligence platform with explainable matching and source-backed extraction.
 
-`Next.js` `React` `TypeScript` `Zod`
+`Next.js` `React` `TypeScript`
 
 </td>
 </tr>
@@ -50,17 +48,17 @@ Verified job-intelligence platform with explainable matching, source-backed requ
 <td width="50%" valign="top">
 
 ### 🧩 [Cross-Divisional Project Database](https://github.com/michealswolski/cross-divisional-project-database)
-Enterprise Power Platform application for multi-project intake, security-feature tracking, validation, autosave/resume, administrative review, notifications, support workflows, and structured Dataverse storage.
+Enterprise Power Platform app for project intake, tracking, and structured Dataverse storage.
 
-`Power Apps` `Dataverse` `Power Fx` `PowerShell`
+`Power Apps` `Dataverse` `Power Fx`
 
 </td>
 <td width="50%" valign="top">
 
 ### 🖥️ [Wolski Command Center](https://github.com/michealswolski/wolski-command-center)
-Full-stack Raspberry Pi management dashboard for system health, remote administration, SSH access, file management, hardware monitoring, and AI-assisted operations.
+Full-stack Raspberry Pi dashboard for monitoring, remote access, and AI-assisted operations.
 
-`React` `Node.js` `Express` `SSH` `Raspberry Pi`
+`React` `Node.js` `SSH`
 
 </td>
 </tr>
@@ -69,35 +67,28 @@ Full-stack Raspberry Pi management dashboard for system health, remote administr
 <td width="50%" valign="top">
 
 ### 📄 [Document Analyzer AI](https://github.com/michealswolski/document-analyzer-ai)
-Local-first document-analysis workflow for structured extraction, missing-information detection, risk flags, source evidence, human review, and JSON/CSV/CRM-ready exports.
+Local-first document analysis — structured extraction, risk flags, human review.
 
-`JavaScript` `AI Workflows` `Data Validation` `Local-First`
+`JavaScript` `AI Workflows` `Local-First`
 
 </td>
 <td width="50%" valign="top">
 
 ### ⚡ Swoop — Private Project
-Self-hosted AI job-application system that monitors roles, evaluates fit, tailors application materials, organizes replies, and keeps final submission decisions human-in-the-loop.
+Self-hosted AI job-application agent, human-in-the-loop by design.
 
-`Python` `FastAPI` `React` `TypeScript` `Claude`
-
-**Private repository · Full case study will be available on the portfolio**
+`Python` `FastAPI` `React` `Claude`  
+**Private · case study on portfolio**
 
 </td>
 </tr>
 </table>
 
-### More Engineering Work
-
-[**ForecastAI**](https://github.com/michealswolski/forecast-ai) — Forecast-vs-actual analytics, variance/risk scoring, driver analysis, scenario sensitivity, and grounded narrative explanations.  
-[**MeshLink iOS**](https://github.com/michealswolski/meshlink-ios) — Encrypted peer-to-peer Bluetooth mesh messaging concept using Swift, BLE, NFC/QR key exchange, and AES-GCM.  
-[**Network Utility Tool**](https://github.com/michealswolski/network-utility-tool) — PowerShell-based Windows networking, diagnostics, monitoring, and defensive-security toolkit.
-
-Additional work includes **CAN / OBD-II vehicle monitoring, secure-boot research, PKI, SIEM analysis, network traffic analysis, vulnerability management, system hardening, and security automation**.
+Also: [ForecastAI](https://github.com/michealswolski/forecast-ai) · [MeshLink iOS](https://github.com/michealswolski/meshlink-ios) · [Network Utility Tool](https://github.com/michealswolski/network-utility-tool) — plus CAN/OBD-II, secure boot, PKI, SIEM, and security-automation work.
 
 ---
 
-## Languages
+## Skills
 
 <p>
 <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
@@ -106,17 +97,12 @@ Additional work includes **CAN / OBD-II vehicle monitoring, secure-boot research
 <img src="https://img.shields.io/badge/PowerShell-5391FE?style=flat-square&logo=powershell&logoColor=white" />
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=111827" />
 <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
-<img src="https://img.shields.io/badge/Rust-000000?style=flat-square&logo=rust&logoColor=white" />
 <img src="https://img.shields.io/badge/Swift-F05138?style=flat-square&logo=swift&logoColor=white" />
 <img src="https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnubash&logoColor=white" />
 <img src="https://img.shields.io/badge/SQL-336791?style=flat-square&logo=postgresql&logoColor=white" />
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" />
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" />
 <img src="https://img.shields.io/badge/Power%20Fx-742774?style=flat-square&logo=powerapps&logoColor=white" />
 <img src="https://img.shields.io/badge/DAX-F2C811?style=flat-square&logo=powerbi&logoColor=111827" />
 </p>
-
-## Development & Platforms
 
 <p>
 <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
@@ -130,10 +116,7 @@ Additional work includes **CAN / OBD-II vehicle monitoring, secure-boot research
 <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=111827" />
 <img src="https://img.shields.io/badge/Windows-0078D4?style=flat-square&logo=windows11&logoColor=white" />
 <img src="https://img.shields.io/badge/Raspberry%20Pi-A22846?style=flat-square&logo=raspberrypi&logoColor=white" />
-<img src="https://img.shields.io/badge/REST%20APIs-334155?style=flat-square" />
 </p>
-
-## Security, Automotive & Automation
 
 <p>
 <img src="https://img.shields.io/badge/CAN%20Bus-0F172A?style=flat-square" />
@@ -155,10 +138,6 @@ Additional work includes **CAN / OBD-II vehicle monitoring, secure-boot research
 
 <div align="center">
 
-### Explore the full portfolio
-
-Projects, professional experience, case studies, and deeper technical work are available at:
-
-## [michealswolski.github.io](https://michealswolski.github.io)
+### Explore the full portfolio → [michealswolski.github.io](https://michealswolski.github.io)
 
 </div>
