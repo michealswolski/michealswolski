@@ -47,7 +47,7 @@ Verified job-intelligence platform with explainable matching and source-backed e
 <tr>
 <td width="50%" valign="top">
 
-### 🧩 [Cross-Divisional Project Database](https://github.com/michealswolski/cross-divisional-project-database)
+### 🧩 [Cross-Divisional Project Database](https://github.com/michealswolski/Project-database)
 Enterprise Power Platform app for project intake, tracking, and structured Dataverse storage.
 
 `Power Apps` `Dataverse` `Power Fx`
