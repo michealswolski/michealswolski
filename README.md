@@ -1,11 +1,11 @@
 <div align="center">
 
-<img src="./assets/profile-header.svg" width="100%" alt="Micheal Wolski — Cybersecurity Engineer, specializing in Automotive Security, AI & Agents, and Embedded Systems" />
+<img src="./assets/profile-header.svg" width="100%" alt="Micheal Wolski — Cybersecurity Engineer, specializing in AI & Agents, Embedded Systems, and Automotive Security" />
 
 <br/>
 
 **B.S. Information Assurance & Cyber Defense — Eastern Michigan University (Cum Laude)** · **A.A.S. Computer Information Systems — Henry Ford College**  
-Former Bosch Mobility Product Cybersecurity Intern · Michigan
+Michigan, USA
 
 [![Portfolio](https://img.shields.io/badge/PORTFOLIO-View%20Full%20Portfolio-0891B2?style=for-the-badge&logo=googlechrome&logoColor=white)](https://michealswolski.github.io)
 [![LinkedIn](https://img.shields.io/badge/LINKEDIN-Micheal%20Wolski-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/michealwolski)
@@ -16,9 +16,9 @@ Former Bosch Mobility Product Cybersecurity Intern · Michigan
 
 ## About
 
-Cybersecurity engineer building secure, practical software — with specialty focus in automotive & embedded systems and AI agents, alongside full-stack and enterprise tooling.
+Cybersecurity engineer building secure, practical software — with specialty focus in AI agents and automotive/embedded systems, alongside full-stack and enterprise tooling. Previously a Product Cybersecurity Intern at Bosch Mobility.
 
-**Focus:** Cybersecurity · Automotive & Embedded Security · AI Security & Agents · Full-Stack Development · Automation
+**Focus:** Cybersecurity · AI Security & Agents · Automotive & Embedded Security · Full-Stack Development · Automation
 
 ---
 
@@ -85,6 +85,23 @@ Self-hosted AI job-application agent, human-in-the-loop by design.
 </table>
 
 Also: [ForecastAI](https://github.com/michealswolski/forecast-ai) · [MeshLink iOS](https://github.com/michealswolski/meshlink-ios) · [Network Utility Tool](https://github.com/michealswolski/network-utility-tool) — plus CAN/OBD-II, secure boot, PKI, SIEM, and security-automation work.
+
+---
+
+## GitHub Activity
+
+<p align="center">
+<img src="https://github-readme-stats.vercel.app/api?username=michealswolski&show_icons=true&hide_border=true&bg_color=0D1526&title_color=22D3EE&icon_color=22D3EE&text_color=CBD5E1&count_private=false" height="165" alt="GitHub stats" />
+<img src="https://streak-stats.demolab.com/?user=michealswolski&hide_border=true&background=0D1526&ring=22D3EE&fire=22D3EE&currStreakLabel=22D3EE&sideLabels=CBD5E1&currStreakNum=F8FAFC&sideNums=F8FAFC&dates=64748B" height="165" alt="GitHub streak stats" />
+</p>
+
+<p align="center">
+<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=michealswolski&layout=compact&hide_border=true&bg_color=0D1526&title_color=22D3EE&text_color=CBD5E1&langs_count=8" height="165" alt="Most used languages" />
+</p>
+
+<p align="center">
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=michealswolski&theme=react-dark&hide_border=true&bg_color=0D1526&color=22D3EE&line=22D3EE&point=F8FAFC" width="100%" alt="Contribution activity graph" />
+</p>
 
 ---
 
