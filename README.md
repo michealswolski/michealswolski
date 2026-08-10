@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/profile-header.svg" width="100%" alt="Micheal Wolski — Cybersecurity, Automotive, AI" />
+<img src="./assets/profile-header.svg" width="100%" alt="Micheal Wolski — Cybersecurity Engineer, specializing in Automotive Security, AI & Agents, and Embedded Systems" />
 
 <br/>
 
@@ -16,9 +16,9 @@ Former Bosch Mobility Product Cybersecurity Intern · Michigan
 
 ## About
 
-I build security-focused software across automotive, AI, and enterprise systems — from full-stack applications to embedded/vehicle technology and AI-assisted tooling.
+Cybersecurity engineer building secure, practical software — with specialty focus in automotive & embedded systems and AI agents, alongside full-stack and enterprise tooling.
 
-**Focus:** Automotive Security · AI Security & Agents · Embedded Systems · Full-Stack Development · Automation
+**Focus:** Cybersecurity · Automotive & Embedded Security · AI Security & Agents · Full-Stack Development · Automation
 
 ---
 
@@ -119,15 +119,15 @@ Also: [ForecastAI](https://github.com/michealswolski/forecast-ai) · [MeshLink i
 </p>
 
 <p>
+<img src="https://img.shields.io/badge/Wireshark-1679A7?style=flat-square&logo=wireshark&logoColor=white" />
+<img src="https://img.shields.io/badge/Splunk-000000?style=flat-square&logo=splunk&logoColor=white" />
+<img src="https://img.shields.io/badge/Nmap-334155?style=flat-square" />
+<img src="https://img.shields.io/badge/Nessus-00C176?style=flat-square" />
 <img src="https://img.shields.io/badge/CAN%20Bus-0F172A?style=flat-square" />
 <img src="https://img.shields.io/badge/OBD--II-0F172A?style=flat-square" />
 <img src="https://img.shields.io/badge/UDS-0F172A?style=flat-square" />
 <img src="https://img.shields.io/badge/Secure%20Boot-0F172A?style=flat-square" />
 <img src="https://img.shields.io/badge/ISO%2FSAE%2021434-0F172A?style=flat-square" />
-<img src="https://img.shields.io/badge/Wireshark-1679A7?style=flat-square&logo=wireshark&logoColor=white" />
-<img src="https://img.shields.io/badge/Splunk-000000?style=flat-square&logo=splunk&logoColor=white" />
-<img src="https://img.shields.io/badge/Nmap-334155?style=flat-square" />
-<img src="https://img.shields.io/badge/Nessus-00C176?style=flat-square" />
 <img src="https://img.shields.io/badge/Power%20Apps-742774?style=flat-square&logo=powerapps&logoColor=white" />
 <img src="https://img.shields.io/badge/Power%20Automate-0066FF?style=flat-square&logo=powerautomate&logoColor=white" />
 <img src="https://img.shields.io/badge/Power%20BI-F2C811?style=flat-square&logo=powerbi&logoColor=111827" />

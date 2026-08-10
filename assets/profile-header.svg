@@ -1,30 +1,87 @@
-<svg width="1200" height="280" viewBox="0 0 1200 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Micheal Wolski — Cybersecurity, Automotive, AI">
+<svg width="1200" height="320" viewBox="0 0 1200 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Micheal Wolski — Cybersecurity Engineer, specializing in Automotive Security, AI &amp; Agents, and Embedded Systems">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0B1220"/>
-      <stop offset="100%" stop-color="#111827"/>
+      <stop offset="0%" stop-color="#0A0F1C"/>
+      <stop offset="100%" stop-color="#111B2E"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" stop-color="#0891B2"/>
       <stop offset="100%" stop-color="#22D3EE"/>
     </linearGradient>
-    <radialGradient id="glow" cx="82%" cy="50%" r="55%">
-      <stop offset="0%" stop-color="#0891B2" stop-opacity="0.16"/>
-      <stop offset="100%" stop-color="#0891B2" stop-opacity="0"/>
+    <radialGradient id="glowCyan" cx="80%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
     </radialGradient>
+    <radialGradient id="glowBlue" cx="8%" cy="105%" r="55%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
+      <circle cx="1.5" cy="1.5" r="1.5" fill="#7DD3FC" opacity="0.16"/>
+    </pattern>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
 
-  <rect width="1200" height="280" fill="url(#bg)"/>
-  <rect width="1200" height="280" fill="url(#glow)"/>
+  <rect width="1200" height="320" fill="url(#bg)"/>
+  <rect width="1200" height="320" fill="url(#dots)"/>
+  <rect width="1200" height="320" fill="url(#glowBlue)"/>
+  <rect width="1200" height="320" fill="url(#glowCyan)"/>
 
-  <g stroke="#22D3EE" stroke-width="1" fill="none" opacity="0.22">
-    <circle cx="1010" cy="140" r="85"/>
-    <circle cx="1010" cy="140" r="145"/>
+  <text x="1195" y="270" text-anchor="end" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="300" font-weight="800" fill="#1E293B" opacity="0.35">MW</text>
+
+  <g stroke="#22D3EE" fill="none" opacity="0.30">
+    <circle cx="1010" cy="150" r="70" stroke-width="1"/>
+    <circle cx="1010" cy="150" r="120" stroke-width="1"/>
+    <circle cx="1010" cy="150" r="168" stroke-width="1" stroke-dasharray="2 8"/>
   </g>
+  <circle cx="1010" cy="150" r="3.5" fill="#22D3EE"/>
 
-  <text x="90" y="128" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="50" font-weight="700" fill="#F8FAFC">Micheal Wolski</text>
+  <text x="90" y="120" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="56" font-weight="800" fill="#F8FAFC" filter="url(#softGlow)">Micheal Wolski</text>
 
-  <rect x="92" y="150" width="100" height="4" rx="2" fill="url(#accent)"/>
+  <text x="92" y="153" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="21" font-weight="600" letter-spacing="3" fill="#22D3EE">CYBERSECURITY ENGINEER</text>
 
-  <text x="90" y="186" font-family="'Segoe UI', Arial, Helvetica, sans-serif" font-size="18" font-weight="500" letter-spacing="3" fill="#94A3B8">CYBERSECURITY · AUTOMOTIVE · AI</text>
+  <rect x="92" y="170" width="130" height="4" rx="2" fill="url(#accent)"/>
+
+  <g transform="translate(92,205)" font-family="'Segoe UI', Arial, Helvetica, sans-serif">
+    <g>
+      <g stroke="#94A3B8" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 13l1.5-4.5A2 2 0 0 1 6.4 7h11.2a2 2 0 0 1 1.9 1.5L21 13"/>
+        <rect x="2" y="13" width="20" height="5" rx="1.5"/>
+        <circle cx="7" cy="18.5" r="1.6"/>
+        <circle cx="17" cy="18.5" r="1.6"/>
+      </g>
+      <text x="30" y="17" font-size="15" fill="#CBD5E1">Automotive Security</text>
+    </g>
+    <g transform="translate(230,0)">
+      <g stroke="#94A3B8" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="6" cy="6" r="2.2"/>
+        <circle cx="18" cy="6" r="2.2"/>
+        <circle cx="12" cy="18" r="2.2"/>
+        <line x1="7.8" y1="7.3" x2="10.5" y2="16"/>
+        <line x1="16.2" y1="7.3" x2="13.5" y2="16"/>
+        <line x1="8.2" y1="6" x2="15.8" y2="6"/>
+      </g>
+      <text x="30" y="17" font-size="15" fill="#CBD5E1">AI &amp; Agents</text>
+    </g>
+    <g transform="translate(410,0)">
+      <g stroke="#94A3B8" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="6" y="6" width="12" height="12" rx="1.5"/>
+        <line x1="9" y1="2" x2="9" y2="6"/>
+        <line x1="15" y1="2" x2="15" y2="6"/>
+        <line x1="9" y1="18" x2="9" y2="22"/>
+        <line x1="15" y1="18" x2="15" y2="22"/>
+        <line x1="2" y1="9" x2="6" y2="9"/>
+        <line x1="2" y1="15" x2="6" y2="15"/>
+        <line x1="18" y1="9" x2="22" y2="9"/>
+        <line x1="18" y1="15" x2="22" y2="15"/>
+      </g>
+      <text x="30" y="17" font-size="15" fill="#CBD5E1">Embedded Systems</text>
+    </g>
+  </g>
 </svg>
