@@ -5,7 +5,7 @@
   <source media="(max-width: 700px)" srcset="./assets/hero-compact-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/hero.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg">
-  <img src="./assets/hero.svg" width="100%" alt="Micheal Wolski — Cybersecurity Engineer. AI agent security, automotive and embedded security, full-stack development." />
+  <img src="./assets/hero.svg" width="100%" alt="Micheal Wolski — Cybersecurity Engineer. Automotive and embedded security, AI agent security, full-stack development." />
 </picture>
 
 <br/>
@@ -37,9 +37,9 @@
 
 ### About
 
-Cybersecurity engineer who ships. I build systems where the security controls are part of the product, not a document filed next to it — governance layers that actually block a bad agent call, detections that fire on real traffic, and firmware trust chains that hold up on a bench.
+Cybersecurity engineer who ships. I build systems where the security controls are part of the product, not a document filed next to it — firmware trust chains that hold up on a bench, detections that fire on real traffic, and governance layers that actually block a bad agent call.
 
-- 🛡️ **Focus:** AI agent security · automotive & embedded security · detection engineering · full-stack
+- 🛡️ **Focus:** automotive & embedded security · AI agent security · detection engineering · full-stack
 - 🚗 **Previously:** Product Cybersecurity Intern at **Bosch Mobility** — automotive product security
 - 🎓 **B.S. Information Assurance & Cyber Defense**, Eastern Michigan University *(Cum Laude)*
 - 🎓 **A.A.S. Computer Information Systems**, Henry Ford College
@@ -59,9 +59,38 @@ Cybersecurity engineer who ships. I build systems where the security controls ar
   <img src="./assets/divider.svg" width="100%" alt="" />
 </picture>
 
+## Industry Experience
+
+**Product Cybersecurity Intern · Bosch Mobility** &nbsp;·&nbsp; <sub>Product Security / M-TEL · Farmington Hills, MI · 2025–2026</sub>
+
+| | |
+|---|---|
+| **Product security visibility** | Built an intake and reporting platform used across multiple engineering divisions, replacing spreadsheet tracking with a shared system of record — intake wizard, status model, validation, admin review queue. |
+| **Process automation** | Automated a manual engineering workflow end to end with Power Automate and SharePoint, cutting out repeated cross-team coordination. |
+| **Secure boot research** | Researched secure boot for automotive ECUs — chain-of-trust verification and TPM-based attestation, and how they map to real vehicle architectures. Turned it into an internal one-pager through documentation review and SME interviews. |
+| **AI & knowledge tooling** | Built an LLM onboarding assistant prototype at an internal AI hackathon, and an AI-assisted whitepaper drafting tool for technical documentation. |
+| **Exercises** | Supported an automotive cybersecurity fire drill and a cross-divisional awareness event; took part in an internal CTF and AI hackathon. |
+
+<sub>Public-facing summary. No confidential company information, internal data, source code, or proprietary material is disclosed.</sub>
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/divider.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/divider-light.svg">
+  <img src="./assets/divider.svg" width="100%" alt="" />
+</picture>
+
+</div>
+
 ## Tech Stack
 
-<sub>Grouped by what I actually reach for, not by what looks impressive in a list.</sub>
+<sub>Split by depth rather than by category. <b>Hands-on</b> means I have built or broken
+something with it. <b>Working knowledge</b> means I understand it and can discuss it, but the
+proof is coursework, research, or internal work rather than a public repository — listing
+those separately is more useful to you than showing everything at one size.</sub>
+
+### Hands-on
 
 **Languages**
 
@@ -89,13 +118,8 @@ Cybersecurity engineer who ships. I build systems where the security controls ar
 
 **Automotive & Embedded**
 
-![CAN Bus](https://img.shields.io/badge/CAN_Bus-0A1526?style=for-the-badge)
 ![OBD-II](https://img.shields.io/badge/OBD--II-0A1526?style=for-the-badge)
-![UDS](https://img.shields.io/badge/UDS-0A1526?style=for-the-badge)
-![Secure Boot](https://img.shields.io/badge/Secure_Boot-0A1526?style=for-the-badge)
-![TPM](https://img.shields.io/badge/TPM-0A1526?style=for-the-badge)
-![PKI](https://img.shields.io/badge/PKI-0A1526?style=for-the-badge)
-![ISO/SAE 21434](https://img.shields.io/badge/ISO%2FSAE_21434-0A1526?style=for-the-badge)
+![Vehicle ECU Comms](https://img.shields.io/badge/Vehicle_ECU_Comms-0A1526?style=for-the-badge)
 ![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-0A1526?style=for-the-badge&logo=raspberrypi&logoColor=FBBF24)
 
 **Platform, Web & Automation**
@@ -110,6 +134,42 @@ Cybersecurity engineer who ships. I build systems where the security controls ar
 ![Git](https://img.shields.io/badge/Git-0A1526?style=for-the-badge&logo=git&logoColor=34D399)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0A1526?style=for-the-badge&logo=githubactions&logoColor=34D399)
 ![Power Platform](https://img.shields.io/badge/Power_Platform-0A1526?style=for-the-badge&logo=powerapps&logoColor=34D399)
+
+### Working knowledge
+
+**Automotive networking & diagnostics**
+
+![CAN Bus](https://img.shields.io/badge/CAN_Bus-0F1F35?style=flat-square)
+![CAN-FD](https://img.shields.io/badge/CAN--FD-0F1F35?style=flat-square)
+![LIN](https://img.shields.io/badge/LIN-0F1F35?style=flat-square)
+![Automotive Ethernet](https://img.shields.io/badge/Automotive_Ethernet-0F1F35?style=flat-square)
+![UDS](https://img.shields.io/badge/UDS-0F1F35?style=flat-square)
+![AUTOSAR SecOC](https://img.shields.io/badge/AUTOSAR_SecOC-0F1F35?style=flat-square)
+
+**Product security lifecycle**
+
+![ISO/SAE 21434](https://img.shields.io/badge/ISO%2FSAE_21434-0F1F35?style=flat-square)
+![TARA](https://img.shields.io/badge/TARA-0F1F35?style=flat-square)
+![Threat Modeling](https://img.shields.io/badge/Threat_Modeling-0F1F35?style=flat-square)
+![UN R155](https://img.shields.io/badge/UN_R155-0F1F35?style=flat-square)
+![UN R156](https://img.shields.io/badge/UN_R156-0F1F35?style=flat-square)
+![V-Model](https://img.shields.io/badge/V--Model-0F1F35?style=flat-square)
+![ASPICE](https://img.shields.io/badge/ASPICE-0F1F35?style=flat-square)
+![MISRA C](https://img.shields.io/badge/MISRA_C-0F1F35?style=flat-square)
+
+**Embedded trust & cryptography**
+
+![Secure Boot](https://img.shields.io/badge/Secure_Boot-0F1F35?style=flat-square)
+![Chain of Trust](https://img.shields.io/badge/Chain_of_Trust-0F1F35?style=flat-square)
+![HSM / Root of Trust](https://img.shields.io/badge/HSM_%2F_Root_of_Trust-0F1F35?style=flat-square)
+![TPM 2.0](https://img.shields.io/badge/TPM_2.0-0F1F35?style=flat-square)
+![Secure Flashing / OTA](https://img.shields.io/badge/Secure_Flashing_%2F_OTA-0F1F35?style=flat-square)
+![Key Management](https://img.shields.io/badge/Key_Management-0F1F35?style=flat-square)
+![PKI](https://img.shields.io/badge/PKI-0F1F35?style=flat-square)
+![AES](https://img.shields.io/badge/AES-0F1F35?style=flat-square)
+![RSA / ECC](https://img.shields.io/badge/RSA_%2F_ECC-0F1F35?style=flat-square)
+![SHA](https://img.shields.io/badge/SHA-0F1F35?style=flat-square)
+![CMAC / HMAC](https://img.shields.io/badge/CMAC_%2F_HMAC-0F1F35?style=flat-square)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/divider.svg">
@@ -127,7 +187,7 @@ Cybersecurity engineer who ships. I build systems where the security controls ar
 
 ### 🛡️ [AI Agent Governance](https://github.com/michealswolski/ai-agent-governance)
 
-A control plane that sits between an agent and the things it can break. Risk-scores every proposed action, screens for prompt injection, routes anything above threshold to a human, and writes an immutable audit trail.
+A control plane that sits between an agent and the things it can break. Risk-scores every proposed action, screens for prompt injection, routes anything above threshold to a human, and writes a durable, audit-ready decision history.
 
 `Node.js` · `SQLite` · `AI Security`
 
@@ -156,9 +216,9 @@ Full-stack Raspberry Pi operations dashboard — live system monitoring, remote 
 
 ### 🧩 [Cross-Divisional Project Database](https://github.com/michealswolski/Project-database)
 
-Enterprise Power Platform application for project intake and tracking, with structured Dataverse storage and reporting across divisions.
+Enterprise Power Platform application for project intake and tracking, backed by SharePoint Online lists with Power BI reporting across divisions.
 
-`Power Apps` · `Dataverse` · `Power Fx`
+`Power Apps` · `SharePoint` · `Power Fx`
 
 </td>
 </tr>
@@ -248,39 +308,25 @@ Hands-on builds behind the badges above — each one is a working lab, not a wri
 ## GitHub Activity
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=michealswolski&show_icons=true&hide_border=true&bg_color=0A1526&title_color=22D3EE&icon_color=34D399&text_color=CBD5E1&ring_color=22D3EE&include_all_commits=true">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=michealswolski&show_icons=true&hide_border=true&bg_color=FFFFFF&title_color=0E7490&icon_color=047857&text_color=334155&ring_color=0E7490&include_all_commits=true">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=michealswolski&show_icons=true&hide_border=true&bg_color=0A1526&title_color=22D3EE&icon_color=34D399&text_color=CBD5E1&ring_color=22D3EE&include_all_commits=true" alt="GitHub stats for michealswolski" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/stats.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/stats-light.svg">
+  <img height="196" src="https://raw.githubusercontent.com/michealswolski/michealswolski/output/stats.svg" alt="GitHub statistics — public repositories, languages, bytes of code, repositories active this year" />
 </picture>
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=michealswolski&layout=compact&hide_border=true&langs_count=8&bg_color=0A1526&title_color=22D3EE&text_color=CBD5E1">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=michealswolski&layout=compact&hide_border=true&langs_count=8&bg_color=FFFFFF&title_color=0E7490&text_color=334155">
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=michealswolski&layout=compact&hide_border=true&langs_count=8&bg_color=0A1526&title_color=22D3EE&text_color=CBD5E1" alt="Most used languages" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/languages.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/languages-light.svg">
+  <img height="196" src="https://raw.githubusercontent.com/michealswolski/michealswolski/output/languages.svg" alt="Most used languages by bytes of code across public repositories" />
 </picture>
 
-<br/><br/>
+<br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=michealswolski&hide_border=true&background=0A1526&ring=22D3EE&fire=34D399&currStreakLabel=22D3EE&sideLabels=CBD5E1&currStreakNum=F8FAFC&sideNums=F8FAFC&dates=64748B">
-  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=michealswolski&hide_border=true&background=FFFFFF&ring=0E7490&fire=047857&currStreakLabel=0E7490&sideLabels=334155&currStreakNum=0F172A&sideNums=0F172A&dates=64748B">
-  <img height="170" src="https://streak-stats.demolab.com?user=michealswolski&hide_border=true&background=0A1526&ring=22D3EE&fire=34D399&currStreakLabel=22D3EE&sideLabels=CBD5E1&currStreakNum=F8FAFC&sideNums=F8FAFC&dates=64748B" alt="Contribution streak" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/focus.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/focus-light.svg">
+  <img width="96%" src="https://raw.githubusercontent.com/michealswolski/michealswolski/output/focus.svg" alt="Public repositories grouped by security domain" />
 </picture>
 
-<br/><br/>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=michealswolski&hide_border=true&bg_color=0A1526&color=22D3EE&line=34D399&point=F8FAFC&area=true&area_color=22D3EE&custom_title=Contribution%20Activity">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=michealswolski&hide_border=true&bg_color=FFFFFF&color=0E7490&line=047857&point=0F172A&area=true&area_color=0E7490&custom_title=Contribution%20Activity">
-  <img width="96%" src="https://github-readme-activity-graph.vercel.app/graph?username=michealswolski&hide_border=true&bg_color=0A1526&color=22D3EE&line=34D399&point=F8FAFC&area=true&area_color=22D3EE&custom_title=Contribution%20Activity" alt="Contribution activity graph" />
-</picture>
-
-<br/><br/>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=michealswolski&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8&title_color=22D3EE&text_color=CBD5E1">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-trophy.vercel.app/?username=michealswolski&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8&title_color=0E7490&text_color=334155">
-  <img width="96%" src="https://github-profile-trophy.vercel.app/?username=michealswolski&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8&title_color=22D3EE&text_color=CBD5E1" alt="GitHub trophies" />
-</picture>
+<br/>
 
 ### 🐍 The snake that eats my contributions
 
