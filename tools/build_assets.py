@@ -554,7 +554,230 @@ def divider(t: dict) -> str:
     return "\n".join(p) + "\n"
 
 
-ASSETS = {"hero": hero, "credential": credential, "divider": divider}
+
+# ------------------------------------------------------------------- compact hero
+
+# The wide hero is 1280 across; on a ~375px phone that is a 0.27x downscale, which
+# leaves every element except the name at 3-4px. This variant carries the same
+# design language in a stacked layout sized so the body text stays legible there.
+
+CO_W, CO_H = 720, 620
+CO_CX = 360
+CO_EY = 178
+CO_CMD = "./whoami --scope full"
+
+CO_ROLES = [
+    "Cybersecurity Engineer",
+    "AI Agent Security",
+    "Automotive &amp; Embedded",
+    "Detection &amp; Response",
+]
+CO_PILLS = [["AI Security", "Threat Modeling", "CAN / UDS"],
+            ["Secure Boot", "SIEM", "Python"]]
+
+
+def _co_pill_width(label: str) -> float:
+    return round(len(label) * 10.4 + 40, 1)
+
+
+def hero_compact(t: dict) -> str:
+    p = []
+    add = p.append
+
+    add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{CO_W}" height="{CO_H}" '
+        f'viewBox="0 0 {CO_W} {CO_H}" role="img" '
+        f'aria-label="Micheal Wolski — Cybersecurity Engineer. AI agent security, automotive and '
+        f'embedded security, full-stack development.">')
+    add('  <title>Micheal Wolski — Cybersecurity Engineer</title>')
+
+    add('  <defs>')
+    add(f'    <linearGradient id="oBg" x1="0%" y1="0%" x2="100%" y2="100%">'
+        f'<stop offset="0%" stop-color="{t["bg0"]}"/><stop offset="52%" stop-color="{t["bg1"]}"/>'
+        f'<stop offset="100%" stop-color="{t["bg2"]}"/></linearGradient>')
+    add(f'    <linearGradient id="oName" x1="0%" y1="0%" x2="100%" y2="0%">'
+        f'<stop offset="0%" stop-color="{t["cyan_l"]}"/><stop offset="48%" stop-color="{t["blue"]}"/>'
+        f'<stop offset="100%" stop-color="{t["green"]}"/>'
+        f'<animate attributeName="x1" values="-40%;60%;-40%" dur="9s" repeatCount="indefinite"/>'
+        f'<animate attributeName="x2" values="60%;160%;60%" dur="9s" repeatCount="indefinite"/>'
+        f'</linearGradient>')
+    add(f'    <linearGradient id="oEdge" x1="0%" y1="0%" x2="100%" y2="100%">'
+        f'<stop offset="0%" stop-color="{t["cyan"]}" stop-opacity="0.85"/>'
+        f'<stop offset="50%" stop-color="{t["blue"]}" stop-opacity="0.45"/>'
+        f'<stop offset="100%" stop-color="{t["green"]}" stop-opacity="0.8"/></linearGradient>')
+    add(f'    <linearGradient id="oRule" x1="0%" y1="0%" x2="100%" y2="0%">'
+        f'<stop offset="0%" stop-color="{t["cyan"]}" stop-opacity="0"/>'
+        f'<stop offset="50%" stop-color="{t["cyan"]}"/>'
+        f'<stop offset="100%" stop-color="{t["green"]}" stop-opacity="0"/></linearGradient>')
+    add(f'    <linearGradient id="oSweep" x1="0%" y1="0%" x2="100%" y2="0%">'
+        f'<stop offset="0%" stop-color="{t["cyan"]}" stop-opacity="0.30"/>'
+        f'<stop offset="100%" stop-color="{t["cyan"]}" stop-opacity="0"/></linearGradient>')
+    for gid, col in (("oOrbC", "cyan"), ("oOrbG", "green")):
+        add(f'    <radialGradient id="{gid}" cx="50%" cy="50%" r="50%">'
+            f'<stop offset="0%" stop-color="{t[col]}" stop-opacity="{t["orb_op"]}"/>'
+            f'<stop offset="100%" stop-color="{t[col]}" stop-opacity="0"/></radialGradient>')
+    add(f'    <pattern id="oGrid" width="40" height="40" patternUnits="userSpaceOnUse">'
+        f'<path d="M40 0H0v40" fill="none" stroke="{t["grid"]}" stroke-opacity="{t["grid_op"]}" '
+        f'stroke-width="1"/></pattern>')
+    add('    <filter id="oGlow" x="-60%" y="-60%" width="220%" height="220%">'
+        '<feGaussianBlur stdDeviation="3" result="b"/>'
+        '<feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>')
+    add('    <filter id="oBlur" x="-60%" y="-60%" width="220%" height="220%">'
+        '<feGaussianBlur stdDeviation="24"/></filter>')
+    add(f'    <clipPath id="oCard"><rect width="{CO_W}" height="{CO_H}" rx="22"/></clipPath>')
+    add('  </defs>')
+
+    add('  <style>')
+    add('    .fade{animation:fadeIn .7s ease-out backwards}')
+    add('    .type{animation:type 1.3s steps(21,end) .35s backwards}')
+    add('    .wipe{animation:wipe .9s cubic-bezier(.16,.9,.24,1) 1.9s backwards}')
+    add('    .grow{transform-box:fill-box;transform-origin:center;'
+        'animation:grow .8s cubic-bezier(.16,.9,.24,1) 2.5s backwards}')
+    add('    .drift-a{animation:driftA 13s ease-in-out infinite}')
+    add('    .drift-b{animation:driftB 17s ease-in-out infinite}')
+    add('    .grid-pan{animation:gridPan 22s linear infinite}')
+    add('    .role{animation:role 17.6s linear infinite}')
+    add(f'    .ring-cw{{transform-box:view-box;transform-origin:{CO_CX}px {CO_EY}px;'
+        f'animation:spin 26s linear infinite}}')
+    add(f'    .ring-ccw{{transform-box:view-box;transform-origin:{CO_CX}px {CO_EY}px;'
+        f'animation:spinBack 34s linear infinite}}')
+    add(f'    .radar{{transform-box:view-box;transform-origin:{CO_CX}px {CO_EY}px;'
+        f'animation:spin 4.6s linear infinite}}')
+    add('    .beat{animation:beat 2.6s ease-in-out infinite}')
+    add('    .caret{animation:blink 1.06s steps(1,end) 1.65s infinite}')
+    add('    .live{animation:live 2.2s ease-in-out infinite}')
+    add('    @keyframes fadeIn{from{opacity:0}}')
+    add('    @keyframes type{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}')
+    add('    @keyframes wipe{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}')
+    add('    @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}')
+    add('    @keyframes driftA{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-16px)}}')
+    add('    @keyframes driftB{0%,100%{transform:translate(0,0)}50%{transform:translate(-22px,14px)}}')
+    add('    @keyframes gridPan{to{transform:translate(-40px,-40px)}}')
+    add('    @keyframes role{0%,1%{opacity:0}3%,22%{opacity:1}25%,100%{opacity:0}}')
+    add('    @keyframes spin{to{transform:rotate(360deg)}}')
+    add('    @keyframes spinBack{to{transform:rotate(-360deg)}}')
+    add('    @keyframes beat{0%,100%{opacity:.35}50%{opacity:.9}}')
+    add('    @keyframes blink{0%,49%{opacity:1}50%,100%{opacity:0}}')
+    add('    @keyframes live{0%,100%{opacity:.35}50%{opacity:1}}')
+    add('    @media (prefers-reduced-motion: reduce){')
+    add('      .fade,.type,.wipe,.grow,.drift-a,.drift-b,.grid-pan,.role,.ring-cw,.ring-ccw,'
+        '.radar,.beat,.caret,.live{animation:none}')
+    add('    }')
+    add('  </style>')
+
+    add('  <g clip-path="url(#oCard)">')
+    add(f'    <rect width="{CO_W}" height="{CO_H}" fill="url(#oBg)"/>')
+    add(f'    <g class="grid-pan"><rect x="-40" y="-40" width="{CO_W + 80}" height="{CO_H + 80}" '
+        f'fill="url(#oGrid)"/></g>')
+    add('    <g filter="url(#oBlur)">')
+    add(f'      <circle class="drift-a" cx="{CO_CX}" cy="{CO_EY}" r="150" fill="url(#oOrbC)"/>')
+    add(f'      <circle class="drift-b" cx="{CO_CX}" cy="560" r="150" fill="url(#oOrbG)"/>')
+    add('    </g>')
+
+    # ---- terminal strip
+    add(f'    <g font-family="{MONO}">')
+    add(f'      <rect x="40" y="30" width="640" height="44" rx="11" fill="{t["panel"]}" '
+        f'fill-opacity="{t["panel_op"]}" stroke="{t["stroke"]}" stroke-width="1"/>')
+    add('      <circle cx="64" cy="52" r="5" fill="#FF5F57"/>')
+    add('      <circle cx="82" cy="52" r="5" fill="#FEBC2E"/>')
+    add('      <circle cx="100" cy="52" r="5" fill="#28C840"/>')
+    add(f'      <text x="124" y="59" font-size="19" fill="{t["green"]}">$</text>')
+    add('      <g class="type">')
+    add(f'        <text x="142" y="59" font-size="19" fill="{t["text"]}">{CO_CMD}</text>')
+    add('      </g>')
+    add(f'      <rect class="caret" x="{142 + 21 * 11.4:.0f}" y="45" width="10" height="19" '
+        f'fill="{t["cyan"]}" opacity="0"/>')
+    add('    </g>')
+
+    # ---- emblem
+    add('    <g>')
+    add(f'      <circle class="ring-cw" cx="{CO_CX}" cy="{CO_EY}" r="78" fill="none" '
+        f'stroke="{t["cyan"]}" stroke-opacity="0.30" stroke-width="1" stroke-dasharray="3 10"/>')
+    add(f'      <circle class="ring-ccw" cx="{CO_CX}" cy="{CO_EY}" r="64" fill="none" '
+        f'stroke="{t["blue"]}" stroke-opacity="0.34" stroke-width="1" stroke-dasharray="20 11"/>')
+    add(f'      <circle cx="{CO_CX}" cy="{CO_EY}" r="50" fill="none" stroke="{t["green"]}" '
+        f'stroke-opacity="0.26" stroke-width="1"/>')
+    add(f'      <path class="radar" d="M{CO_CX} {CO_EY} L{CO_CX + 78} {CO_EY - 28} '
+        f'A78 78 0 0 1 {CO_CX + 78} {CO_EY + 28} Z" fill="url(#oSweep)"/>')
+    add('      <g class="ring-cw">')
+    for dx, dy, col in ((78, 0, "cyan"), (-39, 68, "green"), (-39, -68, "blue")):
+        add(f'        <circle cx="{CO_CX + dx}" cy="{CO_EY + dy}" r="3.6" fill="{t[col]}"/>')
+    add('      </g>')
+    hx = (f"M{CO_CX} {CO_EY - 40} L{CO_CX + 34} {CO_EY - 20} L{CO_CX + 34} {CO_EY + 20} "
+          f"L{CO_CX} {CO_EY + 40} L{CO_CX - 34} {CO_EY + 20} L{CO_CX - 34} {CO_EY - 20} Z")
+    add(f'      <path d="{hx}" fill="{t["panel"]}" fill-opacity="{t["panel_op"]}" '
+        f'stroke="url(#oEdge)" stroke-width="1.6"/>')
+    add(f'      <path class="beat" d="{hx}" fill="none" stroke="{t["cyan"]}" stroke-width="5" '
+        f'stroke-opacity="0.16"/>')
+    add(f'      <path d="M{CO_CX - 10} {CO_EY - 5} v-6.5 a10 10 0 0 1 20 0 v6.5" fill="none" '
+        f'stroke="{t["cyan_l"]}" stroke-width="2.2" stroke-linecap="round"/>')
+    add(f'      <rect x="{CO_CX - 16}" y="{CO_EY - 5}" width="32" height="25" rx="5" fill="none" '
+        f'stroke="{t["cyan_l"]}" stroke-width="2.2"/>')
+    add(f'      <circle cx="{CO_CX}" cy="{CO_EY + 4}" r="2.6" fill="{t["green"]}"/>')
+    add(f'      <path d="M{CO_CX} {CO_EY + 6} v5" stroke="{t["green"]}" stroke-width="2.2" '
+        f'stroke-linecap="round"/>')
+    add('    </g>')
+
+    # ---- name, rule, roles
+    add(f'    <g class="wipe">')
+    add(f'      <text x="{CO_CX}" y="318" text-anchor="middle" font-family="{SANS}" font-size="50" '
+        f'font-weight="800" letter-spacing="-0.4" fill="url(#oName)" filter="url(#oGlow)">'
+        f'MICHEAL WOLSKI</text>')
+    add('    </g>')
+    add(f'    <rect class="grow" x="{CO_CX - 110}" y="332" width="220" height="3.5" rx="1.75" '
+        f'fill="url(#oRule)"/>')
+    add(f'    <g font-family="{MONO}" font-size="21" fill="{t["dim"]}">')
+    for i, role in enumerate(CO_ROLES):
+        add(f'      <text class="role" x="{CO_CX}" y="372" text-anchor="middle" '
+            f'opacity="{1 if i == 0 else 0}" style="animation-delay:{round(3.0 + i * 4.4, 2)}s">'
+            f'<tspan fill="{t["cyan"]}">&gt;</tspan> {role}</text>')
+    add('    </g>')
+
+    # ---- tagline
+    add('    <g class="fade" style="animation-delay:2.8s">')
+    add(f'      <rect x="70" y="394" width="580" height="46" rx="12" fill="{t["panel"]}" '
+        f'fill-opacity="{t["panel_op"]}" stroke="{t["cyan"]}" stroke-opacity="0.28" stroke-width="1"/>')
+    add(f'      <text x="{CO_CX}" y="423" text-anchor="middle" font-family="{SANS}" font-size="19" '
+        f'fill="{t["text"]}">Security that survives contact with production.</text>')
+    add('    </g>')
+
+    # ---- pills, each row centred
+    for row, labels in enumerate(CO_PILLS):
+        widths = [_co_pill_width(l) for l in labels]
+        total = sum(widths) + 12 * (len(labels) - 1)
+        x = CO_CX - total / 2
+        y = 458 + row * 44
+        for i, (label, w) in enumerate(zip(labels, widths)):
+            delay = round(3.05 + row * 0.2 + i * 0.09, 2)
+            add(f'    <g class="fade" style="animation-delay:{delay}s">')
+            add(f'      <rect x="{x:.1f}" y="{y}" width="{w}" height="36" rx="18" fill="{t["panel"]}" '
+                f'fill-opacity="{t["panel_op"]}" stroke="{t["stroke"]}" stroke-width="1"/>')
+            add(f'      <circle cx="{x + 19:.1f}" cy="{y + 18}" r="3.6" fill="{t[DOT_COLORS[i % 3]]}"/>')
+            add(f'      <text x="{x + 32:.1f}" y="{y + 24}" font-family="{SANS}" font-size="19" '
+                f'font-weight="600" fill="{t["text"]}">{label}</text>')
+            add('    </g>')
+            x += w + 12
+
+    # ---- status block
+    add('    <g class="fade" style="animation-delay:3.4s">')
+    add(f'      <rect x="70" y="548" width="580" height="60" rx="13" fill="{t["panel"]}" '
+        f'fill-opacity="{t["panel_op"]}" stroke="{t["stroke"]}" stroke-width="1"/>')
+    add(f'      <circle class="live" cx="184" cy="570" r="5" fill="{t["green"]}"/>')
+    add(f'      <text x="{CO_CX + 8}" y="576" text-anchor="middle" font-family="{MONO}" '
+        f'font-size="20"><tspan fill="{t["green"]}">OPEN TO WORK</tspan>'
+        f'<tspan fill="{t["dim"]}"> · Michigan, USA</tspan></text>')
+    add(f'      <text x="{CO_CX}" y="600" text-anchor="middle" font-family="{SANS}" font-size="19" '
+        f'fill="{t["faint"]}">B.S. Information Assurance &amp; Cyber Defense · EMU</text>')
+    add('    </g>')
+
+    add('  </g>')
+    add(f'  <rect x="1" y="1" width="{CO_W - 2}" height="{CO_H - 2}" rx="21" fill="none" '
+        f'stroke="url(#oEdge)" stroke-width="1.6"/>')
+    add('</svg>')
+    return "\n".join(p) + "\n"
+
+
+ASSETS = {"hero": hero, "hero-compact": hero_compact,
+          "credential": credential, "divider": divider}
 
 
 def main() -> None:
