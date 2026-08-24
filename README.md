@@ -1,6 +1,8 @@
 <div align="center">
 
 <picture>
+  <source media="(max-width: 700px) and (prefers-color-scheme: dark)" srcset="./assets/hero-compact.svg">
+  <source media="(max-width: 700px)" srcset="./assets/hero-compact-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/hero.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg">
   <img src="./assets/hero.svg" width="100%" alt="Micheal Wolski — Cybersecurity Engineer. AI agent security, automotive and embedded security, full-stack development." />
