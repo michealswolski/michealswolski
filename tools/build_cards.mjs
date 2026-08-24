@@ -69,8 +69,11 @@ query($login:String!){
 }`;
 
 async function fetchUser() {
-  const token = process.env.GITHUB_TOKEN;
-  if (!token) throw new Error("GITHUB_TOKEN is not set");
+  // The default workflow GITHUB_TOKEN is a GitHub App installation token, which
+  // frequently cannot read `contributionsCollection` for a user. PROFILE_TOKEN
+  // (a classic PAT with read:user) is preferred when the repo defines it.
+  const token = process.env.PROFILE_TOKEN || process.env.GITHUB_TOKEN;
+  if (!token) throw new Error("neither PROFILE_TOKEN nor GITHUB_TOKEN is set");
   const res = await fetch("https://api.github.com/graphql", {
     method: "POST",
     headers: {
@@ -103,7 +106,18 @@ function streaks(days) {
   return { longest, current };
 }
 
+const TOKEN_HINT =
+  "the token could not read this field. The default GITHUB_TOKEN is an App " +
+  "installation token and often cannot; add a repository secret PROFILE_TOKEN " +
+  "holding a classic PAT with the read:user scope.";
+
 function shape(user) {
+  const cc = user.contributionsCollection;
+  if (!cc?.contributionCalendar?.weeks?.length) {
+    throw new Error(`contributionsCollection came back empty — ${TOKEN_HINT}`);
+  }
+  if (!user.repositories) throw new Error(`repositories came back empty — ${TOKEN_HINT}`);
+
   const repos = user.repositories.nodes ?? [];
   const stars = repos.reduce((a, r) => a + r.stargazerCount, 0);
 
@@ -122,7 +136,7 @@ function shape(user) {
     .sort((a, b) => b.pct - a.pct)
     .slice(0, 8);
 
-  const cal = user.contributionsCollection.contributionCalendar;
+  const cal = cc.contributionCalendar;
   const days = cal.weeks.flatMap((w) => w.contributionDays).map((d) => ({ date: d.date, count: d.contributionCount }));
   const weeks = cal.weeks.map((w) => ({
     date: w.contributionDays[0]?.date,
@@ -133,9 +147,9 @@ function shape(user) {
     repos: user.repositories.totalCount,
     stars,
     followers: user.followers.totalCount,
-    commits: user.contributionsCollection.totalCommitContributions,
-    prs: user.contributionsCollection.totalPullRequestContributions,
-    issues: user.contributionsCollection.totalIssueContributions,
+    commits: cc.totalCommitContributions ?? 0,
+    prs: cc.totalPullRequestContributions ?? 0,
+    issues: cc.totalIssueContributions ?? 0,
     contributions: cal.totalContributions,
     ...streaks(days),
     langs,
@@ -319,22 +333,51 @@ function mock() {
   };
 }
 
-async function main() {
-  const { mkdirSync, writeFileSync } = await import("node:fs");
-  const { join } = await import("node:path");
-  const outDir = process.argv[2];
-  if (!outDir) { console.error("usage: build_cards.mjs <outDir> [--mock]"); process.exit(2); }
+/**
+ * Cards rendered without any API call. The README references these six URLs
+ * unconditionally, so CI publishes this set rather than leaving the profile
+ * pointing at files that do not exist — a missing card is the broken image this
+ * whole change set out to remove. It states plainly that data is pending rather
+ * than inventing numbers.
+ */
+function placeholder(t, title, h = 150) {
+  return open(t, h, `${title} — awaiting first successful refresh`) +
+    "\n" + heading(t, title) + `
+    <text x="18" y="${h / 2 + 12}" font-family="${SANS}" font-size="18" fill="${t.dim}">Awaiting the next scheduled refresh.</text>
+    <text x="18" y="${h - 20}" font-family="${MONO}" font-size="14" fill="${t.faint}">github.com/${LOGIN}</text>` +
+    "\n" + close(h);
+}
 
-  const data = process.argv.includes("--mock") ? mock() : shape(await fetchUser());
-
+function writeAll(outDir, render) {
+  const { mkdirSync, writeFileSync } = fsMod;
   mkdirSync(outDir, { recursive: true });
   for (const t of Object.values(THEMES)) {
-    for (const [stem, fn] of [["stats", statsCard], ["langs", langsCard], ["activity", activityCard]]) {
-      const p = join(outDir, `${stem}${t.suffix}.svg`);
-      writeFileSync(p, fn(t, data), "utf8");
+    for (const stem of ["stats", "langs", "activity"]) {
+      const p = pathMod.join(outDir, `${stem}${t.suffix}.svg`);
+      writeFileSync(p, render(t, stem), "utf8");
       console.log("wrote", p);
     }
   }
+}
+
+let fsMod, pathMod;
+
+async function main() {
+  fsMod = await import("node:fs");
+  pathMod = await import("node:path");
+  const outDir = process.argv[2];
+  if (!outDir) { console.error("usage: build_cards.mjs <outDir> [--mock|--fallback]"); process.exit(2); }
+
+  const TITLES = { stats: "GITHUB · STATS", langs: "GITHUB · LANGUAGES", activity: "GITHUB · ACTIVITY" };
+
+  if (process.argv.includes("--fallback")) {
+    writeAll(outDir, (t, stem) => placeholder(t, TITLES[stem]));
+    return;
+  }
+
+  const data = process.argv.includes("--mock") ? mock() : shape(await fetchUser());
+  const byStem = { stats: statsCard, langs: langsCard, activity: activityCard };
+  writeAll(outDir, (t, stem) => byStem[stem](t, data));
 }
 
 main().catch((e) => { console.error("card generation failed:", e.message); process.exit(1); });

@@ -25,14 +25,41 @@ jobs:
         with:
           node-version: "20"
 
-      # Runs before the publish step on purpose: if the API call fails the job
-      # stops here and the `output` branch keeps its last good art, rather than
-      # publishing a half-built set and breaking images on the profile.
+      # Start from whatever is already published. If a later step fails we then
+      # republish the last good art unchanged, rather than clobbering working
+      # cards with placeholders over a transient API blip.
+      - name: Seed from the currently published art
+        run: |
+          mkdir -p dist
+          if git fetch --depth=1 origin output 2>/dev/null; then
+            git archive FETCH_HEAD | tar -x -C dist
+            echo "seeded from output branch:"; ls -1 dist
+          else
+            echo "no output branch yet — first run"
+          fi
+
       - name: Render GitHub activity cards
+        id: cards
+        continue-on-error: true
         env:
+          # A classic PAT with read:user if the repo defines one; the default
+          # workflow token is an App installation token and often cannot read
+          # contributionsCollection.
+          PROFILE_TOKEN: ${{ secrets.PROFILE_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PROFILE_LOGIN: ${{ github.repository_owner }}
         run: node tools/build_cards.mjs dist
+
+      - name: Keep last good cards, or place holders on a first run
+        if: steps.cards.outcome == 'failure'
+        run: |
+          echo "::warning::Card generation failed. If this persists, add a repository secret PROFILE_TOKEN holding a classic PAT with the read:user scope — the default GITHUB_TOKEN often cannot read contributionsCollection."
+          if [ -f dist/stats.svg ]; then
+            echo "republishing the previously generated cards unchanged"
+          else
+            echo "nothing published yet — writing placeholders so the README URLs resolve"
+            node tools/build_cards.mjs dist --fallback
+          fi
 
       - name: Render the contribution graph as a snake game
         uses: Platane/snk@v3
