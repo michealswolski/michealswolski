@@ -56,12 +56,12 @@ THEMES = {
 
 ROLES = [
     "Cybersecurity Engineer  ·  secure by construction",
-    "AI Agent Security  ·  guardrails, audit trails, human approval",
     "Automotive &amp; Embedded  ·  CAN / UDS / secure boot",
+    "AI Agent Security  ·  guardrails, audit trails, human approval",
     "Full-Stack &amp; Automation  ·  ship the whole system",
 ]
 
-PILLS_A = ["Threat Modeling", "AI Agent Security", "CAN / UDS", "Secure Boot", "PKI"]
+PILLS_A = ["Threat Modeling", "CAN / UDS", "AI Agent Security", "Secure Boot", "PKI"]
 PILLS_B = ["SIEM &amp; Detection", "Vulnerability Mgmt", "Python", "TypeScript", "C / C++"]
 
 DOT_COLORS = ("cyan", "green", "blue")
@@ -86,8 +86,8 @@ def hero(t: dict) -> str:
 
     add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{HERO_W}" height="{HERO_H}" '
         f'viewBox="0 0 {HERO_W} {HERO_H}" role="img" '
-        f'aria-label="Micheal Wolski — Cybersecurity Engineer. AI agent security, automotive and '
-        f'embedded security, full-stack development.">')
+        f'aria-label="Micheal Wolski — Cybersecurity Engineer. Automotive and embedded security, '
+        f'AI agent security, full-stack development.">')
     add('  <title>Micheal Wolski — Cybersecurity Engineer</title>')
 
     # ------------------------------------------------------------------ defs
@@ -586,8 +586,8 @@ def hero_compact(t: dict) -> str:
 
     add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{CO_W}" height="{CO_H}" '
         f'viewBox="0 0 {CO_W} {CO_H}" role="img" '
-        f'aria-label="Micheal Wolski — Cybersecurity Engineer. AI agent security, automotive and '
-        f'embedded security, full-stack development.">')
+        f'aria-label="Micheal Wolski — Cybersecurity Engineer. Automotive and embedded security, '
+        f'AI agent security, full-stack development.">')
     add('  <title>Micheal Wolski — Cybersecurity Engineer</title>')
 
     add('  <defs>')
