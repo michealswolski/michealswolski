@@ -248,39 +248,28 @@ Hands-on builds behind the badges above — each one is a working lab, not a wri
 ## GitHub Activity
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=michealswolski&show_icons=true&hide_border=true&bg_color=0A1526&title_color=22D3EE&icon_color=34D399&text_color=CBD5E1&ring_color=22D3EE&include_all_commits=true">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=michealswolski&show_icons=true&hide_border=true&bg_color=FFFFFF&title_color=0E7490&icon_color=047857&text_color=334155&ring_color=0E7490&include_all_commits=true">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=michealswolski&show_icons=true&hide_border=true&bg_color=0A1526&title_color=22D3EE&icon_color=34D399&text_color=CBD5E1&ring_color=22D3EE&include_all_commits=true" alt="GitHub stats for michealswolski" />
-</picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=michealswolski&layout=compact&hide_border=true&langs_count=8&bg_color=0A1526&title_color=22D3EE&text_color=CBD5E1">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=michealswolski&layout=compact&hide_border=true&langs_count=8&bg_color=FFFFFF&title_color=0E7490&text_color=334155">
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=michealswolski&layout=compact&hide_border=true&langs_count=8&bg_color=0A1526&title_color=22D3EE&text_color=CBD5E1" alt="Most used languages" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/stats.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/stats-light.svg">
+  <img src="https://raw.githubusercontent.com/michealswolski/michealswolski/output/stats.svg" alt="GitHub statistics for michealswolski" />
 </picture>
 
-<br/><br/>
+<br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=michealswolski&hide_border=true&background=0A1526&ring=22D3EE&fire=34D399&currStreakLabel=22D3EE&sideLabels=CBD5E1&currStreakNum=F8FAFC&sideNums=F8FAFC&dates=64748B">
-  <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com?user=michealswolski&hide_border=true&background=FFFFFF&ring=0E7490&fire=047857&currStreakLabel=0E7490&sideLabels=334155&currStreakNum=0F172A&sideNums=0F172A&dates=64748B">
-  <img height="170" src="https://streak-stats.demolab.com?user=michealswolski&hide_border=true&background=0A1526&ring=22D3EE&fire=34D399&currStreakLabel=22D3EE&sideLabels=CBD5E1&currStreakNum=F8FAFC&sideNums=F8FAFC&dates=64748B" alt="Contribution streak" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/langs.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/langs-light.svg">
+  <img src="https://raw.githubusercontent.com/michealswolski/michealswolski/output/langs.svg" alt="Most used languages" />
 </picture>
 
-<br/><br/>
+<br/>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=michealswolski&hide_border=true&bg_color=0A1526&color=22D3EE&line=34D399&point=F8FAFC&area=true&area_color=22D3EE&custom_title=Contribution%20Activity">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=michealswolski&hide_border=true&bg_color=FFFFFF&color=0E7490&line=047857&point=0F172A&area=true&area_color=0E7490&custom_title=Contribution%20Activity">
-  <img width="96%" src="https://github-readme-activity-graph.vercel.app/graph?username=michealswolski&hide_border=true&bg_color=0A1526&color=22D3EE&line=34D399&point=F8FAFC&area=true&area_color=22D3EE&custom_title=Contribution%20Activity" alt="Contribution activity graph" />
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/activity.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/activity-light.svg">
+  <img src="https://raw.githubusercontent.com/michealswolski/michealswolski/output/activity.svg" alt="Contribution activity over the last year" />
 </picture>
 
-<br/><br/>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-trophy.vercel.app/?username=michealswolski&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8&title_color=22D3EE&text_color=CBD5E1">
-  <source media="(prefers-color-scheme: light)" srcset="https://github-profile-trophy.vercel.app/?username=michealswolski&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8&title_color=0E7490&text_color=334155">
-  <img width="96%" src="https://github-profile-trophy.vercel.app/?username=michealswolski&no-frame=true&no-bg=true&column=7&margin-w=8&margin-h=8&title_color=22D3EE&text_color=CBD5E1" alt="GitHub trophies" />
-</picture>
+<br/>
 
 ### 🐍 The snake that eats my contributions
 
@@ -304,9 +293,6 @@ Hands-on builds behind the badges above — each one is a working lab, not a wri
 
 <br/><br/>
 
-<img src="https://komarev.com/ghpvc/?username=michealswolski&style=for-the-badge&color=0A1526&label=PROFILE+VIEWS" alt="Profile views" />
-
-<br/><br/>
 
 <sub><i>Trust · Verify · Ship — security that survives contact with production.</i></sub>
 

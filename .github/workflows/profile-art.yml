@@ -1,4 +1,4 @@
-name: Generate contribution snake
+name: Refresh profile art
 
 on:
   schedule:
@@ -10,7 +10,7 @@ on:
 
 # Only one run at a time; a queued run supersedes an older one.
 concurrency:
-  group: snake
+  group: profile-art
   cancel-in-progress: true
 
 jobs:
@@ -19,9 +19,23 @@ jobs:
     permissions:
       contents: write
     steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # Runs before the publish step on purpose: if the API call fails the job
+      # stops here and the `output` branch keeps its last good art, rather than
+      # publishing a half-built set and breaking images on the profile.
+      - name: Render GitHub activity cards
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PROFILE_LOGIN: ${{ github.repository_owner }}
+        run: node tools/build_cards.mjs dist
+
       - name: Render the contribution graph as a snake game
         uses: Platane/snk@v3
-        id: snake
         with:
           github_user_name: ${{ github.repository_owner }}
           # Palettes match the README: cyan/teal on dark, deep cyan on light.
