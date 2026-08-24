@@ -350,10 +350,6 @@ Hands-on builds behind the badges above — each one is a working lab, not a wri
 
 <br/><br/>
 
-<img src="https://komarev.com/ghpvc/?username=michealswolski&style=for-the-badge&color=0A1526&label=PROFILE+VIEWS" alt="Profile views" />
-
-<br/><br/>
-
 <sub><i>Trust · Verify · Ship — security that survives contact with production.</i></sub>
 
 </div>
