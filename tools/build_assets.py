@@ -332,8 +332,8 @@ def hero(t: dict) -> str:
 
 # --------------------------------------------------------------- credential badge
 
-CRED_W, CRED_H = 400, 580
-ANCHOR_X, ANCHOR_Y = 200, 16
+CRED_W, CRED_H = 460, 580
+ANCHOR_X, ANCHOR_Y = 230, 16
 CARD_Y = 160
 CARD_W, CARD_H = 236, 366
 HALF = CARD_W // 2
@@ -388,29 +388,36 @@ def credential(t: dict) -> str:
     # supplies at rest: a CSS transform animation REPLACES that attribute rather
     # than composing with it, so omitting it would fling the badge to the origin.
     piv = f"translate({ANCHOR_X}px,{ANCHOR_Y}px)"
+    pivx = f"translate({ANCHOR_X}px,"
     add('  <style>')
-    add('    .swing{animation:settle 5s cubic-bezier(.33,0,.2,1) both, '
-        'sway 7s ease-in-out 5s infinite}')
+    add('    .swing{animation:settle 4.2s cubic-bezier(.33,0,.2,1) both, '
+        'sway 6s ease-in-out 4.2s infinite}')
     add('    .holo{animation:holo 6.5s ease-in-out infinite}')
+    add('    .breathe{animation:breathe 4.5s ease-in-out infinite}')
     add('    .led{animation:led 2s ease-in-out infinite}')
     add('    .scanbar{animation:scanbar 3.4s ease-in-out infinite}')
     add('    .chipflow{stroke-dasharray:5 7;animation:chipflow 2.4s linear infinite}')
     add('    .rise{animation:rise .6s ease-out backwards}')
-    add(f'    @keyframes settle{{0%{{transform:{piv} rotate(5deg)}}'
-        f'30%{{transform:{piv} rotate(-3.4deg)}}55%{{transform:{piv} rotate(2deg)}}'
-        f'75%{{transform:{piv} rotate(-1.1deg)}}90%{{transform:{piv} rotate(.4deg)}}'
-        f'100%{{transform:{piv} rotate(0)}}}}')
-    add(f'    @keyframes sway{{0%,100%{{transform:{piv} rotate(-2.2deg)}}'
-        f'50%{{transform:{piv} rotate(2.2deg)}}}}')
+    add(f'    @keyframes settle{{0%{{transform:{piv} rotate(11deg)}}'
+        f'28%{{transform:{piv} rotate(-7.5deg)}}52%{{transform:{piv} rotate(4.6deg)}}'
+        f'72%{{transform:{piv} rotate(-2.6deg)}}88%{{transform:{piv} rotate(1.2deg)}}'
+        f'100%{{transform:{piv} rotate(-5deg)}}}}')
+    # A pendulum hangs lowest as it crosses centre, so the bob rides 4px down at
+    # 25%/75% rather than at the extremes.
+    add(f'    @keyframes sway{{0%,100%{{transform:{pivx}16px) rotate(-5deg)}}'
+        f'25%{{transform:{pivx}20px) rotate(0deg)}}'
+        f'50%{{transform:{pivx}16px) rotate(5deg)}}'
+        f'75%{{transform:{pivx}20px) rotate(0deg)}}}}')
     add('    @keyframes holo{0%{transform:translate(-300px,-300px);opacity:1}'
         '55%,100%{transform:translate(300px,300px);opacity:1}}')
     add('    @keyframes led{0%,100%{opacity:.3}50%{opacity:1}}')
+    add('    @keyframes breathe{0%,100%{opacity:.18}50%{opacity:.5}}')
     add('    @keyframes scanbar{0%,100%{transform:translateX(0);opacity:0}10%{opacity:.9}'
         '50%{transform:translateX(146px);opacity:.9}60%{opacity:0}}')
     add('    @keyframes chipflow{to{stroke-dashoffset:-24}}')
     add('    @keyframes rise{from{opacity:0;transform:translateY(9px)}}')
     add('    @media (prefers-reduced-motion: reduce){')
-    add('      .swing,.holo,.led,.scanbar,.chipflow,.rise{animation:none}')
+    add('      .swing,.holo,.led,.scanbar,.chipflow,.rise,.breathe{animation:none}')
     add('    }')
     add('  </style>')
 
@@ -434,6 +441,9 @@ def credential(t: dict) -> str:
     add('    </g>')
 
     add(f'    <g transform="translate(0,{CARD_Y})">')
+    add(f'      <rect class="breathe" x="{-HALF - 5}" y="-5" width="{CARD_W + 10}" '
+        f'height="{CARD_H + 10}" rx="24" fill="none" stroke="url(#cEdge)" stroke-width="6" '
+        f'opacity="0.18"/>')
     add(f'      <rect x="{-HALF}" y="0" width="{CARD_W}" height="{CARD_H}" rx="20" fill="url(#cCard)" '
         f'stroke="url(#cEdge)" stroke-width="2"/>')
     add('      <g clip-path="url(#cCardClip)">')
@@ -776,8 +786,209 @@ def hero_compact(t: dict) -> str:
     return "\n".join(p) + "\n"
 
 
-ASSETS = {"hero": hero, "hero-compact": hero_compact,
-          "credential": credential, "divider": divider}
+
+# ------------------------------------------------------------------ connect chips
+
+# shields.io draws its logos from simple-icons, which no longer carries a
+# LinkedIn mark — it was removed at LinkedIn's request — so `logo=linkedin`
+# renders a badge with an empty logo slot. These self-hosted chips fix that with
+# original glyphs: a globe, a three-node network, a branch. Nobody's trademark is
+# reproduced, and the label carries the identification.
+
+CHIP_W, CHIP_H = 236, 52
+
+
+def _glyph(kind: str, colour: str) -> str:
+    """Original line glyphs, drawn on a 24x24 grid centred at (0,0)."""
+    st = f'fill="none" stroke="{colour}" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"'
+    if kind == "globe":
+        return (f'<g {st}><circle cx="0" cy="0" r="9.5"/><ellipse cx="0" cy="0" rx="4" ry="9.5"/>'
+                f'<path d="M-9.5 -3h19M-9.5 3h19"/></g>')
+    if kind == "network":
+        return (f'<g {st}><circle cx="-6.5" cy="-5" r="3"/><circle cx="6.5" cy="-5" r="3"/>'
+                f'<circle cx="0" cy="7" r="3"/><path d="M-3.7 -4.2 8.7 -4.2M-5.2 -2.3 -1.3 4.2'
+                f'M5.2 -2.3 1.3 4.2"/></g>')
+    # branch
+    return (f'<g {st}><circle cx="-6" cy="-6.5" r="2.8"/><circle cx="-6" cy="7" r="2.8"/>'
+            f'<circle cx="7" cy="-6.5" r="2.8"/><path d="M-6 -3.7v7.9M-3.2 -6.5h7.4'
+            f'M7 -3.7c0 5-5 4.2-9.4 6.6"/></g>')
+
+
+CHIPS = [
+    ("connect-portfolio", "Portfolio", "globe", "cyan"),
+    ("connect-linkedin", "LinkedIn", "network", "blue"),
+    ("connect-github", "GitHub", "branch", "green"),
+]
+
+
+def _chip(t: dict, label: str, kind: str, accent: str) -> str:
+    col = t[accent]
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{CHIP_W}" height="{CHIP_H}" viewBox="0 0 {CHIP_W} {CHIP_H}" role="img" aria-label="{label}">
+  <title>{label}</title>
+  <defs>
+    <linearGradient id="chipEdge" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="{col}" stop-opacity="0.9"/><stop offset="100%" stop-color="{t['green']}" stop-opacity="0.5"/></linearGradient>
+    <linearGradient id="chipSheen" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="{col}" stop-opacity="0"/><stop offset="50%" stop-color="{col}" stop-opacity="0.20"/><stop offset="100%" stop-color="{col}" stop-opacity="0"/></linearGradient>
+    <clipPath id="chipClip"><rect width="{CHIP_W}" height="{CHIP_H}" rx="{CHIP_H // 2}"/></clipPath>
+  </defs>
+  <style>
+    .sheen{{animation:sheen 5.5s ease-in-out infinite}}
+    .dot{{animation:dot 2.6s ease-in-out infinite}}
+    @keyframes sheen{{0%{{transform:translateX(-{CHIP_W}px)}}55%,100%{{transform:translateX({CHIP_W}px)}}}}
+    @keyframes dot{{0%,100%{{opacity:.35}}50%{{opacity:1}}}}
+    @media (prefers-reduced-motion: reduce){{.sheen,.dot{{animation:none}}.sheen{{opacity:0}}}}
+  </style>
+  <g clip-path="url(#chipClip)">
+    <rect width="{CHIP_W}" height="{CHIP_H}" rx="{CHIP_H // 2}" fill="{t['panel']}" fill-opacity="{t['panel_op']}"/>
+    <rect class="sheen" width="{CHIP_W}" height="{CHIP_H}" fill="url(#chipSheen)"/>
+  </g>
+  <rect x="1" y="1" width="{CHIP_W - 2}" height="{CHIP_H - 2}" rx="{CHIP_H // 2 - 1}" fill="none" stroke="url(#chipEdge)" stroke-width="1.5"/>
+  <g transform="translate(34,{CHIP_H / 2})">{_glyph(kind, col)}</g>
+  <text x="60" y="{CHIP_H / 2 + 6}" font-family="{SANS}" font-size="17" font-weight="700" fill="{t['head']}">{label}</text>
+  <circle class="dot" cx="{CHIP_W - 26}" cy="{CHIP_H / 2}" r="3.6" fill="{col}"/>
+</svg>
+"""
+
+
+# ------------------------------------------------------- two domains, one craft
+
+# Answers the "don't box me into one lane" problem visually: embedded traffic and
+# agent traffic run in from opposite sides and meet at the same shield, because
+# the discipline underneath them is the same.
+
+DOM_W, DOM_H = 900, 286
+DOM_CX = DOM_W // 2
+
+
+def domains(t: dict) -> str:
+    p = []
+    add = p.append
+    mid = 132
+
+    add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{DOM_W}" height="{DOM_H}" '
+        f'viewBox="0 0 {DOM_W} {DOM_H}" role="img" '
+        f'aria-label="Automotive and embedded work on one side, AI agent and software work on the '
+        f'other, both validated by the same discipline.">')
+    add('  <title>Two domains, one discipline</title>')
+    add('  <defs>')
+    add(f'    <linearGradient id="dmBg" x1="0%" y1="0%" x2="100%" y2="100%">'
+        f'<stop offset="0%" stop-color="{t["bg0"]}"/><stop offset="50%" stop-color="{t["bg1"]}"/>'
+        f'<stop offset="100%" stop-color="{t["bg2"]}"/></linearGradient>')
+    add(f'    <linearGradient id="dmEdge" x1="0%" y1="0%" x2="100%" y2="100%">'
+        f'<stop offset="0%" stop-color="{t["amber"]}" stop-opacity="0.75"/>'
+        f'<stop offset="50%" stop-color="{t["cyan"]}" stop-opacity="0.5"/>'
+        f'<stop offset="100%" stop-color="{t["blue"]}" stop-opacity="0.75"/></linearGradient>')
+    add(f'    <linearGradient id="dmLaneL" x1="0%" y1="0%" x2="100%" y2="0%">'
+        f'<stop offset="0%" stop-color="{t["amber"]}" stop-opacity="0"/>'
+        f'<stop offset="100%" stop-color="{t["amber"]}" stop-opacity="0.55"/></linearGradient>')
+    add(f'    <linearGradient id="dmLaneR" x1="0%" y1="0%" x2="100%" y2="0%">'
+        f'<stop offset="0%" stop-color="{t["blue"]}" stop-opacity="0.55"/>'
+        f'<stop offset="100%" stop-color="{t["blue"]}" stop-opacity="0"/></linearGradient>')
+    add(f'    <radialGradient id="dmHalo" cx="50%" cy="50%" r="50%">'
+        f'<stop offset="0%" stop-color="{t["cyan"]}" stop-opacity="0.4"/>'
+        f'<stop offset="100%" stop-color="{t["cyan"]}" stop-opacity="0"/></radialGradient>')
+    add(f'    <pattern id="dmGrid" width="36" height="36" patternUnits="userSpaceOnUse">'
+        f'<path d="M36 0H0v36" fill="none" stroke="{t["grid"]}" stroke-opacity="{t["grid_op"]}" '
+        f'stroke-width="1"/></pattern>')
+    add(f'    <clipPath id="dmCard"><rect width="{DOM_W}" height="{DOM_H}" rx="18"/></clipPath>')
+    add('  </defs>')
+
+    add('  <style>')
+    add('    .pkt{animation:runR 3.6s linear infinite}')
+    add('    .tok{animation:runL 3.6s linear infinite}')
+    add('    .pulse{animation:pulse 3.6s ease-in-out infinite}')
+    add('    .fade{animation:fadeIn .7s ease-out backwards}')
+    add(f'    @keyframes runR{{0%{{transform:translateX(0);opacity:0}}12%{{opacity:1}}'
+        f'82%{{opacity:1}}100%{{transform:translateX(268px);opacity:0}}}}')
+    add(f'    @keyframes runL{{0%{{transform:translateX(0);opacity:0}}12%{{opacity:1}}'
+        f'82%{{opacity:1}}100%{{transform:translateX(-268px);opacity:0}}}}')
+    add('    @keyframes pulse{0%,100%{opacity:.30}46%{opacity:.95}}')
+    add('    @keyframes fadeIn{from{opacity:0}}')
+    add('    @media (prefers-reduced-motion: reduce){')
+    add('      .pkt,.tok,.pulse,.fade{animation:none}.pkt,.tok{opacity:.85}')
+    add('    }')
+    add('  </style>')
+
+    add('  <g clip-path="url(#dmCard)">')
+    add(f'    <rect width="{DOM_W}" height="{DOM_H}" fill="url(#dmBg)"/>')
+    add(f'    <rect width="{DOM_W}" height="{DOM_H}" fill="url(#dmGrid)"/>')
+
+    # lane rails
+    add(f'    <rect x="86" y="{mid - 1}" width="286" height="2" fill="url(#dmLaneL)"/>')
+    add(f'    <rect x="{DOM_W - 372}" y="{mid - 1}" width="286" height="2" fill="url(#dmLaneR)"/>')
+
+    # travelling payloads
+    for i in range(5):
+        d = round(i * 0.72, 2)
+        add(f'    <g class="pkt" style="animation-delay:{d}s">'
+            f'<rect x="86" y="{mid - 5}" width="16" height="10" rx="2.5" fill="{t["amber"]}"/></g>')
+        add(f'    <g class="tok" style="animation-delay:{round(d + 0.36, 2)}s">'
+            f'<circle cx="{DOM_W - 86}" cy="{mid}" r="5" fill="{t["blue"]}"/></g>')
+
+    # left domain — embedded
+    add('    <g class="fade" style="animation-delay:.1s">')
+    add(f'      <rect x="30" y="{mid - 34}" width="58" height="68" rx="11" fill="{t["panel"]}" '
+        f'fill-opacity="{t["panel_op"]}" stroke="{t["amber"]}" stroke-opacity="0.6" stroke-width="1.4"/>')
+    add(f'      <rect x="46" y="{mid - 16}" width="26" height="32" rx="4" fill="none" '
+        f'stroke="{t["amber"]}" stroke-width="1.8"/>')
+    for dy in (-9, -1, 7):
+        add(f'      <path d="M38 {mid + dy}h8M72 {mid + dy}h8" stroke="{t["amber"]}" '
+            f'stroke-width="1.6" stroke-linecap="round"/>')
+    add(f'      <text x="59" y="{mid - 48}" text-anchor="middle" font-family="{MONO}" font-size="12" '
+        f'letter-spacing="1.2" fill="{t["amber"]}">ECU</text>')
+    add('    </g>')
+    add(f'    <text x="30" y="{mid + 74}" font-family="{SANS}" font-size="17" font-weight="700" '
+        f'fill="{t["head"]}">Automotive &amp; Embedded</text>')
+    add(f'    <text x="30" y="{mid + 96}" font-family="{MONO}" font-size="13" fill="{t["dim"]}">'
+        f'CAN · UDS · secure boot · TPM</text>')
+
+    # right domain — agents
+    add('    <g class="fade" style="animation-delay:.2s">')
+    add(f'      <rect x="{DOM_W - 88}" y="{mid - 34}" width="58" height="68" rx="11" '
+        f'fill="{t["panel"]}" fill-opacity="{t["panel_op"]}" stroke="{t["blue"]}" '
+        f'stroke-opacity="0.6" stroke-width="1.4"/>')
+    ax = DOM_W - 59
+    add(f'      <circle cx="{ax}" cy="{mid - 10}" r="5.5" fill="none" stroke="{t["blue"]}" stroke-width="1.8"/>')
+    add(f'      <circle cx="{ax - 11}" cy="{mid + 11}" r="4.5" fill="none" stroke="{t["blue"]}" stroke-width="1.8"/>')
+    add(f'      <circle cx="{ax + 11}" cy="{mid + 11}" r="4.5" fill="none" stroke="{t["blue"]}" stroke-width="1.8"/>')
+    add(f'      <path d="M{ax - 3.5} {mid - 5.5} {ax - 8} {mid + 6.5}M{ax + 3.5} {mid - 5.5} '
+        f'{ax + 8} {mid + 6.5}" stroke="{t["blue"]}" stroke-width="1.6" stroke-linecap="round"/>')
+    add(f'      <text x="{ax}" y="{mid - 48}" text-anchor="middle" font-family="{MONO}" font-size="12" '
+        f'letter-spacing="1.2" fill="{t["blue"]}">AGENT</text>')
+    add('    </g>')
+    add(f'    <text x="{DOM_W - 30}" y="{mid + 74}" text-anchor="end" font-family="{SANS}" '
+        f'font-size="17" font-weight="700" fill="{t["head"]}">AI Agents &amp; Software</text>')
+    add(f'    <text x="{DOM_W - 30}" y="{mid + 96}" text-anchor="end" font-family="{MONO}" '
+        f'font-size="13" fill="{t["dim"]}">guardrails · audit trails · approvals</text>')
+
+    # the shared gate
+    add(f'    <circle cx="{DOM_CX}" cy="{mid}" r="74" fill="url(#dmHalo)"/>')
+    hx = (f"M{DOM_CX} {mid - 52} L{DOM_CX + 45} {mid - 26} L{DOM_CX + 45} {mid + 26} "
+          f"L{DOM_CX} {mid + 52} L{DOM_CX - 45} {mid + 26} L{DOM_CX - 45} {mid - 26} Z")
+    add(f'    <path d="{hx}" fill="{t["panel"]}" fill-opacity="{t["panel_op"]}" '
+        f'stroke="url(#dmEdge)" stroke-width="1.8"/>')
+    add(f'    <path class="pulse" d="{hx}" fill="none" stroke="{t["cyan"]}" stroke-width="7" '
+        f'stroke-opacity="0.30"/>')
+    add(f'    <path d="M{DOM_CX - 16} {mid + 1} l11 11 l21 -22" fill="none" stroke="{t["green"]}" '
+        f'stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>')
+    add(f'    <text x="{DOM_CX}" y="{mid + 74}" text-anchor="middle" font-family="{MONO}" '
+        f'font-size="12" letter-spacing="2.6" fill="{t["cyan"]}">VERIFY BEFORE TRUST</text>')
+
+    add(f'    <line x1="30" y1="{DOM_H - 52}" x2="{DOM_W - 30}" y2="{DOM_H - 52}" '
+        f'stroke="{t["stroke"]}" stroke-width="1"/>')
+    add(f'    <text x="{DOM_CX}" y="{DOM_H - 24}" text-anchor="middle" font-family="{SANS}" '
+        f'font-size="15" fill="{t["text"]}">Two domains, one discipline — the threat model changes, '
+        f'the rigour does not.</text>')
+    add('  </g>')
+    add(f'  <rect x="1" y="1" width="{DOM_W - 2}" height="{DOM_H - 2}" rx="17" fill="none" '
+        f'stroke="url(#dmEdge)" stroke-width="1.4"/>')
+    add('</svg>')
+    return "\n".join(p) + "\n"
+
+
+ASSETS = {"hero": hero, "hero-compact": hero_compact, "credential": credential,
+          "divider": divider, "domains": domains}
+for _stem, _label, _kind, _accent in CHIPS:
+    ASSETS[_stem] = (lambda lb, kd, ac: lambda t: _chip(t, lb, kd, ac))(_label, _kind, _accent)
 
 
 def main() -> None:

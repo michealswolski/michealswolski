@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="236" height="52" viewBox="0 0 236 52" role="img" aria-label="GitHub">
+  <title>GitHub</title>
+  <defs>
+    <linearGradient id="chipEdge" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#047857" stop-opacity="0.9"/><stop offset="100%" stop-color="#047857" stop-opacity="0.5"/></linearGradient>
+    <linearGradient id="chipSheen" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#047857" stop-opacity="0"/><stop offset="50%" stop-color="#047857" stop-opacity="0.20"/><stop offset="100%" stop-color="#047857" stop-opacity="0"/></linearGradient>
+    <clipPath id="chipClip"><rect width="236" height="52" rx="26"/></clipPath>
+  </defs>
+  <style>
+    .sheen{animation:sheen 5.5s ease-in-out infinite}
+    .dot{animation:dot 2.6s ease-in-out infinite}
+    @keyframes sheen{0%{transform:translateX(-236px)}55%,100%{transform:translateX(236px)}}
+    @keyframes dot{0%,100%{opacity:.35}50%{opacity:1}}
+    @media (prefers-reduced-motion: reduce){.sheen,.dot{animation:none}.sheen{opacity:0}}
+  </style>
+  <g clip-path="url(#chipClip)">
+    <rect width="236" height="52" rx="26" fill="#FFFFFF" fill-opacity="0.82"/>
+    <rect class="sheen" width="236" height="52" fill="url(#chipSheen)"/>
+  </g>
+  <rect x="1" y="1" width="234" height="50" rx="25" fill="none" stroke="url(#chipEdge)" stroke-width="1.5"/>
+  <g transform="translate(34,26.0)"><g fill="none" stroke="#047857" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="-6" cy="-6.5" r="2.8"/><circle cx="-6" cy="7" r="2.8"/><circle cx="7" cy="-6.5" r="2.8"/><path d="M-6 -3.7v7.9M-3.2 -6.5h7.4M7 -3.7c0 5-5 4.2-9.4 6.6"/></g></g>
+  <text x="60" y="32.0" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="17" font-weight="700" fill="#0F172A">GitHub</text>
+  <circle class="dot" cx="210" cy="26.0" r="3.6" fill="#047857"/>
+</svg>

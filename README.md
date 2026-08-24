@@ -10,9 +10,9 @@
 
 <br/>
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-michealswolski.github.io-0A1526?style=for-the-badge&logo=googlechrome&logoColor=22D3EE&labelColor=0A1526)](https://michealswolski.github.io)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Micheal_Wolski-0A1526?style=for-the-badge&logo=linkedin&logoColor=3B82F6&labelColor=0A1526)](https://www.linkedin.com/in/michealwolski)
-[![GitHub](https://img.shields.io/badge/GitHub-michealswolski-0A1526?style=for-the-badge&logo=github&logoColor=34D399&labelColor=0A1526)](https://github.com/michealswolski)
+<a href="https://michealswolski.github.io"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/connect-portfolio.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/connect-portfolio-light.svg"><img src="./assets/connect-portfolio.svg" width="180" alt="Portfolio" /></picture></a>
+<a href="https://www.linkedin.com/in/michealwolski"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/connect-linkedin.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/connect-linkedin-light.svg"><img src="./assets/connect-linkedin.svg" width="180" alt="LinkedIn" /></picture></a>
+<a href="https://github.com/michealswolski"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/connect-github.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/connect-github-light.svg"><img src="./assets/connect-github.svg" width="180" alt="GitHub" /></picture></a>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/divider.svg">
@@ -342,11 +342,19 @@ Hands-on builds behind the badges above — each one is a working lab, not a wri
   <img src="./assets/divider.svg" width="100%" alt="" />
 </picture>
 
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/domains.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/domains-light.svg">
+  <img src="./assets/domains.svg" width="96%" alt="Automotive and embedded work on one side, AI agent and software work on the other, both validated by the same discipline" />
+</picture>
+
+<br/><br/>
+
 ## Let's Connect
 
-<a href="https://michealswolski.github.io"><img src="https://img.shields.io/badge/Portfolio-0A1526?style=for-the-badge&logo=googlechrome&logoColor=22D3EE" alt="Portfolio" /></a>
-<a href="https://www.linkedin.com/in/michealwolski"><img src="https://img.shields.io/badge/LinkedIn-0A1526?style=for-the-badge&logo=linkedin&logoColor=3B82F6" alt="LinkedIn" /></a>
-<a href="https://github.com/michealswolski"><img src="https://img.shields.io/badge/GitHub-0A1526?style=for-the-badge&logo=github&logoColor=34D399" alt="GitHub" /></a>
+<a href="https://michealswolski.github.io"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/connect-portfolio.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/connect-portfolio-light.svg"><img src="./assets/connect-portfolio.svg" width="180" alt="Portfolio" /></picture></a>
+<a href="https://www.linkedin.com/in/michealwolski"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/connect-linkedin.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/connect-linkedin-light.svg"><img src="./assets/connect-linkedin.svg" width="180" alt="LinkedIn" /></picture></a>
+<a href="https://github.com/michealswolski"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/connect-github.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/connect-github-light.svg"><img src="./assets/connect-github.svg" width="180" alt="GitHub" /></picture></a>
 
 <br/><br/>
 
