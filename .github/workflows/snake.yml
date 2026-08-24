@@ -6,15 +6,59 @@ on:
     - cron: "17 0 * * *"
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 # Only one run at a time; a queued run supersedes an older one.
 concurrency:
-  group: snake
+  group: snake-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
-  build:
+  # Runs on pull requests too, and publishes nothing. The README points at
+  # generated cards on the output branch, so a bug in the generator would only
+  # surface after merge — as the broken images this whole setup exists to fix.
+  # This exercises both generators before that can happen.
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Render the stat cards from fixture data
+        run: python3 tools/build_stats.py /tmp/cards --fixture
+
+      - name: Regenerate the committed assets
+        run: python3 tools/build_assets.py assets
+
+      - name: Every generated SVG must be well-formed
+        run: |
+          python3 - <<'PY'
+          import glob, sys, xml.dom.minidom
+          files = sorted(glob.glob('/tmp/cards/*.svg') + glob.glob('assets/*.svg'))
+          assert files, 'no SVGs were generated'
+          for path in files:
+              xml.dom.minidom.parse(path)
+          print(f'{len(files)} SVGs parsed')
+          PY
+
+      # If this fails, a committed SVG was hand-edited and the generator is no
+      # longer the source of truth for it.
+      - name: Committed assets must match the generator
+        run: git diff --exit-code -- assets/
+
+      - name: README must not reference third-party widget hosts
+        run: |
+          if grep -nE 'vercel\.app|demolab\.com' README.md; then
+            echo "::error::README references a third-party widget host again"
+            exit 1
+          fi
+          echo "no third-party widget hosts in README"
+
+  publish:
+    # Never on pull requests: forks can't hold the write permission, and a PR
+    # has no business rewriting the output branch.
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     permissions:
       contents: write
