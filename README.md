@@ -5,7 +5,7 @@
   <source media="(max-width: 700px)" srcset="./assets/hero-compact-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/hero.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg">
-  <img src="./assets/hero.svg" width="100%" alt="Micheal Wolski — Cybersecurity Engineer. Automotive and embedded security, AI agent security, full-stack development." />
+  <img src="./assets/hero.svg" width="100%" alt="Micheal Wolski — Automotive and Product Cybersecurity. Embedded and vehicle security, AI agent security, security automation." />
 </picture>
 
 <br/>
@@ -29,7 +29,7 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/credential.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/credential-light.svg">
-  <img src="./assets/credential.svg" width="240" alt="Security credential badge — Micheal Wolski, Cybersecurity Engineer" />
+  <img src="./assets/credential.svg" width="240" alt="Security credential badge — Micheal Wolski, automotive and product cybersecurity" />
 </picture>
 
 </td>
@@ -37,9 +37,9 @@
 
 ### About
 
-Cybersecurity engineer who ships. I build systems where the security controls are part of the product, not a document filed next to it — firmware trust chains that hold up on a bench, detections that fire on real traffic, and governance layers that actually block a bad agent call.
+Automotive and product cybersecurity engineer who ships. I build systems where the security controls are part of the product, not a document filed next to it — firmware trust chains that hold up on a bench, detections that fire on real traffic, and governance layers that actually block a bad agent call.
 
-- 🛡️ **Focus:** automotive & embedded security · AI agent security · detection engineering · full-stack
+- 🛡️ **Focus:** embedded & vehicle security · AI agent security · security automation
 - 🚗 **Previously:** Product Cybersecurity Intern at **Bosch Mobility** — automotive product security
 - 🎓 **B.S. Information Assurance & Cyber Defense**, Eastern Michigan University *(Cum Laude)*
 - 🎓 **A.A.S. Computer Information Systems**, Henry Ford College

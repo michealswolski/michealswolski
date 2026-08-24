@@ -55,7 +55,7 @@ THEMES = {
 }
 
 ROLES = [
-    "Cybersecurity Engineer  ·  secure by construction",
+    "Automotive &amp; Product Cybersecurity  ·  secure by construction",
     "Automotive &amp; Embedded  ·  CAN / UDS / secure boot",
     "AI Agent Security  ·  guardrails, audit trails, human approval",
     "Full-Stack &amp; Automation  ·  ship the whole system",
@@ -77,7 +77,10 @@ def _pill_width(label: str) -> float:
 HERO_W, HERO_H = 1280, 440
 EMB_CX, EMB_CY = 1058, 182
 CMD = "./whoami --role engineer --scope full"
-CMD_W = 268.0
+MONO_ADVANCE = 0.6  # every face in the MONO stack is 0.6em per glyph
+CMD_X, CMD_SIZE = 14, 14.5
+CARET_GAP = 5
+CMD_W = len(CMD) * CMD_SIZE * MONO_ADVANCE
 
 
 def hero(t: dict) -> str:
@@ -86,9 +89,9 @@ def hero(t: dict) -> str:
 
     add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{HERO_W}" height="{HERO_H}" '
         f'viewBox="0 0 {HERO_W} {HERO_H}" role="img" '
-        f'aria-label="Micheal Wolski — Cybersecurity Engineer. Automotive and embedded security, '
-        f'AI agent security, full-stack development.">')
-    add('  <title>Micheal Wolski — Cybersecurity Engineer</title>')
+        f'aria-label="Micheal Wolski — Automotive and Product Cybersecurity. Embedded and vehicle '
+        f'security, AI agent security, security automation.">')
+    add('  <title>Micheal Wolski — Automotive &amp; Product Cybersecurity</title>')
 
     # ------------------------------------------------------------------ defs
     add('  <defs>')
@@ -252,9 +255,9 @@ def hero(t: dict) -> str:
     add(f'      <text x="52" y="-3" font-size="12.5" fill="{t["dim"]}">micheal@secops — zsh</text>')
     add(f'      <text x="0" y="34" font-size="14.5" fill="{t["green"]}">$</text>')
     add('      <g class="type">')
-    add(f'        <text x="14" y="34" font-size="14.5" fill="{t["text"]}">{CMD}</text>')
+    add(f'        <text x="{CMD_X}" y="34" font-size="{CMD_SIZE}" fill="{t["text"]}">{CMD}</text>')
     add('      </g>')
-    add(f'      <rect class="caret" x="{CMD_W + 12}" y="21" width="8.5" height="17" '
+    add(f'      <rect class="caret" x="{CMD_X + CMD_W + CARET_GAP:.1f}" y="21" width="8.5" height="17" '
         f'fill="{t["cyan"]}" opacity="0"/>')
     add('    </g>')
 
@@ -346,7 +349,7 @@ CRED_FIELDS = [
     ("STATUS", "ACTIVE"),
     ("REGION", "MI · USA"),
 ]
-CRED_WIDE = ("FOCUS", "AI AGENTS · AUTOMOTIVE · APPSEC")
+CRED_WIDE = ("FOCUS", "AUTOMOTIVE · EMBEDDED · AI AGENTS")
 
 BARCODE = [2, 1, 3, 1, 2, 4, 1, 2, 1, 3, 2, 1, 4, 1, 2, 3, 1, 2, 1, 3, 2, 4, 1, 2, 1, 3, 1, 2]
 
@@ -357,7 +360,7 @@ def credential(t: dict) -> str:
 
     add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{CRED_W}" height="{CRED_H}" '
         f'viewBox="0 0 {CRED_W} {CRED_H}" role="img" '
-        f'aria-label="Security credential badge for Micheal Wolski, Cybersecurity Engineer">')
+        f'aria-label="Security credential badge for Micheal Wolski, automotive and product cybersecurity">')
     add('  <title>Micheal Wolski — security credential</title>')
 
     add('  <defs>')
@@ -467,8 +470,8 @@ def credential(t: dict) -> str:
     add('        <g class="rise" style="animation-delay:.5s">')
     add(f'          <text x="0" y="170" text-anchor="middle" font-family="{SANS}" font-size="17" '
         f'font-weight="800" letter-spacing="0.4" fill="{t["head"]}">MICHEAL WOLSKI</text>')
-    add(f'          <text x="0" y="189" text-anchor="middle" font-family="{MONO}" font-size="9.5" '
-        f'letter-spacing="2.2" fill="{t["cyan"]}">CYBERSECURITY ENGINEER</text>')
+    add(f'          <text x="0" y="189" text-anchor="middle" font-family="{MONO}" font-size="8" '
+        f'letter-spacing="1.5" fill="{t["cyan"]}">AUTOMOTIVE &amp; PRODUCT SECURITY</text>')
     add('        </g>')
     add(f'        <line x1="-86" y1="203" x2="86" y2="203" stroke="{t["stroke"]}" stroke-width="1"/>')
 
@@ -575,9 +578,10 @@ CO_W, CO_H = 720, 620
 CO_CX = 360
 CO_EY = 178
 CO_CMD = "./whoami --scope full"
+CO_CMD_X, CO_CMD_SIZE = 142, 19
 
 CO_ROLES = [
-    "Cybersecurity Engineer",
+    "Automotive &amp; Product Security",
     "AI Agent Security",
     "Automotive &amp; Embedded",
     "Detection &amp; Response",
@@ -596,9 +600,9 @@ def hero_compact(t: dict) -> str:
 
     add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{CO_W}" height="{CO_H}" '
         f'viewBox="0 0 {CO_W} {CO_H}" role="img" '
-        f'aria-label="Micheal Wolski — Cybersecurity Engineer. Automotive and embedded security, '
-        f'AI agent security, full-stack development.">')
-    add('  <title>Micheal Wolski — Cybersecurity Engineer</title>')
+        f'aria-label="Micheal Wolski — Automotive and Product Cybersecurity. Embedded and vehicle '
+        f'security, AI agent security, security automation.">')
+    add('  <title>Micheal Wolski — Automotive &amp; Product Cybersecurity</title>')
 
     add('  <defs>')
     add(f'    <linearGradient id="oBg" x1="0%" y1="0%" x2="100%" y2="100%">'
@@ -692,9 +696,9 @@ def hero_compact(t: dict) -> str:
     add('      <circle cx="100" cy="52" r="5" fill="#28C840"/>')
     add(f'      <text x="124" y="59" font-size="19" fill="{t["green"]}">$</text>')
     add('      <g class="type">')
-    add(f'        <text x="142" y="59" font-size="19" fill="{t["text"]}">{CO_CMD}</text>')
+    add(f'        <text x="{CO_CMD_X}" y="59" font-size="{CO_CMD_SIZE}" fill="{t["text"]}">{CO_CMD}</text>')
     add('      </g>')
-    add(f'      <rect class="caret" x="{142 + 21 * 11.4:.0f}" y="45" width="10" height="19" '
+    add(f'      <rect class="caret" x="{CO_CMD_X + len(CO_CMD) * CO_CMD_SIZE * MONO_ADVANCE + CARET_GAP:.1f}" y="45" width="10" height="19" '
         f'fill="{t["cyan"]}" opacity="0"/>')
     add('    </g>')
 
