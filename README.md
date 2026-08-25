@@ -43,6 +43,7 @@ Cybersecurity engineer who ships, across automotive and software alike. I build 
 - <img src="./assets/icon-work.svg" height="16" alt="" /> **Previously:** Product Cybersecurity Intern at **Bosch Mobility** — automotive product security
 - <img src="./assets/icon-cap.svg" height="16" alt="" /> **B.S. Information Assurance & Cyber Defense**, Eastern Michigan University *(Cum Laude)*
 - <img src="./assets/icon-cap.svg" height="16" alt="" /> **A.A.S. Computer Information Systems**, Henry Ford College
+- <img src="./assets/icon-seal.svg" height="16" alt="" /> **CCNA** (Cisco Networking Academy) and an IT help desk certification — networking and support fundamentals
 - <img src="./assets/icon-flask.svg" height="16" alt="" /> Currently building governance and guardrails for autonomous agents — risk scoring, prompt-injection detection, human-in-the-loop approvals
 - <img src="./assets/icon-pin.svg" height="16" alt="" /> Michigan, USA · open to security engineering roles
 - <img src="./assets/icon-mail.svg" height="16" alt="" /> Reach me through [LinkedIn](https://www.linkedin.com/in/michealwolski) or my [portfolio](https://michealswolski.github.io)
@@ -82,6 +83,26 @@ Cybersecurity engineer who ships, across automotive and software alike. I build 
 </picture>
 
 </div>
+
+</div>
+
+<h2><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/head-certs.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/head-certs-light.svg"><img src="./assets/head-certs.svg" height="48" alt="Certifications" /></picture></h2>
+
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/certs.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/certs-light.svg">
+  <img src="./assets/certs.svg" width="600" alt="CCNA, Cisco Networking Academy — networking. IT Help Desk — IT support and troubleshooting." />
+</picture>
+
+<sub>The networking and support fundamentals under the security work — how the traffic actually moves, and what breaks for the person on the other end of it.</sub>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./assets/divider.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./assets/divider-light.svg">
+  <img src="./assets/divider.svg" width="100%" alt="" />
+</picture>
 
 </div>
 
