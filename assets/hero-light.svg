@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="440" viewBox="0 0 1280 440" role="img" aria-label="Micheal Wolski — Automotive and Product Cybersecurity. Embedded and vehicle security, AI agent security, security automation.">
-  <title>Micheal Wolski — Automotive &amp; Product Cybersecurity</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="440" viewBox="0 0 1280 440" role="img" aria-label="Micheal Wolski — Cybersecurity Engineer. Automotive and product security, AI agent security, detection engineering, full-stack development.">
+  <title>Micheal Wolski — Cybersecurity &amp; Automotive Product Security</title>
   <defs>
     <linearGradient id="hBg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F7FBFE"/><stop offset="52%" stop-color="#EAF3FA"/><stop offset="100%" stop-color="#DDEBF6"/></linearGradient>
     <linearGradient id="hName" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0891B2"/><stop offset="48%" stop-color="#1D4ED8"/><stop offset="100%" stop-color="#047857"/><animate attributeName="x1" values="-40%;60%;-40%" dur="9s" repeatCount="indefinite"/><animate attributeName="x2" values="60%;160%;60%" dur="9s" repeatCount="indefinite"/></linearGradient>
@@ -113,7 +113,7 @@
     </g>
     <rect class="grow" x="56" y="176" width="300" height="4" rx="2" fill="url(#hRule)"/>
     <g transform="translate(58,212)" font-family="'SF Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16.5" fill="#475569">
-      <text class="role" x="0" y="0" opacity="1" style="animation-delay:3.2s"><tspan fill="#0E7490">&gt;</tspan> Automotive &amp; Product Cybersecurity  ·  secure by construction</text>
+      <text class="role" x="0" y="0" opacity="1" style="animation-delay:3.2s"><tspan fill="#0E7490">&gt;</tspan> Cybersecurity Engineer  ·  Automotive &amp; Product Security</text>
       <text class="role" x="0" y="0" opacity="0" style="animation-delay:7.6s"><tspan fill="#0E7490">&gt;</tspan> Automotive &amp; Embedded  ·  CAN / UDS / secure boot</text>
       <text class="role" x="0" y="0" opacity="0" style="animation-delay:12.0s"><tspan fill="#0E7490">&gt;</tspan> AI Agent Security  ·  guardrails, audit trails, human approval</text>
       <text class="role" x="0" y="0" opacity="0" style="animation-delay:16.4s"><tspan fill="#0E7490">&gt;</tspan> Full-Stack &amp; Automation  ·  ship the whole system</text>
