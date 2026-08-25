@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="394" height="64" viewBox="0 0 394 64" role="img" aria-label="Security Labs &amp; Research">
+  <title>Security Labs &amp; Research</title>
+  <defs>
+    <linearGradient id="hdEdge" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#22D3EE" stop-opacity="0.85"/><stop offset="100%" stop-color="#22D3EE" stop-opacity="0.15"/></linearGradient>
+    <linearGradient id="hdSheen" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#22D3EE" stop-opacity="0"/><stop offset="50%" stop-color="#22D3EE" stop-opacity="0.18"/><stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/></linearGradient>
+    <clipPath id="hdClip"><rect width="394" height="64" rx="14"/></clipPath>
+  </defs>
+  <style>
+    .sheen{animation:sheen 6.5s ease-in-out infinite}
+    .dot{animation:dot 3s ease-in-out infinite}
+    @keyframes sheen{0%{transform:translateX(-394px)}55%,100%{transform:translateX(394px)}}
+    @keyframes dot{0%,100%{opacity:.3}50%{opacity:1}}
+    @media (prefers-reduced-motion: reduce){.sheen,.dot{animation:none}.sheen{opacity:0}}
+  </style>
+  <g clip-path="url(#hdClip)">
+    <rect width="394" height="64" fill="#0B1526" fill-opacity="0.72"/>
+    <rect class="sheen" width="394" height="64" fill="url(#hdSheen)"/>
+    <rect x="0" y="0" width="5" height="64" fill="#22D3EE"/>
+  </g>
+  <rect x="1" y="1" width="392" height="62" rx="13" fill="none" stroke="url(#hdEdge)" stroke-width="1.4"/>
+  <g transform="translate(34,32.0)"><g fill="none" stroke="#22D3EE" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M-3.4 -9v6.4L-9 6.2a2.4 2.4 0 0 0 2 3.7h14a2.4 2.4 0 0 0 2-3.7L3.4 -2.6V-9"/><path d="M-5.4 -9h10.8M-6.2 3h12.4"/></g></g>
+  <text x="58" y="40.0" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#F8FAFC">Security Labs &amp; Research</text>
+  <circle class="dot" cx="372" cy="32.0" r="3.4" fill="#22D3EE"/>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="306" height="64" viewBox="0 0 306 64" role="img" aria-label="Selected Projects">
+  <title>Selected Projects</title>
+  <defs>
+    <linearGradient id="hdEdge" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3B82F6" stop-opacity="0.85"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0.15"/></linearGradient>
+    <linearGradient id="hdSheen" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3B82F6" stop-opacity="0"/><stop offset="50%" stop-color="#3B82F6" stop-opacity="0.18"/><stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/></linearGradient>
+    <clipPath id="hdClip"><rect width="306" height="64" rx="14"/></clipPath>
+  </defs>
+  <style>
+    .sheen{animation:sheen 6.5s ease-in-out infinite}
+    .dot{animation:dot 3s ease-in-out infinite}
+    @keyframes sheen{0%{transform:translateX(-306px)}55%,100%{transform:translateX(306px)}}
+    @keyframes dot{0%,100%{opacity:.3}50%{opacity:1}}
+    @media (prefers-reduced-motion: reduce){.sheen,.dot{animation:none}.sheen{opacity:0}}
+  </style>
+  <g clip-path="url(#hdClip)">
+    <rect width="306" height="64" fill="#0B1526" fill-opacity="0.72"/>
+    <rect class="sheen" width="306" height="64" fill="url(#hdSheen)"/>
+    <rect x="0" y="0" width="5" height="64" fill="#3B82F6"/>
+  </g>
+  <rect x="1" y="1" width="304" height="62" rx="13" fill="none" stroke="url(#hdEdge)" stroke-width="1.4"/>
+  <g transform="translate(34,32.0)"><g fill="none" stroke="#3B82F6" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M0 -9.5 10 -4 0 1.5 -10 -4Z"/><path d="M-10 1.5 0 7 10 1.5"/></g></g>
+  <text x="58" y="40.0" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#F8FAFC">Selected Projects</text>
+  <circle class="dot" cx="284" cy="32.0" r="3.4" fill="#3B82F6"/>
+</svg>

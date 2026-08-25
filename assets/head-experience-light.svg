@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="331" height="64" viewBox="0 0 331 64" role="img" aria-label="Industry Experience">
+  <title>Industry Experience</title>
+  <defs>
+    <linearGradient id="hdEdge" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#B45309" stop-opacity="0.85"/><stop offset="100%" stop-color="#B45309" stop-opacity="0.15"/></linearGradient>
+    <linearGradient id="hdSheen" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#B45309" stop-opacity="0"/><stop offset="50%" stop-color="#B45309" stop-opacity="0.18"/><stop offset="100%" stop-color="#B45309" stop-opacity="0"/></linearGradient>
+    <clipPath id="hdClip"><rect width="331" height="64" rx="14"/></clipPath>
+  </defs>
+  <style>
+    .sheen{animation:sheen 6.5s ease-in-out infinite}
+    .dot{animation:dot 3s ease-in-out infinite}
+    @keyframes sheen{0%{transform:translateX(-331px)}55%,100%{transform:translateX(331px)}}
+    @keyframes dot{0%,100%{opacity:.3}50%{opacity:1}}
+    @media (prefers-reduced-motion: reduce){.sheen,.dot{animation:none}.sheen{opacity:0}}
+  </style>
+  <g clip-path="url(#hdClip)">
+    <rect width="331" height="64" fill="#FFFFFF" fill-opacity="0.82"/>
+    <rect class="sheen" width="331" height="64" fill="url(#hdSheen)"/>
+    <rect x="0" y="0" width="5" height="64" fill="#B45309"/>
+  </g>
+  <rect x="1" y="1" width="329" height="62" rx="13" fill="none" stroke="url(#hdEdge)" stroke-width="1.4"/>
+  <g transform="translate(34,32.0)"><g fill="none" stroke="#B45309" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="-10" y="-4.5" width="20" height="13.5" rx="2.4"/><path d="M-4.5 -4.5v-2.6a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2v2.6M-10 1.5h20"/></g></g>
+  <text x="58" y="40.0" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#0F172A">Industry Experience</text>
+  <circle class="dot" cx="309" cy="32.0" r="3.4" fill="#B45309"/>
+</svg>
