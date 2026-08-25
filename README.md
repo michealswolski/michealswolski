@@ -165,7 +165,7 @@ Self-hosted AI job-application agent, human-in-the-loop by design — the agent 
 
 <h2><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/head-labs.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/head-labs-light.svg"><img src="./assets/head-labs.svg" height="48" alt="Security Labs & Research" /></picture></h2>
 
-Hands-on builds — each one is a working lab, not a write-up.
+Documented hands-on security labs and research covering detection, vulnerability management, network security, system hardening, and application security. What each repository contains varies — follow the link to see the artifacts behind it.
 
 <table>
 <tr>
