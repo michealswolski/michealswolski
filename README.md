@@ -39,13 +39,13 @@
 
 Cybersecurity engineer who ships, across automotive and software alike. I build systems where the security controls are part of the product, not a document filed next to it — firmware trust chains that hold up on a bench, detections that fire on real traffic, and governance layers that actually block a bad agent call.
 
-- 🛡️ **Focus:** automotive & embedded security · AI agent security · detection engineering · full-stack
-- 🚗 **Previously:** Product Cybersecurity Intern at **Bosch Mobility** — automotive product security
-- 🎓 **B.S. Information Assurance & Cyber Defense**, Eastern Michigan University *(Cum Laude)*
-- 🎓 **A.A.S. Computer Information Systems**, Henry Ford College
-- 🔬 Currently building governance and guardrails for autonomous agents — risk scoring, prompt-injection detection, human-in-the-loop approvals
-- 📍 Michigan, USA · open to security engineering roles
-- 📨 Reach me through [LinkedIn](https://www.linkedin.com/in/michealwolski) or my [portfolio](https://michealswolski.github.io)
+- <img src="./assets/icon-shield.svg" height="16" alt="" /> **Focus:** automotive & embedded security · AI agent security · detection engineering · full-stack
+- <img src="./assets/icon-work.svg" height="16" alt="" /> **Previously:** Product Cybersecurity Intern at **Bosch Mobility** — automotive product security
+- <img src="./assets/icon-cap.svg" height="16" alt="" /> **B.S. Information Assurance & Cyber Defense**, Eastern Michigan University *(Cum Laude)*
+- <img src="./assets/icon-cap.svg" height="16" alt="" /> **A.A.S. Computer Information Systems**, Henry Ford College
+- <img src="./assets/icon-flask.svg" height="16" alt="" /> Currently building governance and guardrails for autonomous agents — risk scoring, prompt-injection detection, human-in-the-loop approvals
+- <img src="./assets/icon-pin.svg" height="16" alt="" /> Michigan, USA · open to security engineering roles
+- <img src="./assets/icon-mail.svg" height="16" alt="" /> Reach me through [LinkedIn](https://www.linkedin.com/in/michealwolski) or my [portfolio](https://michealswolski.github.io)
 
 </td>
 </tr>
@@ -91,7 +91,7 @@ Cybersecurity engineer who ships, across automotive and software alike. I build 
 <tr>
 <td width="50%" valign="top">
 
-### 🛡️ [AI Agent Governance](https://github.com/michealswolski/ai-agent-governance)
+### <img src="./assets/icon-shield.svg" height="20" alt="" /> [AI Agent Governance](https://github.com/michealswolski/ai-agent-governance)
 
 A control plane that sits between an agent and the things it can break. Risk-scores every proposed action, screens for prompt injection, routes anything above threshold to a human, and writes a durable, audit-ready decision history.
 
@@ -100,7 +100,7 @@ A control plane that sits between an agent and the things it can break. Risk-sco
 </td>
 <td width="50%" valign="top">
 
-### 🔎 [AutoJob Intel](https://github.com/michealswolski/auto-job-intel)
+### <img src="./assets/icon-search.svg" height="20" alt="" /> [AutoJob Intel](https://github.com/michealswolski/auto-job-intel)
 
 Job-intelligence platform built around verifiability: every extracted claim links back to the source posting, and matches explain themselves instead of handing you a mystery score.
 
@@ -111,7 +111,7 @@ Job-intelligence platform built around verifiability: every extracted claim link
 <tr>
 <td width="50%" valign="top">
 
-### 🖥️ [Wolski Command Center](https://github.com/michealswolski/wolski-command-center)
+### <img src="./assets/icon-monitor.svg" height="20" alt="" /> [Wolski Command Center](https://github.com/michealswolski/wolski-command-center)
 
 Full-stack Raspberry Pi operations dashboard — live system monitoring, remote SSH access, file management, AI-assisted automation, one-click deployment.
 
@@ -120,7 +120,7 @@ Full-stack Raspberry Pi operations dashboard — live system monitoring, remote 
 </td>
 <td width="50%" valign="top">
 
-### 🧩 [Cross-Divisional Project Database](https://github.com/michealswolski/Project-database)
+### <img src="./assets/icon-blocks.svg" height="20" alt="" /> [Cross-Divisional Project Database](https://github.com/michealswolski/Project-database)
 
 Enterprise Power Platform application for project intake and tracking, backed by SharePoint Online lists with Power BI reporting across divisions.
 
@@ -131,7 +131,7 @@ Enterprise Power Platform application for project intake and tracking, backed by
 <tr>
 <td width="50%" valign="top">
 
-### 📄 [Document Analyzer AI](https://github.com/michealswolski/document-analyzer-ai)
+### <img src="./assets/icon-doc.svg" height="20" alt="" /> [Document Analyzer AI](https://github.com/michealswolski/document-analyzer-ai)
 
 Local-first document analysis — structured extraction, risk flagging, and a human review step. Nothing leaves the machine.
 
@@ -140,7 +140,7 @@ Local-first document analysis — structured extraction, risk flagging, and a hu
 </td>
 <td width="50%" valign="top">
 
-### ⚡ Swoop &nbsp;·&nbsp; <sub>private</sub>
+### <img src="./assets/icon-bolt.svg" height="20" alt="" /> Swoop &nbsp;·&nbsp; <sub>private</sub>
 
 Self-hosted AI job-application agent, human-in-the-loop by design — the agent drafts and stages, a person approves and sends.
 
@@ -234,7 +234,7 @@ Hands-on builds — each one is a working lab, not a write-up.
 
 <br/>
 
-### 🐍 The snake that eats my contributions
+### <img src="./assets/icon-grid.svg" height="20" alt="" /> The snake that eats my contributions
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/snake-dark.svg">

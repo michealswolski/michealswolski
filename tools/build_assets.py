@@ -1064,6 +1064,60 @@ def _header(t: dict, label: str, kind: str, accent: str) -> str:
 """
 
 
+
+# ------------------------------------------------------------------ inline icons
+
+# Replacements for the emoji in the README. Emoji render differently on every
+# platform and sit oddly against the rest of the art; these are the same line
+# vocabulary as the header chips.
+#
+# Deliberately theme-independent — one file each, no -light twin. Inline images
+# in list items and headings would need a <picture> block per icon to switch on
+# colour scheme, which is a lot of markup for a 16px mark. These use mid-tone
+# accents that hold up on both GitHub themes instead.
+
+ICON_INK = {
+    "cyan": "#0E9BC4",
+    "blue": "#3B82F6",
+    "green": "#10B981",
+    "amber": "#E08A0B",
+}
+
+ICONS = {
+    # about bullets
+    "shield":  ("cyan",  'M0 -9.5 8.5 -6v5.4C8.5 4.2 4.8 8 0 9.6-4.8 8-8.5 4.2-8.5 -0.6V-6Z'),
+    "work":    ("amber", 'M-9.4 -3.6h18.8v11.4h-18.8ZM-4.2 -3.6v-2.6a2 2 0 0 1 2 -2h4.4'
+                         'a2 2 0 0 1 2 2v2.6M-9.4 1.4h18.8'),
+    "cap":     ("blue",  'M0 -7.4 10.4 -3 0 1.4 -10.4 -3ZM-6 -1.2v5.1C-6 6 -3.3 7.4 0 7.4S6 6 6 3.9v-5.1'),
+    "flask":   ("green", 'M-3.2 -8.4v6L-8.4 5.6a2.2 2.2 0 0 0 1.9 3.4h13a2.2 2.2 0 0 0 1.9 -3.4'
+                         'L3.2 -2.4v-6M-5.2 -8.4h10.4M-5.9 2.6h11.8'),
+    "pin":     ("cyan",  'M0 9.4C0 9.4 7 2.9 7 -2.2A7 7 0 0 0 -7 -2.2C-7 2.9 0 9.4 0 9.4Z'),
+    "mail":    ("green", 'M-9.4 -6.2h18.8v12.4h-18.8ZM-9.4 -6.2 0 1.4 9.4 -6.2'),
+    # project cards
+    "search":  ("blue",  'M-1.6 -8.4a6.8 6.8 0 1 1 0 13.6 6.8 6.8 0 0 1 0 -13.6ZM3.4 3.4 9.2 9.2'),
+    "monitor": ("green", 'M-9.6 -7.6h19.2v12.2h-19.2ZM-3.6 4.6v3.6M3.6 4.6v3.6M-6.4 8.2h12.8'),
+    "blocks":  ("blue",  'M-8.6 -8.6h7.2v7.2h-7.2ZM1.4 -8.6h7.2v7.2h-7.2Z'
+                         'M-8.6 1.4h7.2v7.2h-7.2ZM1.4 1.4h7.2v7.2h-7.2Z'),
+    "doc":     ("cyan",  'M-6.8 -9.4h8.2l5.4 5.4v13.4h-13.6ZM1.4 -9.4v5.4h5.4M-3.8 1.4h7.6M-3.8 5.2h7.6'),
+    "bolt":    ("amber", 'M1.8 -9.4 -6.2 1.2h5.6L-2.2 9.4 6.2 -1.6H0.4Z'),
+    # the snake heading
+    "grid":    ("green", 'M-9 -9h5.4v5.4h-5.4ZM-2.7 -9h5.4v5.4h-5.4ZM3.6 -9h5.4v5.4h-5.4Z'
+                         'M-9 -2.7h5.4v5.4h-5.4ZM-2.7 -2.7h5.4v5.4h-5.4ZM3.6 -2.7h5.4v5.4h-5.4Z'
+                         'M-9 3.6h5.4v5.4h-5.4ZM-2.7 3.6h5.4v5.4h-5.4Z'),
+}
+
+
+def icon(name: str) -> str:
+    accent, d = ICONS[name]
+    col = ICON_INK[accent]
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" '
+            f'role="presentation" aria-hidden="true">\n'
+            f'  <g transform="translate(12,12)" fill="none" stroke="{col}" stroke-width="1.9" '
+            f'stroke-linecap="round" stroke-linejoin="round">\n'
+            f'    <path d="{d}"/>\n'
+            f'  </g>\n</svg>\n')
+
+
 ASSETS = {"hero": hero, "hero-compact": hero_compact, "credential": credential,
           "divider": divider, "domains": domains}
 for _stem, _label, _kind, _accent in CHIPS:
@@ -1080,6 +1134,10 @@ def main() -> None:
             path = out / (stem + theme["suffix"] + ".svg")
             path.write_text(fn(theme), encoding="utf-8")
             print("wrote", path)
+    for name in ICONS:
+        path = out / f"icon-{name}.svg"
+        path.write_text(icon(name), encoding="utf-8")
+        print("wrote", path)
 
 
 if __name__ == "__main__":
