@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="281" height="64" viewBox="0 0 281 64" role="img" aria-label="GitHub Activity">
+  <title>GitHub Activity</title>
+  <defs>
+    <linearGradient id="hdEdge" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#34D399" stop-opacity="0.85"/><stop offset="100%" stop-color="#34D399" stop-opacity="0.15"/></linearGradient>
+    <linearGradient id="hdSheen" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#34D399" stop-opacity="0"/><stop offset="50%" stop-color="#34D399" stop-opacity="0.18"/><stop offset="100%" stop-color="#34D399" stop-opacity="0"/></linearGradient>
+    <clipPath id="hdClip"><rect width="281" height="64" rx="14"/></clipPath>
+  </defs>
+  <style>
+    .sheen{animation:sheen 6.5s ease-in-out infinite}
+    .dot{animation:dot 3s ease-in-out infinite}
+    @keyframes sheen{0%{transform:translateX(-281px)}55%,100%{transform:translateX(281px)}}
+    @keyframes dot{0%,100%{opacity:.3}50%{opacity:1}}
+    @media (prefers-reduced-motion: reduce){.sheen,.dot{animation:none}.sheen{opacity:0}}
+  </style>
+  <g clip-path="url(#hdClip)">
+    <rect width="281" height="64" fill="#0B1526" fill-opacity="0.72"/>
+    <rect class="sheen" width="281" height="64" fill="url(#hdSheen)"/>
+    <rect x="0" y="0" width="5" height="64" fill="#34D399"/>
+  </g>
+  <rect x="1" y="1" width="279" height="62" rx="13" fill="none" stroke="url(#hdEdge)" stroke-width="1.4"/>
+  <g transform="translate(34,32.0)"><g fill="none" stroke="#34D399" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M-10 0h5l3 -7 4 14 3 -7h5"/></g></g>
+  <text x="58" y="40.0" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="22" font-weight="700" fill="#F8FAFC">GitHub Activity</text>
+  <circle class="dot" cx="259" cy="32.0" r="3.4" fill="#34D399"/>
+</svg>

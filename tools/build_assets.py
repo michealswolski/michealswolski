@@ -989,10 +989,87 @@ def domains(t: dict) -> str:
     return "\n".join(p) + "\n"
 
 
+
+# ---------------------------------------------------------------- section headers
+
+# Same language as the connect chips — rounded panel, original line glyph, accent
+# bar and a slow sheen — applied to the section headings so the page reads as one
+# designed thing rather than art bolted onto default markdown.
+
+HEAD_H = 64
+_HEAD_ADVANCE = 12.6   # ~0.57em per glyph for 22px semibold sans
+
+
+def _head_glyph(kind: str, colour: str) -> str:
+    st = (f'fill="none" stroke="{colour}" stroke-width="1.9" stroke-linecap="round" '
+          f'stroke-linejoin="round"')
+    if kind == "person":
+        return (f'<g {st}><circle cx="0" cy="-5" r="4.6"/>'
+                f'<path d="M-8.5 9.5c0-4.7 3.8-7.6 8.5-7.6s8.5 2.9 8.5 7.6"/></g>')
+    if kind == "briefcase":
+        return (f'<g {st}><rect x="-10" y="-4.5" width="20" height="13.5" rx="2.4"/>'
+                f'<path d="M-4.5 -4.5v-2.6a2 2 0 0 1 2-2h5a2 2 0 0 1 2 2v2.6M-10 1.5h20"/></g>')
+    if kind == "layers":
+        return (f'<g {st}><path d="M0 -9.5 10 -4 0 1.5 -10 -4Z"/>'
+                f'<path d="M-10 1.5 0 7 10 1.5"/></g>')
+    if kind == "flask":
+        return (f'<g {st}><path d="M-3.4 -9v6.4L-9 6.2a2.4 2.4 0 0 0 2 3.7h14a2.4 2.4 0 0 0 2-3.7'
+                f'L3.4 -2.6V-9"/><path d="M-5.4 -9h10.8M-6.2 3h12.4"/></g>')
+    if kind == "pulse":
+        return (f'<g {st}><path d="M-10 0h5l3 -7 4 14 3 -7h5"/></g>')
+    # network, matching the LinkedIn chip
+    return (f'<g {st}><circle cx="-6.5" cy="-5" r="3"/><circle cx="6.5" cy="-5" r="3"/>'
+            f'<circle cx="0" cy="7" r="3"/><path d="M-3.7 -4.2 8.7 -4.2M-5.2 -2.3 -1.3 4.2'
+            f'M5.2 -2.3 1.3 4.2"/></g>')
+
+
+HEADERS = [
+    ("head-about", "About", "person", "cyan"),
+    ("head-experience", "Industry Experience", "briefcase", "amber"),
+    ("head-projects", "Selected Projects", "layers", "blue"),
+    ("head-labs", "Security Labs &amp; Research", "flask", "cyan"),
+    ("head-activity", "GitHub Activity", "pulse", "green"),
+    ("head-connect", "Let\u2019s Connect", "network", "green"),
+]
+
+
+def _header(t: dict, label: str, kind: str, accent: str) -> str:
+    plain = label.replace("&amp;", "&")
+    w = round(58 + len(plain) * _HEAD_ADVANCE + 34)
+    col = t[accent]
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{HEAD_H}" viewBox="0 0 {w} {HEAD_H}" role="img" aria-label="{label}">
+  <title>{label}</title>
+  <defs>
+    <linearGradient id="hdEdge" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="{col}" stop-opacity="0.85"/><stop offset="100%" stop-color="{col}" stop-opacity="0.15"/></linearGradient>
+    <linearGradient id="hdSheen" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="{col}" stop-opacity="0"/><stop offset="50%" stop-color="{col}" stop-opacity="0.18"/><stop offset="100%" stop-color="{col}" stop-opacity="0"/></linearGradient>
+    <clipPath id="hdClip"><rect width="{w}" height="{HEAD_H}" rx="14"/></clipPath>
+  </defs>
+  <style>
+    .sheen{{animation:sheen 6.5s ease-in-out infinite}}
+    .dot{{animation:dot 3s ease-in-out infinite}}
+    @keyframes sheen{{0%{{transform:translateX(-{w}px)}}55%,100%{{transform:translateX({w}px)}}}}
+    @keyframes dot{{0%,100%{{opacity:.3}}50%{{opacity:1}}}}
+    @media (prefers-reduced-motion: reduce){{.sheen,.dot{{animation:none}}.sheen{{opacity:0}}}}
+  </style>
+  <g clip-path="url(#hdClip)">
+    <rect width="{w}" height="{HEAD_H}" fill="{t['panel']}" fill-opacity="{t['panel_op']}"/>
+    <rect class="sheen" width="{w}" height="{HEAD_H}" fill="url(#hdSheen)"/>
+    <rect x="0" y="0" width="5" height="{HEAD_H}" fill="{col}"/>
+  </g>
+  <rect x="1" y="1" width="{w - 2}" height="{HEAD_H - 2}" rx="13" fill="none" stroke="url(#hdEdge)" stroke-width="1.4"/>
+  <g transform="translate(34,{HEAD_H / 2})">{_head_glyph(kind, col)}</g>
+  <text x="58" y="{HEAD_H / 2 + 8}" font-family="{SANS}" font-size="22" font-weight="700" fill="{t['head']}">{label}</text>
+  <circle class="dot" cx="{w - 22}" cy="{HEAD_H / 2}" r="3.4" fill="{col}"/>
+</svg>
+"""
+
+
 ASSETS = {"hero": hero, "hero-compact": hero_compact, "credential": credential,
           "divider": divider, "domains": domains}
 for _stem, _label, _kind, _accent in CHIPS:
     ASSETS[_stem] = (lambda lb, kd, ac: lambda t: _chip(t, lb, kd, ac))(_label, _kind, _accent)
+for _stem, _label, _kind, _accent in HEADERS:
+    ASSETS[_stem] = (lambda lb, kd, ac: lambda t: _header(t, lb, kd, ac))(_label, _kind, _accent)
 
 
 def main() -> None:

@@ -35,7 +35,7 @@
 </td>
 <td width="68%" valign="middle">
 
-### About
+<h3><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/head-about.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/head-about-light.svg"><img src="./assets/head-about.svg" height="48" alt="About" /></picture></h3>
 
 Cybersecurity engineer who ships, across automotive and software alike. I build systems where the security controls are part of the product, not a document filed next to it — firmware trust chains that hold up on a bench, detections that fire on real traffic, and governance layers that actually block a bad agent call.
 
@@ -59,7 +59,7 @@ Cybersecurity engineer who ships, across automotive and software alike. I build 
   <img src="./assets/divider.svg" width="100%" alt="" />
 </picture>
 
-## Industry Experience
+<h2><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/head-experience.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/head-experience-light.svg"><img src="./assets/head-experience.svg" height="48" alt="Industry Experience" /></picture></h2>
 
 **Product Cybersecurity Intern · Bosch Mobility** &nbsp;·&nbsp; <sub>Product Security / M-TEL · Farmington Hills, MI · 2025–2026</sub>
 
@@ -83,103 +83,9 @@ Cybersecurity engineer who ships, across automotive and software alike. I build 
 
 </div>
 
-## Tech Stack
-
-<sub>Split by depth rather than by category. <b>Hands-on</b> means I have built or broken
-something with it. <b>Working knowledge</b> means I understand it and can discuss it, but the
-proof is coursework, research, or internal work rather than a public repository — listing
-those separately is more useful to you than showing everything at one size.</sub>
-
-### Hands-on
-
-**Languages**
-
-![Python](https://img.shields.io/badge/Python-0A1526?style=for-the-badge&logo=python&logoColor=3B82F6)
-![C](https://img.shields.io/badge/C-0A1526?style=for-the-badge&logo=c&logoColor=3B82F6)
-![C++](https://img.shields.io/badge/C++-0A1526?style=for-the-badge&logo=cplusplus&logoColor=3B82F6)
-![TypeScript](https://img.shields.io/badge/TypeScript-0A1526?style=for-the-badge&logo=typescript&logoColor=3B82F6)
-![JavaScript](https://img.shields.io/badge/JavaScript-0A1526?style=for-the-badge&logo=javascript&logoColor=3B82F6)
-![Swift](https://img.shields.io/badge/Swift-0A1526?style=for-the-badge&logo=swift&logoColor=3B82F6)
-![PowerShell](https://img.shields.io/badge/PowerShell-0A1526?style=for-the-badge&logo=powershell&logoColor=3B82F6)
-![Bash](https://img.shields.io/badge/Bash-0A1526?style=for-the-badge&logo=gnubash&logoColor=3B82F6)
-![SQL](https://img.shields.io/badge/SQL-0A1526?style=for-the-badge&logo=postgresql&logoColor=3B82F6)
-
-**Security & Detection**
-
-![Wireshark](https://img.shields.io/badge/Wireshark-0A1526?style=for-the-badge&logo=wireshark&logoColor=22D3EE)
-![Splunk](https://img.shields.io/badge/Splunk-0A1526?style=for-the-badge&logo=splunk&logoColor=22D3EE)
-![Nmap](https://img.shields.io/badge/Nmap-0A1526?style=for-the-badge)
-![Metasploit](https://img.shields.io/badge/Metasploit-0A1526?style=for-the-badge&logo=metasploit&logoColor=22D3EE)
-![Burp Suite](https://img.shields.io/badge/Burp_Suite-0A1526?style=for-the-badge&logo=burpsuite&logoColor=22D3EE)
-![Nessus](https://img.shields.io/badge/Nessus-0A1526?style=for-the-badge&logo=tenable&logoColor=22D3EE)
-![OpenVAS](https://img.shields.io/badge/OpenVAS-0A1526?style=for-the-badge)
-![pfSense](https://img.shields.io/badge/pfSense-0A1526?style=for-the-badge&logo=pfsense&logoColor=22D3EE)
-![MITRE ATT&CK](https://img.shields.io/badge/MITRE_ATT%26CK-0A1526?style=for-the-badge)
-
-**Automotive & Embedded**
-
-![OBD-II](https://img.shields.io/badge/OBD--II-0A1526?style=for-the-badge)
-![Vehicle ECU Comms](https://img.shields.io/badge/Vehicle_ECU_Comms-0A1526?style=for-the-badge)
-![Raspberry Pi](https://img.shields.io/badge/Raspberry_Pi-0A1526?style=for-the-badge&logo=raspberrypi&logoColor=FBBF24)
-
-**Platform, Web & Automation**
-
-![React](https://img.shields.io/badge/React-0A1526?style=for-the-badge&logo=react&logoColor=34D399)
-![Next.js](https://img.shields.io/badge/Next.js-0A1526?style=for-the-badge&logo=nextdotjs&logoColor=34D399)
-![Node.js](https://img.shields.io/badge/Node.js-0A1526?style=for-the-badge&logo=nodedotjs&logoColor=34D399)
-![FastAPI](https://img.shields.io/badge/FastAPI-0A1526?style=for-the-badge&logo=fastapi&logoColor=34D399)
-![Tauri](https://img.shields.io/badge/Tauri-0A1526?style=for-the-badge&logo=tauri&logoColor=34D399)
-![SQLite](https://img.shields.io/badge/SQLite-0A1526?style=for-the-badge&logo=sqlite&logoColor=34D399)
-![Linux](https://img.shields.io/badge/Linux-0A1526?style=for-the-badge&logo=linux&logoColor=34D399)
-![Git](https://img.shields.io/badge/Git-0A1526?style=for-the-badge&logo=git&logoColor=34D399)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-0A1526?style=for-the-badge&logo=githubactions&logoColor=34D399)
-![Power Platform](https://img.shields.io/badge/Power_Platform-0A1526?style=for-the-badge&logo=powerapps&logoColor=34D399)
-
-### Working knowledge
-
-**Automotive networking & diagnostics**
-
-![CAN Bus](https://img.shields.io/badge/CAN_Bus-0F1F35?style=flat-square)
-![CAN-FD](https://img.shields.io/badge/CAN--FD-0F1F35?style=flat-square)
-![LIN](https://img.shields.io/badge/LIN-0F1F35?style=flat-square)
-![Automotive Ethernet](https://img.shields.io/badge/Automotive_Ethernet-0F1F35?style=flat-square)
-![UDS](https://img.shields.io/badge/UDS-0F1F35?style=flat-square)
-![AUTOSAR SecOC](https://img.shields.io/badge/AUTOSAR_SecOC-0F1F35?style=flat-square)
-
-**Product security lifecycle**
-
-![ISO/SAE 21434](https://img.shields.io/badge/ISO%2FSAE_21434-0F1F35?style=flat-square)
-![TARA](https://img.shields.io/badge/TARA-0F1F35?style=flat-square)
-![Threat Modeling](https://img.shields.io/badge/Threat_Modeling-0F1F35?style=flat-square)
-![UN R155](https://img.shields.io/badge/UN_R155-0F1F35?style=flat-square)
-![UN R156](https://img.shields.io/badge/UN_R156-0F1F35?style=flat-square)
-![V-Model](https://img.shields.io/badge/V--Model-0F1F35?style=flat-square)
-![ASPICE](https://img.shields.io/badge/ASPICE-0F1F35?style=flat-square)
-![MISRA C](https://img.shields.io/badge/MISRA_C-0F1F35?style=flat-square)
-
-**Embedded trust & cryptography**
-
-![Secure Boot](https://img.shields.io/badge/Secure_Boot-0F1F35?style=flat-square)
-![Chain of Trust](https://img.shields.io/badge/Chain_of_Trust-0F1F35?style=flat-square)
-![HSM / Root of Trust](https://img.shields.io/badge/HSM_%2F_Root_of_Trust-0F1F35?style=flat-square)
-![TPM 2.0](https://img.shields.io/badge/TPM_2.0-0F1F35?style=flat-square)
-![Secure Flashing / OTA](https://img.shields.io/badge/Secure_Flashing_%2F_OTA-0F1F35?style=flat-square)
-![Key Management](https://img.shields.io/badge/Key_Management-0F1F35?style=flat-square)
-![PKI](https://img.shields.io/badge/PKI-0F1F35?style=flat-square)
-![AES](https://img.shields.io/badge/AES-0F1F35?style=flat-square)
-![RSA / ECC](https://img.shields.io/badge/RSA_%2F_ECC-0F1F35?style=flat-square)
-![SHA](https://img.shields.io/badge/SHA-0F1F35?style=flat-square)
-![CMAC / HMAC](https://img.shields.io/badge/CMAC_%2F_HMAC-0F1F35?style=flat-square)
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/divider.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/divider-light.svg">
-  <img src="./assets/divider.svg" width="100%" alt="" />
-</picture>
-
 </div>
 
-## Selected Projects
+<h2><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/head-projects.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/head-projects-light.svg"><img src="./assets/head-projects.svg" height="48" alt="Selected Projects" /></picture></h2>
 
 <table>
 <tr>
@@ -257,9 +163,9 @@ Self-hosted AI job-application agent, human-in-the-loop by design — the agent 
 
 </div>
 
-## Security Labs & Research
+<h2><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/head-labs.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/head-labs-light.svg"><img src="./assets/head-labs.svg" height="48" alt="Security Labs & Research" /></picture></h2>
 
-Hands-on builds behind the badges above — each one is a working lab, not a write-up.
+Hands-on builds — each one is a working lab, not a write-up.
 
 <table>
 <tr>
@@ -305,7 +211,7 @@ Hands-on builds behind the badges above — each one is a working lab, not a wri
   <img src="./assets/divider.svg" width="100%" alt="" />
 </picture>
 
-## GitHub Activity
+<h2><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/head-activity.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/head-activity-light.svg"><img src="./assets/head-activity.svg" height="48" alt="GitHub Activity" /></picture></h2>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/michealswolski/michealswolski/output/stats.svg">
@@ -350,7 +256,7 @@ Hands-on builds behind the badges above — each one is a working lab, not a wri
 
 <br/><br/>
 
-## Let's Connect
+<h2><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/head-connect.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/head-connect-light.svg"><img src="./assets/head-connect.svg" height="48" alt="Let’s Connect" /></picture></h2>
 
 <a href="https://michealswolski.github.io"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/connect-portfolio.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/connect-portfolio-light.svg"><img src="./assets/connect-portfolio.svg" width="180" alt="Portfolio" /></picture></a>
 <a href="https://www.linkedin.com/in/michealwolski"><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/connect-linkedin.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/connect-linkedin-light.svg"><img src="./assets/connect-linkedin.svg" width="180" alt="LinkedIn" /></picture></a>
