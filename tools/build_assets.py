@@ -1017,6 +1017,10 @@ def _head_glyph(kind: str, colour: str) -> str:
                 f'L3.4 -2.6V-9"/><path d="M-5.4 -9h10.8M-6.2 3h12.4"/></g>')
     if kind == "pulse":
         return (f'<g {st}><path d="M-10 0h5l3 -7 4 14 3 -7h5"/></g>')
+    if kind == "seal":
+        return (f'<g {st}><circle cx="0" cy="-2.4" r="6.9"/>'
+                f'<path d="M-4.3 3.3 -6.2 10.2 0 7.2 6.2 10.2 4.3 3.3"/>'
+                f'<path d="M-2.7 -2.6 -1 -0.8 2.7 -4.5"/></g>')
     # network, matching the LinkedIn chip
     return (f'<g {st}><circle cx="-6.5" cy="-5" r="3"/><circle cx="6.5" cy="-5" r="3"/>'
             f'<circle cx="0" cy="7" r="3"/><path d="M-3.7 -4.2 8.7 -4.2M-5.2 -2.3 -1.3 4.2'
@@ -1026,6 +1030,7 @@ def _head_glyph(kind: str, colour: str) -> str:
 HEADERS = [
     ("head-about", "About", "person", "cyan"),
     ("head-experience", "Industry Experience", "briefcase", "amber"),
+    ("head-certs", "Certifications", "seal", "amber"),
     ("head-projects", "Selected Projects", "layers", "blue"),
     ("head-labs", "Security Labs &amp; Research", "flask", "cyan"),
     ("head-activity", "GitHub Activity", "pulse", "green"),
@@ -1064,8 +1069,176 @@ def _header(t: dict, label: str, kind: str, accent: str) -> str:
 """
 
 
+
+# ------------------------------------------------------------------ certifications
+
+# A rack of credential tiles, in the same panel / accent-bar / sheen language as
+# the section headings, so it reads as part of the page rather than a badge dump.
+#
+# Driven off CERTS: the geometry, the canvas width and the per-tile gradients all
+# follow the list, so adding or renaming a credential is a one-line edit.
+#
+# Resting state is the finished state. The entry animation only has a `from`
+# keyframe and `animation-fill-mode: backwards`, so the from-values apply during
+# the delay and nowhere else — if animations never run (reduced motion, a still
+# thumbnail, a renderer with no CSS animation) every tile is already in place.
+
+CERT_TILE_W, CERT_TILE_H = 276, 138
+CERT_GAP, CERT_PAD = 24, 12
+
+
+def _cert_face(kind: str, colour: str) -> str:
+    """The mark inside the seal, drawn centred on (0,0)."""
+    st = (f'fill="none" stroke="{colour}" stroke-width="1.7" stroke-linecap="round" '
+          f'stroke-linejoin="round"')
+    if kind == "nodes":
+        return (f'<g {st}><circle cx="-4.3" cy="-3" r="1.8"/><circle cx="4.3" cy="-3" r="1.8"/>'
+                f'<circle cx="0" cy="4.5" r="1.8"/>'
+                f'<path d="M-2.5 -3h5M-3.6 -1.4 -1 2.9M3.6 -1.4 1 2.9"/></g>')
+    if kind == "headset":
+        return (f'<g {st}><path d="M-6 0.6v-1.2a6 6 0 0 1 12 0v1.2"/>'
+                f'<path d="M-6 -0.4h1.5v4.2h-1.5ZM4.5 -0.4h1.5v4.2h-1.5Z"/>'
+                f'<path d="M6 3.8v0.8a1.9 1.9 0 0 1 -1.9 1.9h-2"/></g>')
+    if kind == "route":
+        return (f'<g {st}><path d="M-5.6 -4.2h3.9a2.3 2.3 0 0 1 0 4.6h-4.3a2.3 2.3 0 0 0 0 4.6h3.9"/>'
+                f'<circle cx="-5.6" cy="-4.2" r="1.4"/><circle cx="5.2" cy="5" r="1.4"/>'
+                f'<path d="M0.5 5h3.3"/></g>')
+    return f'<g {st}><path d="M-3.5 0.3 -1 2.9 3.7 -2.3"/></g>'
+
+
+# title, issuer, seal mark, accent key, area tag
+CERTS = [
+    ("CCNA", "Cisco Networking Academy", "route", "blue", "NETWORKING"),
+    ("IT Help Desk", "IT support &amp; troubleshooting", "headset", "green", "IT SUPPORT"),
+]
+
+CERT_W = CERT_PAD * 2 + len(CERTS) * CERT_TILE_W + (len(CERTS) - 1) * CERT_GAP
+CERT_H = CERT_PAD * 2 + CERT_TILE_H
+
+
+def certs(t: dict) -> str:
+    defs, tiles, style = [], [], []
+    for i, (title, issuer, mark, accent, tag) in enumerate(CERTS):
+        col = t[accent]
+        x = CERT_PAD + i * (CERT_TILE_W + CERT_GAP)
+        defs.append(
+            f'    <linearGradient id="cEdge{i}" x1="0%" y1="0%" x2="100%" y2="100%">'
+            f'<stop offset="0%" stop-color="{col}" stop-opacity="0.8"/>'
+            f'<stop offset="100%" stop-color="{col}" stop-opacity="0.14"/></linearGradient>\n'
+            f'    <linearGradient id="cSheen{i}" x1="0%" y1="0%" x2="100%" y2="0%">'
+            f'<stop offset="0%" stop-color="{col}" stop-opacity="0"/>'
+            f'<stop offset="50%" stop-color="{col}" stop-opacity="0.16"/>'
+            f'<stop offset="100%" stop-color="{col}" stop-opacity="0"/></linearGradient>')
+        style.append(f'    .t{i}{{animation-delay:{0.08 + i * 0.14:.2f}s}}'
+                     f'.s{i}{{animation-delay:{i * 1.1:.2f}s}}'
+                     f'.r{i}{{animation-delay:-{i * 2.4:.1f}s}}'
+                     f'.p{i}{{animation-delay:{i * 0.5:.2f}s}}')
+        tiles.append(f"""  <g transform="translate({x},{CERT_PAD})">
+    <g class="tile t{i}">
+      <g clip-path="url(#cTile)">
+        <rect width="{CERT_TILE_W}" height="{CERT_TILE_H}" fill="{t['panel']}" fill-opacity="{t['panel_op']}"/>
+        <rect class="sheen s{i}" width="{CERT_TILE_W}" height="{CERT_TILE_H}" fill="url(#cSheen{i})"/>
+        <rect width="5" height="{CERT_TILE_H}" fill="{col}"/>
+      </g>
+      <rect x="1" y="1" width="{CERT_TILE_W - 2}" height="{CERT_TILE_H - 2}" rx="13" fill="none" stroke="url(#cEdge{i})" stroke-width="1.4"/>
+      <g transform="translate(42,44)">
+        <g class="ring r{i}"><circle r="15.5" fill="none" stroke="{col}" stroke-opacity="0.55" stroke-width="1.3" stroke-dasharray="5 4.5"/></g>
+        <circle r="10.8" fill="{col}" fill-opacity="0.12" stroke="{col}" stroke-opacity="0.45" stroke-width="1.1"/>
+        {_cert_face(mark, col)}
+      </g>
+      <text x="74" y="40" font-family="{SANS}" font-size="17" font-weight="700" fill="{t['head']}">{title}</text>
+      <text x="74" y="60" font-family="{SANS}" font-size="12" fill="{t['dim']}">{issuer}</text>
+      <path d="M22 86H{CERT_TILE_W - 22}" stroke="{t['stroke']}" stroke-width="1"/>
+      <circle class="pip p{i}" cx="30" cy="108" r="3.6" fill="{col}"/>
+      <text x="43" y="112" font-family="{MONO}" font-size="10.5" letter-spacing="1.6" fill="{t['faint']}">{tag}</text>
+    </g>
+  </g>""")
+
+    nl = "\n"
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{CERT_W}" height="{CERT_H}" viewBox="0 0 {CERT_W} {CERT_H}" role="img" aria-label="Certifications">
+  <title>Certifications</title>
+  <defs>
+    <clipPath id="cTile"><rect width="{CERT_TILE_W}" height="{CERT_TILE_H}" rx="14"/></clipPath>
+{nl.join(defs)}
+  </defs>
+  <style>
+    .tile{{animation:cIn .75s cubic-bezier(.2,.7,.3,1) backwards}}
+    .sheen{{animation:cSheen 7s ease-in-out infinite}}
+    .ring{{animation:cSpin 18s linear infinite}}
+    .pip{{animation:cPip 3s ease-in-out infinite}}
+{nl.join(style)}
+    @keyframes cIn{{from{{opacity:0;transform:translateY(14px)}}}}
+    @keyframes cSheen{{0%{{transform:translateX(-{CERT_TILE_W}px)}}55%,100%{{transform:translateX({CERT_TILE_W}px)}}}}
+    @keyframes cSpin{{to{{transform:rotate(360deg)}}}}
+    @keyframes cPip{{0%,100%{{opacity:.35}}50%{{opacity:1}}}}
+    @media (prefers-reduced-motion: reduce){{
+      .tile,.sheen,.ring,.pip{{animation:none}}.sheen{{opacity:0}}
+    }}
+  </style>
+{nl.join(tiles)}
+</svg>
+"""
+
+
+
+# ------------------------------------------------------------------ inline icons
+
+# Replacements for the emoji in the README. Emoji render differently on every
+# platform and sit oddly against the rest of the art; these are the same line
+# vocabulary as the header chips.
+#
+# Deliberately theme-independent — one file each, no -light twin. Inline images
+# in list items and headings would need a <picture> block per icon to switch on
+# colour scheme, which is a lot of markup for a 16px mark. These use mid-tone
+# accents that hold up on both GitHub themes instead.
+
+ICON_INK = {
+    "cyan": "#0E9BC4",
+    "blue": "#3B82F6",
+    "green": "#10B981",
+    "amber": "#E08A0B",
+}
+
+ICONS = {
+    # about bullets
+    "shield":  ("cyan",  'M0 -9.5 8.5 -6v5.4C8.5 4.2 4.8 8 0 9.6-4.8 8-8.5 4.2-8.5 -0.6V-6Z'),
+    "work":    ("amber", 'M-9.4 -3.6h18.8v11.4h-18.8ZM-4.2 -3.6v-2.6a2 2 0 0 1 2 -2h4.4'
+                         'a2 2 0 0 1 2 2v2.6M-9.4 1.4h18.8'),
+    "cap":     ("blue",  'M0 -7.4 10.4 -3 0 1.4 -10.4 -3ZM-6 -1.2v5.1C-6 6 -3.3 7.4 0 7.4S6 6 6 3.9v-5.1'),
+    "flask":   ("green", 'M-3.2 -8.4v6L-8.4 5.6a2.2 2.2 0 0 0 1.9 3.4h13a2.2 2.2 0 0 0 1.9 -3.4'
+                         'L3.2 -2.4v-6M-5.2 -8.4h10.4M-5.9 2.6h11.8'),
+    "pin":     ("cyan",  'M0 9.4C0 9.4 7 2.9 7 -2.2A7 7 0 0 0 -7 -2.2C-7 2.9 0 9.4 0 9.4Z'),
+    "mail":    ("green", 'M-9.4 -6.2h18.8v12.4h-18.8ZM-9.4 -6.2 0 1.4 9.4 -6.2'),
+    # project cards
+    "search":  ("blue",  'M-1.6 -8.4a6.8 6.8 0 1 1 0 13.6 6.8 6.8 0 0 1 0 -13.6ZM3.4 3.4 9.2 9.2'),
+    "monitor": ("green", 'M-9.6 -7.6h19.2v12.2h-19.2ZM-3.6 4.6v3.6M3.6 4.6v3.6M-6.4 8.2h12.8'),
+    "blocks":  ("blue",  'M-8.6 -8.6h7.2v7.2h-7.2ZM1.4 -8.6h7.2v7.2h-7.2Z'
+                         'M-8.6 1.4h7.2v7.2h-7.2ZM1.4 1.4h7.2v7.2h-7.2Z'),
+    "doc":     ("cyan",  'M-6.8 -9.4h8.2l5.4 5.4v13.4h-13.6ZM1.4 -9.4v5.4h5.4M-3.8 1.4h7.6M-3.8 5.2h7.6'),
+    "bolt":    ("amber", 'M1.8 -9.4 -6.2 1.2h5.6L-2.2 9.4 6.2 -1.6H0.4Z'),
+    # certifications
+    "seal":    ("amber", 'M0 -9.6a6.6 6.6 0 1 1 0 13.2 6.6 6.6 0 0 1 0 -13.2Z'
+                         'M-4.1 3.1 -6 9.7 0 6.9 6 9.7 4.1 3.1M-2.6 -3.2 -0.9 -1.4 2.6 -5'),
+    # the snake heading
+    "grid":    ("green", 'M-9 -9h5.4v5.4h-5.4ZM-2.7 -9h5.4v5.4h-5.4ZM3.6 -9h5.4v5.4h-5.4Z'
+                         'M-9 -2.7h5.4v5.4h-5.4ZM-2.7 -2.7h5.4v5.4h-5.4ZM3.6 -2.7h5.4v5.4h-5.4Z'
+                         'M-9 3.6h5.4v5.4h-5.4ZM-2.7 3.6h5.4v5.4h-5.4Z'),
+}
+
+
+def icon(name: str) -> str:
+    accent, d = ICONS[name]
+    col = ICON_INK[accent]
+    return (f'<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" '
+            f'role="presentation" aria-hidden="true">\n'
+            f'  <g transform="translate(12,12)" fill="none" stroke="{col}" stroke-width="1.9" '
+            f'stroke-linecap="round" stroke-linejoin="round">\n'
+            f'    <path d="{d}"/>\n'
+            f'  </g>\n</svg>\n')
+
+
 ASSETS = {"hero": hero, "hero-compact": hero_compact, "credential": credential,
-          "divider": divider, "domains": domains}
+          "divider": divider, "domains": domains, "certs": certs}
 for _stem, _label, _kind, _accent in CHIPS:
     ASSETS[_stem] = (lambda lb, kd, ac: lambda t: _chip(t, lb, kd, ac))(_label, _kind, _accent)
 for _stem, _label, _kind, _accent in HEADERS:
@@ -1080,6 +1253,10 @@ def main() -> None:
             path = out / (stem + theme["suffix"] + ".svg")
             path.write_text(fn(theme), encoding="utf-8")
             print("wrote", path)
+    for name in ICONS:
+        path = out / f"icon-{name}.svg"
+        path.write_text(icon(name), encoding="utf-8")
+        print("wrote", path)
 
 
 if __name__ == "__main__":
