@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="196" viewBox="0 0 440 196" role="img" aria-label="GitHub statistics: 30 public repositories, 9 languages, 1.1M of code, 32 repositories updated in the last year.">
+  <title>GitHub statistics</title>
+  <defs>
+    <linearGradient id="cBg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F7FBFE"/><stop offset="60%" stop-color="#EAF3FA"/><stop offset="100%" stop-color="#DDEBF6"/></linearGradient>
+    <linearGradient id="cEdge" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0E7490" stop-opacity="0.9"/><stop offset="100%" stop-color="#047857" stop-opacity="0.25"/></linearGradient>
+  </defs>
+  <rect width="440" height="196" rx="14" fill="url(#cBg)"/>
+  <rect x="0.5" y="0.5" width="439" height="195" rx="13.5" fill="none" stroke="#CBD5E1"/>
+  <rect x="18" y="0" width="86" height="2" fill="url(#cEdge)"/>
+  <text x="24" y="34" font-family="'SF Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="11" letter-spacing="1.6" fill="#0E7490">GITHUB  STATS</text>
+  <text x="24" y="78" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="29" font-weight="700" fill="#0E7490">30</text>
+  <text x="24" y="97" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#475569">Public repos</text>
+  <text x="232" y="78" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="29" font-weight="700" fill="#047857">9</text>
+  <text x="232" y="97" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#475569">Languages</text>
+  <text x="24" y="138" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="29" font-weight="700" fill="#1D4ED8">1.1M</text>
+  <text x="24" y="157" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#475569">Of code</text>
+  <text x="232" y="138" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="29" font-weight="700" fill="#B45309">32</text>
+  <text x="232" y="157" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#475569">Active this year</text>
+</svg>
