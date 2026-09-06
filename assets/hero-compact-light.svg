@@ -85,7 +85,7 @@
     </g>
     <rect class="grow" x="250" y="332" width="220" height="3.5" rx="1.75" fill="url(#oRule)"/>
     <g font-family="'SF Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="21" fill="#475569">
-      <text class="role" x="360" y="372" text-anchor="middle" opacity="1" style="animation-delay:3.0s"><tspan fill="#0E7490">&gt;</tspan> Cybersecurity · Automotive</text>
+      <text class="role" x="360" y="372" text-anchor="middle" opacity="1" style="animation-delay:3.0s"><tspan fill="#0E7490">&gt;</tspan> Cybersecurity | Automotive Cybersecurity</text>
       <text class="role" x="360" y="372" text-anchor="middle" opacity="0" style="animation-delay:7.4s"><tspan fill="#0E7490">&gt;</tspan> AI Agent Security</text>
       <text class="role" x="360" y="372" text-anchor="middle" opacity="0" style="animation-delay:11.8s"><tspan fill="#0E7490">&gt;</tspan> Automotive &amp; Embedded</text>
       <text class="role" x="360" y="372" text-anchor="middle" opacity="0" style="animation-delay:16.2s"><tspan fill="#0E7490">&gt;</tspan> Detection &amp; Response</text>

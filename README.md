@@ -24,16 +24,16 @@
 
 <table border="0">
 <tr>
-<td width="32%" align="center" valign="middle">
+<td width="36%" align="center" valign="middle">
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/credential.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/credential-light.svg">
-  <img src="./assets/credential.svg" width="240" alt="Security credential badge — Micheal Wolski, cybersecurity and automotive product security" />
+  <img src="./assets/credential.svg" width="300" alt="Security credential badge — Micheal Wolski, cybersecurity and automotive product security" />
 </picture>
 
 </td>
-<td width="68%" valign="middle">
+<td width="64%" valign="middle">
 
 <h3><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/head-about.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/head-about-light.svg"><img src="./assets/head-about.svg" height="48" alt="About" /></picture></h3>
 
@@ -109,6 +109,17 @@ Cybersecurity engineer who ships, across automotive and software alike. I build 
 <h2><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/head-projects.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/head-projects-light.svg"><img src="./assets/head-projects.svg" height="48" alt="Selected Projects" /></picture></h2>
 
 <table>
+<tr>
+<td colspan="2">
+
+### <img src="./assets/icon-car.svg" height="20" alt="" /> [Automotive ECU Cybersecurity Lab](https://github.com/michealswolski/automotive-ecu-cybersecurity-lab-)
+
+One repository, six automotive product-security projects, built to hand real artifacts to each other instead of standing alone — secure boot chain simulation, AUTOSAR SecOC over virtual CAN, an ECU key lifecycle manager, an ISO/SAE 21434 TARA workbench, an in-vehicle network defense lab spanning LIN/CAN-FD/Ethernet, and a firmware fuzzing & static-analysis pipeline. Simulation-first and hardware-honest — each project states out loud which parts model hardware and which don't, and a linter fails the build if a claim outruns what's actually been demonstrated. *(1 of 6 built; the rest are fully specified with build plans.)*
+
+`Python` · `C` · `Automotive Security`
+
+</td>
+</tr>
 <tr>
 <td width="50%" valign="top">
 
@@ -272,7 +283,7 @@ Documented hands-on security labs and research covering detection, vulnerability
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/domains.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/domains-light.svg">
-  <img src="./assets/domains.svg" width="96%" alt="Automotive and embedded work on one side, AI agent and software work on the other, both validated by the same discipline" />
+  <img src="./assets/domains.svg" width="96%" alt="Five vehicle domains — telematics, ADAS, infotainment, body and chassis, and powertrain — each pinging a central verification gateway before anything is trusted" />
 </picture>
 
 <br/><br/>
