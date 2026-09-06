@@ -5,7 +5,7 @@
   <source media="(max-width: 700px)" srcset="./assets/hero-compact-light.svg">
   <source media="(prefers-color-scheme: dark)" srcset="./assets/hero.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/hero-light.svg">
-  <img src="./assets/hero.svg" width="100%" alt="Micheal Wolski — Cybersecurity Engineer. Automotive and product security, AI agent security, detection engineering, full-stack development." />
+  <img src="./assets/hero.svg" width="100%" alt="Micheal Wolski — Cybersecurity | Automotive Cybersecurity. Embedded security, AI agent security, and security automation." />
 </picture>
 
 <br/>
@@ -197,7 +197,7 @@ Self-hosted AI job-application agent, human-in-the-loop by design — the agent 
 
 <h2><picture><source media="(prefers-color-scheme: dark)" srcset="./assets/head-labs.svg"><source media="(prefers-color-scheme: light)" srcset="./assets/head-labs-light.svg"><img src="./assets/head-labs.svg" height="48" alt="Security Labs & Research" /></picture></h2>
 
-Documented hands-on security labs and research covering detection, vulnerability management, network security, system hardening, and application security. What each repository contains varies — follow the link to see the artifacts behind it.
+Documented hands-on security labs and research covering detection, vulnerability management, network and automotive security, system hardening, and application security. What each repository contains varies — follow the link to see the artifacts behind it.
 
 <table>
 <tr>
@@ -222,7 +222,7 @@ Documented hands-on security labs and research covering detection, vulnerability
 </td>
 <td width="33%" valign="top">
 
-**Vuln Mgmt, Network & Embedded**
+**Vuln Mgmt, Network & Automotive**
 
 - [Homelab Vuln Management](https://github.com/michealswolski/homelab-vuln-management) — Nessus scans, CVSS prioritization, pfSense enforcement
 - [OpenVAS Scanning](https://github.com/michealswolski/openvas-scanning) — CVE analysis, risk-prioritized mitigation

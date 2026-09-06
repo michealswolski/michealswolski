@@ -90,9 +90,9 @@ def hero(t: dict) -> str:
 
     add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{HERO_W}" height="{HERO_H}" '
         f'viewBox="0 0 {HERO_W} {HERO_H}" role="img" '
-        f'aria-label="Micheal Wolski — Cybersecurity Engineer. Automotive and product security, '
-        f'AI agent security, detection engineering, full-stack development.">')
-    add('  <title>Micheal Wolski — Cybersecurity &amp; Automotive Product Security</title>')
+        f'aria-label="Micheal Wolski — Cybersecurity | Automotive Cybersecurity. '
+        f'Embedded security, AI agent security, and security automation.">')
+    add('  <title>Micheal Wolski — Cybersecurity | Automotive Cybersecurity</title>')
 
     # ------------------------------------------------------------------ defs
     add('  <defs>')
@@ -601,9 +601,9 @@ def hero_compact(t: dict) -> str:
 
     add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{CO_W}" height="{CO_H}" '
         f'viewBox="0 0 {CO_W} {CO_H}" role="img" '
-        f'aria-label="Micheal Wolski — Cybersecurity Engineer. Automotive and product security, '
-        f'AI agent security, detection engineering, full-stack development.">')
-    add('  <title>Micheal Wolski — Cybersecurity &amp; Automotive Product Security</title>')
+        f'aria-label="Micheal Wolski — Cybersecurity | Automotive Cybersecurity. '
+        f'Embedded security, AI agent security, and security automation.">')
+    add('  <title>Micheal Wolski — Cybersecurity | Automotive Cybersecurity</title>')
 
     add('  <defs>')
     add(f'    <linearGradient id="oBg" x1="0%" y1="0%" x2="100%" y2="100%">'
