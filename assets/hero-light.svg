@@ -113,7 +113,7 @@
     </g>
     <rect class="grow" x="56" y="176" width="300" height="4" rx="2" fill="url(#hRule)"/>
     <g transform="translate(58,212)" font-family="'SF Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="16.5" fill="#475569">
-      <text class="role" x="0" y="0" opacity="1" style="animation-delay:3.2s"><tspan fill="#0E7490">&gt;</tspan> Cybersecurity Engineer  ·  Automotive &amp; Product Security</text>
+      <text class="role" x="0" y="0" opacity="1" style="animation-delay:3.2s"><tspan fill="#0E7490">&gt;</tspan> Cybersecurity  |  Automotive Cybersecurity</text>
       <text class="role" x="0" y="0" opacity="0" style="animation-delay:7.6s"><tspan fill="#0E7490">&gt;</tspan> Automotive &amp; Embedded  ·  CAN / UDS / secure boot</text>
       <text class="role" x="0" y="0" opacity="0" style="animation-delay:12.0s"><tspan fill="#0E7490">&gt;</tspan> AI Agent Security  ·  guardrails, audit trails, human approval</text>
       <text class="role" x="0" y="0" opacity="0" style="animation-delay:16.4s"><tspan fill="#0E7490">&gt;</tspan> Full-Stack &amp; Automation  ·  ship the whole system</text>

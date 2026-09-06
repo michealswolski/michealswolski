@@ -17,6 +17,7 @@ Two rules keep these safe wherever they are rendered:
 Usage: python3 tools/build_assets.py [output_dir]
 """
 
+import math
 import sys
 from pathlib import Path
 
@@ -55,7 +56,7 @@ THEMES = {
 }
 
 ROLES = [
-    "Cybersecurity Engineer  ·  Automotive &amp; Product Security",
+    "Cybersecurity  |  Automotive Cybersecurity",
     "Automotive &amp; Embedded  ·  CAN / UDS / secure boot",
     "AI Agent Security  ·  guardrails, audit trails, human approval",
     "Full-Stack &amp; Automation  ·  ship the whole system",
@@ -452,7 +453,7 @@ def credential(t: dict) -> str:
     add('      <g clip-path="url(#cCardClip)">')
 
     add(f'        <rect x="{-HALF}" y="0" width="{CARD_W}" height="36" fill="{t["cyan"]}" opacity="0.16"/>')
-    add(f'        <text x="0" y="23" text-anchor="middle" font-family="{MONO}" font-size="10" '
+    add(f'        <text x="0" y="23" text-anchor="middle" font-family="{MONO}" font-size="11.5" '
         f'letter-spacing="2.6" fill="{t["cyan_l"]}">SECURITY CREDENTIAL</text>')
     add(f'        <line x1="{-HALF}" y1="36" x2="{HALF}" y2="36" stroke="{t["cyan"]}" '
         f'stroke-opacity="0.35" stroke-width="1"/>')
@@ -468,28 +469,28 @@ def credential(t: dict) -> str:
     add('        </g>')
 
     add('        <g class="rise" style="animation-delay:.5s">')
-    add(f'          <text x="0" y="170" text-anchor="middle" font-family="{SANS}" font-size="17" '
+    add(f'          <text x="0" y="170" text-anchor="middle" font-family="{SANS}" font-size="20" '
         f'font-weight="800" letter-spacing="0.4" fill="{t["head"]}">MICHEAL WOLSKI</text>')
-    add(f'          <text x="0" y="189" text-anchor="middle" font-family="{MONO}" font-size="8.5" '
-        f'letter-spacing="1.6" fill="{t["cyan"]}">CYBERSECURITY · AUTOMOTIVE</text>')
+    add(f'          <text x="0" y="190" text-anchor="middle" font-family="{MONO}" font-size="10" '
+        f'letter-spacing="1.6" fill="{t["cyan"]}">CYBERSECURITY | AUTOMOTIVE</text>')
     add('        </g>')
-    add(f'        <line x1="-86" y1="203" x2="86" y2="203" stroke="{t["stroke"]}" stroke-width="1"/>')
+    add(f'        <line x1="-86" y1="204" x2="86" y2="204" stroke="{t["stroke"]}" stroke-width="1"/>')
 
     for i, (k, v) in enumerate(CRED_FIELDS):
         fx = -96 + (i % 2) * 96
-        fy = 223 + (i // 2) * 31
+        fy = 225 + (i // 2) * 33
         add(f'        <g class="rise" style="animation-delay:{round(0.6 + i * 0.07, 2)}s">')
-        add(f'          <text x="{fx}" y="{fy}" font-family="{MONO}" font-size="7.5" '
+        add(f'          <text x="{fx}" y="{fy}" font-family="{MONO}" font-size="8.5" '
             f'letter-spacing="1.5" fill="{t["faint"]}">{k}</text>')
-        add(f'          <text x="{fx}" y="{fy + 13}" font-family="{MONO}" font-size="9.5" '
+        add(f'          <text x="{fx}" y="{fy + 15}" font-family="{MONO}" font-size="11" '
             f'font-weight="600" fill="{t["text"]}">{v}</text>')
         add('        </g>')
 
     wk, wv = CRED_WIDE
     add('        <g class="rise" style="animation-delay:0.88s">')
-    add(f'          <text x="-96" y="285" font-family="{MONO}" font-size="7.5" letter-spacing="1.5" '
+    add(f'          <text x="-96" y="287" font-family="{MONO}" font-size="8.5" letter-spacing="1.5" '
         f'fill="{t["faint"]}">{wk}</text>')
-    add(f'          <text x="-96" y="298" font-family="{MONO}" font-size="8.6" font-weight="600" '
+    add(f'          <text x="-96" y="302" font-family="{MONO}" font-size="10" font-weight="600" '
         f'fill="{t["text"]}">{wv}</text>')
     add('        </g>')
 
@@ -581,7 +582,7 @@ CO_CMD = "./whoami --scope full"
 CO_CMD_X, CO_CMD_SIZE = 142, 19
 
 CO_ROLES = [
-    "Cybersecurity · Automotive",
+    "Cybersecurity | Automotive Cybersecurity",
     "AI Agent Security",
     "Automotive &amp; Embedded",
     "Detection &amp; Response",
@@ -855,24 +856,53 @@ def _chip(t: dict, label: str, kind: str, accent: str) -> str:
 
 # ------------------------------------------------------- two domains, one craft
 
-# Answers the "don't box me into one lane" problem visually: embedded traffic and
-# agent traffic run in from opposite sides and meet at the same shield, because
-# the discipline underneath them is the same.
+# The closing thesis, made concrete: a car is a network of ECUs, and the same
+# verify-before-trust discipline that gates a CAN frame also gates an AI agent's
+# next action. Five vehicle domains ping a central gateway continuously; nothing
+# reaches it without being checked.
+#
+# Every ping's resting position — no animation running — is the midpoint of its
+# wire: a packet caught mid-transit, which reads correctly as a static image and
+# not just as a frozen start-of-animation frame.
 
-DOM_W, DOM_H = 900, 286
-DOM_CX = DOM_W // 2
+DOM_W, DOM_H = 900, 420
+DOM_CX, DOM_CY = 450, 214
+NODE_RX, NODE_RY = 190, 118
+LABEL_RX, LABEL_RY = 248, 172
+NODE_R = 27
+GATE_HALF_X, GATE_HALF_Y = 45, 52
+
+# title, subtitle, glyph kind, accent key, angle in degrees (0 = east, -90 = north)
+DOM_NODES = [
+    ("Telematics", "cellular · OTA updates", "telematics", "blue", -90),
+    ("ADAS", "camera · radar fusion", "adas", "cyan", -18),
+    ("Infotainment", "SOME/IP · Bluetooth", "infotainment", "green", 54),
+    ("Body &amp; Chassis", "LIN bus · CAN", "body", "amber", 126),
+    ("Powertrain", "CAN-FD · UDS", "powertrain", "cyan", 198),
+]
+
+DOM_GLYPHS = {
+    "telematics": 'M-1.6 7a1.6 1.6 0 1 0 3.2 0a1.6 1.6 0 1 0 -3.2 0 M-4.2 3a5.9 5.9 0 0 1 8.4 0 '
+                  'M-7.6 -0.6a10.4 10.4 0 0 1 15.2 0',
+    "adas": 'M-8 2a8 8 0 0 1 16 0 M-1.8 2a1.8 1.8 0 1 0 3.6 0a1.8 1.8 0 1 0 -3.6 0 M-8 2h-2.4M8 2h2.4',
+    "infotainment": 'M-8 -6h16v10.4h-16ZM-3 7.4h6',
+    "body": 'M-7.4 -8h9.4a5 5 0 0 1 5 5v11h-14.4ZM-7.4 3h14.4M3 -1.2a1.3 1.3 0 1 0 2.6 0'
+            'a1.3 1.3 0 1 0 -2.6 0',
+    "powertrain": 'M-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0M-2.6 0a2.6 2.6 0 1 0 5.2 0'
+                  'a2.6 2.6 0 1 0 -5.2 0M7 0 10 0M3.5 6.06 5 8.66M-3.5 6.06 -5 8.66'
+                  'M-7 0 -10 0M-3.5 -6.06 -5 -8.66M3.5 -6.06 5 -8.66',
+}
 
 
 def domains(t: dict) -> str:
     p = []
     add = p.append
-    mid = 132
 
     add(f'<svg xmlns="http://www.w3.org/2000/svg" width="{DOM_W}" height="{DOM_H}" '
         f'viewBox="0 0 {DOM_W} {DOM_H}" role="img" '
-        f'aria-label="Automotive and embedded work on one side, AI agent and software work on the '
-        f'other, both validated by the same discipline.">')
-    add('  <title>Two domains, one discipline</title>')
+        f'aria-label="Five vehicle domains — telematics, ADAS, infotainment, body and chassis, '
+        f'and powertrain — each pinging a central verification gateway before anything is trusted.">')
+    add('  <title>One gateway, five vehicle domains</title>')
     add('  <defs>')
     add(f'    <linearGradient id="dmBg" x1="0%" y1="0%" x2="100%" y2="100%">'
         f'<stop offset="0%" stop-color="{t["bg0"]}"/><stop offset="50%" stop-color="{t["bg1"]}"/>'
@@ -881,14 +911,8 @@ def domains(t: dict) -> str:
         f'<stop offset="0%" stop-color="{t["amber"]}" stop-opacity="0.75"/>'
         f'<stop offset="50%" stop-color="{t["cyan"]}" stop-opacity="0.5"/>'
         f'<stop offset="100%" stop-color="{t["blue"]}" stop-opacity="0.75"/></linearGradient>')
-    add(f'    <linearGradient id="dmLaneL" x1="0%" y1="0%" x2="100%" y2="0%">'
-        f'<stop offset="0%" stop-color="{t["amber"]}" stop-opacity="0"/>'
-        f'<stop offset="100%" stop-color="{t["amber"]}" stop-opacity="0.55"/></linearGradient>')
-    add(f'    <linearGradient id="dmLaneR" x1="0%" y1="0%" x2="100%" y2="0%">'
-        f'<stop offset="0%" stop-color="{t["blue"]}" stop-opacity="0.55"/>'
-        f'<stop offset="100%" stop-color="{t["blue"]}" stop-opacity="0"/></linearGradient>')
     add(f'    <radialGradient id="dmHalo" cx="50%" cy="50%" r="50%">'
-        f'<stop offset="0%" stop-color="{t["cyan"]}" stop-opacity="0.4"/>'
+        f'<stop offset="0%" stop-color="{t["cyan"]}" stop-opacity="0.38"/>'
         f'<stop offset="100%" stop-color="{t["cyan"]}" stop-opacity="0"/></radialGradient>')
     add(f'    <pattern id="dmGrid" width="36" height="36" patternUnits="userSpaceOnUse">'
         f'<path d="M36 0H0v36" fill="none" stroke="{t["grid"]}" stroke-opacity="{t["grid_op"]}" '
@@ -897,18 +921,19 @@ def domains(t: dict) -> str:
     add('  </defs>')
 
     add('  <style>')
-    add('    .pkt{animation:runR 3.6s linear infinite}')
-    add('    .tok{animation:runL 3.6s linear infinite}')
-    add('    .pulse{animation:pulse 3.6s ease-in-out infinite}')
     add('    .fade{animation:fadeIn .7s ease-out backwards}')
-    add(f'    @keyframes runR{{0%{{transform:translateX(0);opacity:0}}12%{{opacity:1}}'
-        f'82%{{opacity:1}}100%{{transform:translateX(268px);opacity:0}}}}')
-    add(f'    @keyframes runL{{0%{{transform:translateX(0);opacity:0}}12%{{opacity:1}}'
-        f'82%{{opacity:1}}100%{{transform:translateX(-268px);opacity:0}}}}')
+    add('    .ping{animation:ping 3.2s ease-in-out infinite}')
+    add('    .pulse{animation:pulse 3.6s ease-in-out infinite}')
+    add('    @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}}')
+    # Resting position is the midpoint (transform:none at 50%); the keyframe
+    # only ever offsets by half the node-to-gateway vector, so with animation
+    # off the dot sits, motionless, exactly on the wire it belongs to.
+    add('    @keyframes ping{0%{transform:translate(calc(var(--dx) * -1px),calc(var(--dy) * -1px));'
+        'opacity:0}18%{opacity:1}50%{transform:translate(0,0);opacity:1}82%{opacity:1}'
+        '100%{transform:translate(calc(var(--dx) * 1px),calc(var(--dy) * 1px));opacity:0}}')
     add('    @keyframes pulse{0%,100%{opacity:.30}46%{opacity:.95}}')
-    add('    @keyframes fadeIn{from{opacity:0}}')
     add('    @media (prefers-reduced-motion: reduce){')
-    add('      .pkt,.tok,.pulse,.fade{animation:none}.pkt,.tok{opacity:.85}')
+    add('      .fade,.ping,.pulse{animation:none}')
     add('    }')
     add('  </style>')
 
@@ -916,72 +941,61 @@ def domains(t: dict) -> str:
     add(f'    <rect width="{DOM_W}" height="{DOM_H}" fill="url(#dmBg)"/>')
     add(f'    <rect width="{DOM_W}" height="{DOM_H}" fill="url(#dmGrid)"/>')
 
-    # lane rails
-    add(f'    <rect x="86" y="{mid - 1}" width="286" height="2" fill="url(#dmLaneL)"/>')
-    add(f'    <rect x="{DOM_W - 372}" y="{mid - 1}" width="286" height="2" fill="url(#dmLaneR)"/>')
+    nodes = []
+    for title, sub, kind, accent, deg in DOM_NODES:
+        rad = math.radians(deg)
+        nx = DOM_CX + NODE_RX * math.cos(rad)
+        ny = DOM_CY + NODE_RY * math.sin(rad)
+        lx = DOM_CX + LABEL_RX * math.cos(rad)
+        ly = DOM_CY + LABEL_RY * math.sin(rad)
+        nodes.append((title, sub, kind, accent, nx, ny, lx, ly))
 
-    # travelling payloads
-    for i in range(5):
-        d = round(i * 0.72, 2)
-        add(f'    <g class="pkt" style="animation-delay:{d}s">'
-            f'<rect x="86" y="{mid - 5}" width="16" height="10" rx="2.5" fill="{t["amber"]}"/></g>')
-        add(f'    <g class="tok" style="animation-delay:{round(d + 0.36, 2)}s">'
-            f'<circle cx="{DOM_W - 86}" cy="{mid}" r="5" fill="{t["blue"]}"/></g>')
+    # connector wires, under everything
+    for _title, _sub, _kind, accent, nx, ny, _lx, _ly in nodes:
+        add(f'    <line x1="{nx:.1f}" y1="{ny:.1f}" x2="{DOM_CX}" y2="{DOM_CY}" '
+            f'stroke="{t[accent]}" stroke-opacity="0.32" stroke-width="1.6"/>')
 
-    # left domain — embedded
-    add('    <g class="fade" style="animation-delay:.1s">')
-    add(f'      <rect x="30" y="{mid - 34}" width="58" height="68" rx="11" fill="{t["panel"]}" '
-        f'fill-opacity="{t["panel_op"]}" stroke="{t["amber"]}" stroke-opacity="0.6" stroke-width="1.4"/>')
-    add(f'      <rect x="46" y="{mid - 16}" width="26" height="32" rx="4" fill="none" '
-        f'stroke="{t["amber"]}" stroke-width="1.8"/>')
-    for dy in (-9, -1, 7):
-        add(f'      <path d="M38 {mid + dy}h8M72 {mid + dy}h8" stroke="{t["amber"]}" '
-            f'stroke-width="1.6" stroke-linecap="round"/>')
-    add(f'      <text x="59" y="{mid - 48}" text-anchor="middle" font-family="{MONO}" font-size="12" '
-        f'letter-spacing="1.2" fill="{t["amber"]}">ECU</text>')
-    add('    </g>')
-    add(f'    <text x="30" y="{mid + 74}" font-family="{SANS}" font-size="17" font-weight="700" '
-        f'fill="{t["head"]}">Automotive &amp; Embedded</text>')
-    add(f'    <text x="30" y="{mid + 96}" font-family="{MONO}" font-size="13" fill="{t["dim"]}">'
-        f'CAN · UDS · secure boot · TPM</text>')
+    # traveling pings — one per wire, each resting at its own midpoint
+    for i, (_title, _sub, _kind, accent, nx, ny, _lx, _ly) in enumerate(nodes):
+        dx, dy = (DOM_CX - nx) / 2, (DOM_CY - ny) / 2
+        mx, my = nx + dx, ny + dy
+        add(f'    <circle class="ping" cx="{mx:.1f}" cy="{my:.1f}" r="4" fill="{t[accent]}" '
+            f'style="--dx:{dx:.1f};--dy:{dy:.1f};animation-delay:{round(i * 0.58, 2)}s"/>')
 
-    # right domain — agents
-    add('    <g class="fade" style="animation-delay:.2s">')
-    add(f'      <rect x="{DOM_W - 88}" y="{mid - 34}" width="58" height="68" rx="11" '
-        f'fill="{t["panel"]}" fill-opacity="{t["panel_op"]}" stroke="{t["blue"]}" '
-        f'stroke-opacity="0.6" stroke-width="1.4"/>')
-    ax = DOM_W - 59
-    add(f'      <circle cx="{ax}" cy="{mid - 10}" r="5.5" fill="none" stroke="{t["blue"]}" stroke-width="1.8"/>')
-    add(f'      <circle cx="{ax - 11}" cy="{mid + 11}" r="4.5" fill="none" stroke="{t["blue"]}" stroke-width="1.8"/>')
-    add(f'      <circle cx="{ax + 11}" cy="{mid + 11}" r="4.5" fill="none" stroke="{t["blue"]}" stroke-width="1.8"/>')
-    add(f'      <path d="M{ax - 3.5} {mid - 5.5} {ax - 8} {mid + 6.5}M{ax + 3.5} {mid - 5.5} '
-        f'{ax + 8} {mid + 6.5}" stroke="{t["blue"]}" stroke-width="1.6" stroke-linecap="round"/>')
-    add(f'      <text x="{ax}" y="{mid - 48}" text-anchor="middle" font-family="{MONO}" font-size="12" '
-        f'letter-spacing="1.2" fill="{t["blue"]}">AGENT</text>')
-    add('    </g>')
-    add(f'    <text x="{DOM_W - 30}" y="{mid + 74}" text-anchor="end" font-family="{SANS}" '
-        f'font-size="17" font-weight="700" fill="{t["head"]}">AI Agents &amp; Software</text>')
-    add(f'    <text x="{DOM_W - 30}" y="{mid + 96}" text-anchor="end" font-family="{MONO}" '
-        f'font-size="13" fill="{t["dim"]}">guardrails · audit trails · approvals</text>')
+    # the five domain nodes
+    for i, (title, sub, kind, accent, nx, ny, lx, ly) in enumerate(nodes):
+        col = t[accent]
+        add(f'    <g class="fade" style="animation-delay:{round(0.1 + i * 0.08, 2)}s">')
+        add(f'      <circle cx="{nx:.1f}" cy="{ny:.1f}" r="{NODE_R}" fill="{t["panel"]}" '
+            f'fill-opacity="{t["panel_op"]}" stroke="{col}" stroke-opacity="0.7" stroke-width="1.6"/>')
+        add(f'      <g transform="translate({nx:.1f},{ny:.1f})" fill="none" stroke="{col}" '
+            f'stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">')
+        add(f'        <path d="{DOM_GLYPHS[kind]}"/>')
+        add('      </g>')
+        anchor = "middle" if abs(lx - DOM_CX) < 15 else ("end" if lx < DOM_CX else "start")
+        add(f'      <text x="{lx:.1f}" y="{ly:.1f}" text-anchor="{anchor}" font-family="{SANS}" '
+            f'font-size="16" font-weight="700" fill="{t["head"]}">{title}</text>')
+        add(f'      <text x="{lx:.1f}" y="{ly + 17:.1f}" text-anchor="{anchor}" font-family="{MONO}" '
+            f'font-size="11" fill="{t["dim"]}">{sub}</text>')
+        add('    </g>')
 
-    # the shared gate
-    add(f'    <circle cx="{DOM_CX}" cy="{mid}" r="74" fill="url(#dmHalo)"/>')
-    hx = (f"M{DOM_CX} {mid - 52} L{DOM_CX + 45} {mid - 26} L{DOM_CX + 45} {mid + 26} "
-          f"L{DOM_CX} {mid + 52} L{DOM_CX - 45} {mid + 26} L{DOM_CX - 45} {mid - 26} Z")
+    # the gateway — every wire ends here
+    add(f'    <circle cx="{DOM_CX}" cy="{DOM_CY}" r="92" fill="url(#dmHalo)"/>')
+    hx = (f"M{DOM_CX} {DOM_CY - GATE_HALF_Y} L{DOM_CX + GATE_HALF_X} {DOM_CY - 26} "
+          f"L{DOM_CX + GATE_HALF_X} {DOM_CY + 26} L{DOM_CX} {DOM_CY + GATE_HALF_Y} "
+          f"L{DOM_CX - GATE_HALF_X} {DOM_CY + 26} L{DOM_CX - GATE_HALF_X} {DOM_CY - 26} Z")
     add(f'    <path d="{hx}" fill="{t["panel"]}" fill-opacity="{t["panel_op"]}" '
         f'stroke="url(#dmEdge)" stroke-width="1.8"/>')
     add(f'    <path class="pulse" d="{hx}" fill="none" stroke="{t["cyan"]}" stroke-width="7" '
         f'stroke-opacity="0.30"/>')
-    add(f'    <path d="M{DOM_CX - 16} {mid + 1} l11 11 l21 -22" fill="none" stroke="{t["green"]}" '
+    add(f'    <path d="M{DOM_CX - 16} {DOM_CY + 1} l11 11 l21 -22" fill="none" stroke="{t["green"]}" '
         f'stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>')
-    add(f'    <text x="{DOM_CX}" y="{mid + 74}" text-anchor="middle" font-family="{MONO}" '
-        f'font-size="12" letter-spacing="2.6" fill="{t["cyan"]}">VERIFY BEFORE TRUST</text>')
 
-    add(f'    <line x1="30" y1="{DOM_H - 52}" x2="{DOM_W - 30}" y2="{DOM_H - 52}" '
+    add(f'    <line x1="30" y1="{DOM_H - 40}" x2="{DOM_W - 30}" y2="{DOM_H - 40}" '
         f'stroke="{t["stroke"]}" stroke-width="1"/>')
-    add(f'    <text x="{DOM_CX}" y="{DOM_H - 24}" text-anchor="middle" font-family="{SANS}" '
-        f'font-size="15" fill="{t["text"]}">Two domains, one discipline — the threat model changes, '
-        f'the rigour does not.</text>')
+    add(f'    <text x="{DOM_CX}" y="{DOM_H - 16}" text-anchor="middle" font-family="{SANS}" '
+        f'font-size="15" fill="{t["text"]}">One gateway, every domain — automotive network or API, '
+        f'nothing moves until it&#39;s verified.</text>')
     add('  </g>')
     add(f'  <rect x="1" y="1" width="{DOM_W - 2}" height="{DOM_H - 2}" rx="17" fill="none" '
         f'stroke="url(#dmEdge)" stroke-width="1.4"/>')
@@ -1216,6 +1230,10 @@ ICONS = {
                          'M-8.6 1.4h7.2v7.2h-7.2ZM1.4 1.4h7.2v7.2h-7.2Z'),
     "doc":     ("cyan",  'M-6.8 -9.4h8.2l5.4 5.4v13.4h-13.6ZM1.4 -9.4v5.4h5.4M-3.8 1.4h7.6M-3.8 5.2h7.6'),
     "bolt":    ("amber", 'M1.8 -9.4 -6.2 1.2h5.6L-2.2 9.4 6.2 -1.6H0.4Z'),
+    "car":     ("blue",  'M-9.6 2.4 -7.8 -1.8a2 2 0 0 1 1.9 -1.3h1.8M-3.9 -3.1h5.8a2 2 0 0 1 1.9 1.3'
+                         'l1.8 4.2M-9.6 2.4h19.2M-9.6 2.4v2.3h2.9M9.6 2.4v2.3h-2.9'
+                         'M-6.9 4.7a2.1 2.1 0 1 0 4.2 0a2.1 2.1 0 1 0 -4.2 0'
+                         'M2.7 4.7a2.1 2.1 0 1 0 4.2 0a2.1 2.1 0 1 0 -4.2 0'),
     # certifications
     "seal":    ("amber", 'M0 -9.6a6.6 6.6 0 1 1 0 13.2 6.6 6.6 0 0 1 0 -13.2Z'
                          'M-4.1 3.1 -6 9.7 0 6.9 6 9.7 4.1 3.1M-2.6 -3.2 -0.9 -1.4 2.6 -5'),
