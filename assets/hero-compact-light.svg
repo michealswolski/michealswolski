@@ -75,10 +75,9 @@
       </g>
       <path d="M360 138 L394 158 L394 198 L360 218 L326 198 L326 158 Z" fill="#FFFFFF" fill-opacity="0.82" stroke="url(#oEdge)" stroke-width="1.6"/>
       <path class="beat" d="M360 138 L394 158 L394 198 L360 218 L326 198 L326 158 Z" fill="none" stroke="#0E7490" stroke-width="5" stroke-opacity="0.16"/>
-      <path d="M350 173 v-6.5 a10 10 0 0 1 20 0 v6.5" fill="none" stroke="#0891B2" stroke-width="2.2" stroke-linecap="round"/>
-      <rect x="344" y="173" width="32" height="25" rx="5" fill="none" stroke="#0891B2" stroke-width="2.2"/>
-      <circle cx="360" cy="182" r="2.6" fill="#047857"/>
-      <path d="M360 184 v5" stroke="#047857" stroke-width="2.2" stroke-linecap="round"/>
+      <g transform="translate(360,178)" fill="none" stroke="#0891B2" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M-15.8 4.0 -12.9 -3.0a3.3 3.3 0 0 1 3.1 -2.1h3.0M-6.4 -5.1h9.6a3.3 3.3 0 0 1 3.1 2.1l3.0 6.9M-15.8 4.0h31.6M-15.8 4.0v3.8h4.8M15.8 4.0v3.8h-4.8M-11.4 7.8a3.5 3.5 0 1 0 6.9 0a3.5 3.5 0 1 0 -6.9 0M4.5 7.8a3.5 3.5 0 1 0 6.9 0a3.5 3.5 0 1 0 -6.9 0"/>
+      </g>
     </g>
     <g class="wipe">
       <text x="360" y="318" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="50" font-weight="800" letter-spacing="-0.4" fill="url(#oName)" filter="url(#oGlow)">MICHEAL WOLSKI</text>
@@ -95,34 +94,34 @@
       <text x="360" y="423" text-anchor="middle" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" fill="#1E293B">Security that survives contact with production.</text>
     </g>
     <g class="fade" style="animation-delay:3.05s">
-      <rect x="106.0" y="458" width="154.4" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>
-      <circle cx="125.0" cy="476" r="3.6" fill="#0E7490"/>
-      <text x="138.0" y="482" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#1E293B">AI Security</text>
+      <rect x="95.4" y="458" width="153.3" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>
+      <circle cx="114.4" cy="476" r="3.6" fill="#0E7490"/>
+      <text x="127.4" y="482" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#1E293B">AI Security</text>
     </g>
     <g class="fade" style="animation-delay:3.14s">
-      <rect x="272.4" y="458" width="196.0" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>
-      <circle cx="291.4" cy="476" r="3.6" fill="#047857"/>
-      <text x="304.4" y="482" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#1E293B">Threat Modeling</text>
+      <rect x="260.8" y="458" width="200.7" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>
+      <circle cx="279.8" cy="476" r="3.6" fill="#047857"/>
+      <text x="292.8" y="482" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#1E293B">Threat Modeling</text>
     </g>
     <g class="fade" style="animation-delay:3.23s">
-      <rect x="480.4" y="458" width="133.6" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>
-      <circle cx="499.4" cy="476" r="3.6" fill="#1D4ED8"/>
-      <text x="512.4" y="482" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#1E293B">CAN / UDS</text>
+      <rect x="473.4" y="458" width="151.1" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>
+      <circle cx="492.4" cy="476" r="3.6" fill="#1D4ED8"/>
+      <text x="505.4" y="482" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#1E293B">CAN / UDS</text>
     </g>
     <g class="fade" style="animation-delay:3.25s">
-      <rect x="178.8" y="502" width="154.4" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>
-      <circle cx="197.8" cy="520" r="3.6" fill="#0E7490"/>
-      <text x="210.8" y="526" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#1E293B">Secure Boot</text>
+      <rect x="155.6" y="502" width="165.9" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>
+      <circle cx="174.6" cy="520" r="3.6" fill="#0E7490"/>
+      <text x="187.6" y="526" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#1E293B">Secure Boot</text>
     </g>
     <g class="fade" style="animation-delay:3.34s">
-      <rect x="345.2" y="502" width="81.6" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>
-      <circle cx="364.2" cy="520" r="3.6" fill="#047857"/>
-      <text x="377.2" y="526" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#1E293B">SIEM</text>
+      <rect x="333.5" y="502" width="100.5" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>
+      <circle cx="352.5" cy="520" r="3.6" fill="#047857"/>
+      <text x="365.5" y="526" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#1E293B">SIEM</text>
     </g>
     <g class="fade" style="animation-delay:3.43s">
-      <rect x="438.8" y="502" width="102.4" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>
-      <circle cx="457.8" cy="520" r="3.6" fill="#1D4ED8"/>
-      <text x="470.8" y="526" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#1E293B">Python</text>
+      <rect x="446.0" y="502" width="118.4" height="36" rx="18" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>
+      <circle cx="465.0" cy="520" r="3.6" fill="#1D4ED8"/>
+      <text x="478.0" y="526" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="19" font-weight="600" fill="#1E293B">Python</text>
     </g>
     <g class="fade" style="animation-delay:3.4s">
       <rect x="70" y="548" width="580" height="60" rx="13" fill="#FFFFFF" fill-opacity="0.82" stroke="#CBD5E1" stroke-width="1"/>

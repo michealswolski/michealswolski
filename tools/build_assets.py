@@ -67,10 +67,26 @@ PILLS_B = ["SIEM &amp; Detection", "Vulnerability Mgmt", "Python", "TypeScript",
 
 DOT_COLORS = ("cyan", "green", "blue")
 
+# Real widths, not a per-character average: a flat len(label) * advance badly
+# misjudges a proportional font (an "M" and an "i" are not the same width), so
+# some pills ended up snug around their text and others carried 20px of dead
+# air on the right -- a row that reads as unevenly spaced even though nothing
+# actually overflows. These are Canvas measureText() results for the exact
+# labels at the exact weight/size this pill draws them at (600 13px, the SANS
+# stack), so every pill gets the same real breathing room instead of a guess.
+PILL_TEXT_X = 26
+PILL_RIGHT_PAD = 18
+_PILL_TEXT_W = {
+    "Threat Modeling": 100.39, "CAN / UDS": 66.45, "AI Agent Security": 108.35,
+    "Secure Boot": 76.57, "PKI": 21.67, "SIEM & Detection": 107.62,
+    "Vulnerability Mgmt": 115.81, "Python": 44.05, "TypeScript": 66.22, "C / C++": 44.8,
+}
+
 
 def _pill_width(label: str) -> float:
-    """Rough advance width for 13px semibold sans, plus horizontal padding."""
-    return round(len(label.replace("&amp;", "&")) * 7.15 + 30, 1)
+    text = label.replace("&amp;", "&")
+    w = _PILL_TEXT_W.get(text, len(text) * 7.15)  # fallback for a label not yet measured
+    return round(PILL_TEXT_X + w + PILL_RIGHT_PAD, 1)
 
 
 # --------------------------------------------------------------------------- hero
@@ -235,13 +251,18 @@ def hero(t: dict) -> str:
         f'stroke="url(#hEdge)" stroke-width="1.8"/>')
     add(f'      <path class="beat" d="{hx}" fill="none" stroke="{t["cyan"]}" stroke-width="6" '
         f'stroke-opacity="0.16"/>')
-    add(f'      <path d="M{EMB_CX - 14} {EMB_CY - 6} v-9 a14 14 0 0 1 28 0 v9" fill="none" '
-        f'stroke="{t["cyan_l"]}" stroke-width="2.4" stroke-linecap="round"/>')
-    add(f'      <rect x="{EMB_CX - 22}" y="{EMB_CY - 6}" width="44" height="34" rx="7" fill="none" '
-        f'stroke="{t["cyan_l"]}" stroke-width="2.4"/>')
-    add(f'      <circle cx="{EMB_CX}" cy="{EMB_CY + 8}" r="3.4" fill="{t["green"]}"/>')
-    add(f'      <path d="M{EMB_CX} {EMB_CY + 11} v7" stroke="{t["green"]}" stroke-width="2.4" '
-        f'stroke-linecap="round"/>')
+    # Same silhouette as icon-car.svg, scaled up 2.3x to fill the hex the way
+    # the padlock used to -- one glyph vocabulary, not two different car
+    # drawings on the same page.
+    car = ('M-22.1 5.5 -17.9 -4.1a4.6 4.6 0 0 1 4.4 -3.0h4.1'
+           'M-9.0 -7.1h13.3a4.6 4.6 0 0 1 4.4 3.0l4.1 9.7'
+           'M-22.1 5.5h44.2M-22.1 5.5v5.3h6.7M22.1 5.5v5.3h-6.7'
+           'M-15.9 10.8a4.8 4.8 0 1 0 9.7 0a4.8 4.8 0 1 0 -9.7 0'
+           'M6.2 10.8a4.8 4.8 0 1 0 9.7 0a4.8 4.8 0 1 0 -9.7 0')
+    add(f'      <g transform="translate({EMB_CX},{EMB_CY})" fill="none" stroke="{t["cyan_l"]}" '
+        f'stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">')
+    add(f'        <path d="{car}"/>')
+    add('      </g>')
     add(f'      <text x="{EMB_CX}" y="{EMB_CY + 98}" text-anchor="middle" font-family="{MONO}" '
         f'font-size="10.5" letter-spacing="3.4" fill="{t["faint"]}">TRUST · VERIFY · SHIP</text>')
     add('    </g>')
@@ -295,7 +316,7 @@ def hero(t: dict) -> str:
             add(f'      <rect x="{x}" y="{y}" width="{w}" height="30" rx="15" fill="{t["panel"]}" '
                 f'fill-opacity="{t["panel_op"]}" stroke="{t["stroke"]}" stroke-width="1"/>')
             add(f'      <circle cx="{x + 15}" cy="{y + 15}" r="3" fill="{t[DOT_COLORS[i % 3]]}"/>')
-            add(f'      <text x="{x + 26}" y="{y + 20}" font-family="{SANS}" font-size="13" '
+            add(f'      <text x="{x + PILL_TEXT_X}" y="{y + 20}" font-family="{SANS}" font-size="13" '
                 f'font-weight="600" fill="{t["text"]}">{label}</text>')
             add('    </g>')
             x += w + 10
@@ -590,9 +611,21 @@ CO_ROLES = [
 CO_PILLS = [["AI Security", "Threat Modeling", "CAN / UDS"],
             ["Secure Boot", "SIEM", "Python"]]
 
+# Same fix as the desktop hero's PILL_* constants: measured widths for the
+# exact labels at 600 19px, not a flat per-character guess. This row is also
+# centred as a group (x = CO_CX - total / 2), so an inaccurate width doesn't
+# just crowd one pill -- it throws the whole row off-centre.
+CO_PILL_TEXT_X = 32
+CO_PILL_RIGHT_PAD = 22
+_CO_PILL_TEXT_W = {
+    "AI Security": 99.26, "Threat Modeling": 146.72, "CAN / UDS": 97.12,
+    "Secure Boot": 111.91, "SIEM": 46.45, "Python": 64.38,
+}
+
 
 def _co_pill_width(label: str) -> float:
-    return round(len(label) * 10.4 + 40, 1)
+    w = _CO_PILL_TEXT_W.get(label, len(label) * 10.4)  # fallback for a label not yet measured
+    return round(CO_PILL_TEXT_X + w + CO_PILL_RIGHT_PAD, 1)
 
 
 def hero_compact(t: dict) -> str:
@@ -723,13 +756,17 @@ def hero_compact(t: dict) -> str:
         f'stroke="url(#oEdge)" stroke-width="1.6"/>')
     add(f'      <path class="beat" d="{hx}" fill="none" stroke="{t["cyan"]}" stroke-width="5" '
         f'stroke-opacity="0.16"/>')
-    add(f'      <path d="M{CO_CX - 10} {CO_EY - 5} v-6.5 a10 10 0 0 1 20 0 v6.5" fill="none" '
-        f'stroke="{t["cyan_l"]}" stroke-width="2.2" stroke-linecap="round"/>')
-    add(f'      <rect x="{CO_CX - 16}" y="{CO_EY - 5}" width="32" height="25" rx="5" fill="none" '
-        f'stroke="{t["cyan_l"]}" stroke-width="2.2"/>')
-    add(f'      <circle cx="{CO_CX}" cy="{CO_EY + 4}" r="2.6" fill="{t["green"]}"/>')
-    add(f'      <path d="M{CO_CX} {CO_EY + 6} v5" stroke="{t["green"]}" stroke-width="2.2" '
-        f'stroke-linecap="round"/>')
+    # Same silhouette as the desktop hero's emblem and icon-car.svg, scaled to
+    # this smaller hex.
+    co_car = ('M-15.8 4.0 -12.9 -3.0a3.3 3.3 0 0 1 3.1 -2.1h3.0'
+              'M-6.4 -5.1h9.6a3.3 3.3 0 0 1 3.1 2.1l3.0 6.9'
+              'M-15.8 4.0h31.6M-15.8 4.0v3.8h4.8M15.8 4.0v3.8h-4.8'
+              'M-11.4 7.8a3.5 3.5 0 1 0 6.9 0a3.5 3.5 0 1 0 -6.9 0'
+              'M4.5 7.8a3.5 3.5 0 1 0 6.9 0a3.5 3.5 0 1 0 -6.9 0')
+    add(f'      <g transform="translate({CO_CX},{CO_EY})" fill="none" stroke="{t["cyan_l"]}" '
+        f'stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">')
+    add(f'        <path d="{co_car}"/>')
+    add('      </g>')
     add('    </g>')
 
     # ---- name, rule, roles
@@ -767,7 +804,7 @@ def hero_compact(t: dict) -> str:
             add(f'      <rect x="{x:.1f}" y="{y}" width="{w}" height="36" rx="18" fill="{t["panel"]}" '
                 f'fill-opacity="{t["panel_op"]}" stroke="{t["stroke"]}" stroke-width="1"/>')
             add(f'      <circle cx="{x + 19:.1f}" cy="{y + 18}" r="3.6" fill="{t[DOT_COLORS[i % 3]]}"/>')
-            add(f'      <text x="{x + 32:.1f}" y="{y + 24}" font-family="{SANS}" font-size="19" '
+            add(f'      <text x="{x + CO_PILL_TEXT_X:.1f}" y="{y + 24}" font-family="{SANS}" font-size="19" '
                 f'font-weight="600" fill="{t["text"]}">{label}</text>')
             add('    </g>')
             x += w + 12
