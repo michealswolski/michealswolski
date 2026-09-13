@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="224" viewBox="0 0 900 224" role="img" aria-label="Public repositories by security domain: Automotive and Embedded 4, AI Agent Security 4, Detection and SIEM 3, Offensive and Vuln Mgmt 8, Full-Stack and Platform 11.">
+  <title>Where the work sits</title>
+  <defs>
+    <linearGradient id="cBg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#F7FBFE"/><stop offset="60%" stop-color="#EAF3FA"/><stop offset="100%" stop-color="#DDEBF6"/></linearGradient>
+    <linearGradient id="cEdge" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0E7490" stop-opacity="0.9"/><stop offset="100%" stop-color="#047857" stop-opacity="0.25"/></linearGradient>
+  </defs>
+  <rect width="900" height="224" rx="14" fill="url(#cBg)"/>
+  <rect x="0.5" y="0.5" width="899" height="223" rx="13.5" fill="none" stroke="#CBD5E1"/>
+  <rect x="18" y="0" width="86" height="2" fill="url(#cEdge)"/>
+  <text x="26" y="34" font-family="'SF Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="11" letter-spacing="1.6" fill="#0E7490">WHERE  THE  WORK  SITS</text>
+  <text x="874" y="34" text-anchor="end" font-family="'SF Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="10" fill="#64748B">public repositories by domain</text>
+  <text x="26" y="72" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#1E293B">Automotive &amp; Embedded</text>
+  <rect x="262" y="62" width="578" height="11" rx="5.5" fill="#0E7490" opacity="0.14"/>
+  <rect x="262" y="62" width="210.2" height="11" rx="5.5" fill="#0E7490"/>
+  <text x="866" y="72" text-anchor="end" font-family="'SF Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#475569">4</text>
+  <text x="26" y="99" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#1E293B">AI Agent Security</text>
+  <rect x="262" y="89" width="578" height="11" rx="5.5" fill="#047857" opacity="0.14"/>
+  <rect x="262" y="89" width="210.2" height="11" rx="5.5" fill="#047857"/>
+  <text x="866" y="99" text-anchor="end" font-family="'SF Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#475569">4</text>
+  <text x="26" y="126" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#1E293B">Detection &amp; SIEM</text>
+  <rect x="262" y="116" width="578" height="11" rx="5.5" fill="#1D4ED8" opacity="0.14"/>
+  <rect x="262" y="116" width="157.6" height="11" rx="5.5" fill="#1D4ED8"/>
+  <text x="866" y="126" text-anchor="end" font-family="'SF Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#475569">3</text>
+  <text x="26" y="153" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#1E293B">Offensive &amp; Vuln Mgmt</text>
+  <rect x="262" y="143" width="578" height="11" rx="5.5" fill="#B45309" opacity="0.14"/>
+  <rect x="262" y="143" width="420.4" height="11" rx="5.5" fill="#B45309"/>
+  <text x="866" y="153" text-anchor="end" font-family="'SF Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#475569">8</text>
+  <text x="26" y="180" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" font-size="13" fill="#1E293B">Full-Stack &amp; Platform</text>
+  <rect x="262" y="170" width="578" height="11" rx="5.5" fill="#0891B2" opacity="0.14"/>
+  <rect x="262" y="170" width="578.0" height="11" rx="5.5" fill="#0891B2"/>
+  <text x="866" y="180" text-anchor="end" font-family="'SF Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="12" fill="#475569">11</text>
+  <text x="26" y="210" font-family="'SF Mono', 'JetBrains Mono', Consolas, 'Courier New', monospace" font-size="9.5" fill="#64748B">counted from public repositories — see each repo for what it contains</text>
+</svg>
