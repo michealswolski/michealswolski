@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 170" role="img" aria-labelledby="title desc">
+  <title id="title">Micheal Wolski</title>
+  <desc id="desc">Automotive and embedded security</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#101c2d"/>
+      <stop offset="1" stop-color="#0a121e"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="918" height="168" rx="16" fill="url(#bg)" stroke="#35465b"/>
+  <path d="M39 42h30" stroke="#81e1d0" stroke-width="3" stroke-linecap="round"/>
+  <text x="39" y="99" font-family="system-ui, sans-serif" font-size="50" font-weight="700" fill="#f4f7fb">Micheal Wolski</text>
+  <text x="41" y="137" font-family="system-ui, sans-serif" font-size="23" fill="#b9c9da">Automotive &amp; embedded security</text>
+  <g fill="none" stroke="#81e1d0" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.52">
+    <path d="M685 108h45l23-42h40l21 27h45M713 124h55l23-32h63"/>
+    <circle cx="685" cy="108" r="4"/><circle cx="859" cy="93" r="4"/><circle cx="713" cy="124" r="4"/><circle cx="854" cy="92" r="4"/>
+  </g>
+</svg>
